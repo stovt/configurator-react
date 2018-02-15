@@ -1,0 +1,2 @@
+to fix  hot load run next command:
+echo 100000 | sudo tee /proc/sys/fs/inotify/max_user_watches
