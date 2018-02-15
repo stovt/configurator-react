@@ -1,0 +1,382 @@
+[
+   {
+      "localeID":"default",
+      "localeValue":"Default"
+   },
+   {
+      "localeID":"da_DK",
+      "localeValue":"Dansk (Danmark) - da_DK"
+   },
+   {
+      "localeID":"de_DE",
+      "localeValue":"Deutsch (Deutschland) - de_DE"
+   },
+   {
+      "localeID":"de_LU",
+      "localeValue":"Deutsch (Luxemburg) - de_LU"
+   },
+   {
+      "localeID":"de_CH",
+      "localeValue":"Deutsch (Schweiz) - de_CH"
+   },
+   {
+      "localeID":"de_AT",
+      "localeValue":"Deutsch (Österreich) - de_AT"
+   },
+   {
+      "localeID":"de",
+      "localeValue":"Deutsch - de"
+   },
+   {
+      "localeID":"en_AL",
+      "localeValue":"English (Albania) - en_AL"
+   },
+   {
+      "localeID":"en_AM",
+      "localeValue":"English (Armenia) - en_AM"
+   },
+   {
+      "localeID":"en_AU",
+      "localeValue":"English (Australia) - en_AU"
+   },
+   {
+      "localeID":"en_AZ",
+      "localeValue":"English (Azerbaijan) - en_AZ"
+   },
+   {
+      "localeID":"en_BY",
+      "localeValue":"English (Belarus) - en_BY"
+   },
+   {
+      "localeID":"en_BA",
+      "localeValue":"English (Bosnia and Herzegovina) - en_BA"
+   },
+   {
+      "localeID":"en_BN",
+      "localeValue":"English (Brunei) - en_BN"
+   },
+   {
+      "localeID":"en_BG",
+      "localeValue":"English (Bulgaria) - en_BG"
+   },
+   {
+      "localeID":"en_CA",
+      "localeValue":"English (Canada) - en_CA"
+   },
+   {
+      "localeID":"en_HR",
+      "localeValue":"English (Croatia) - en_HR"
+   },
+   {
+      "localeID":"en_CY",
+      "localeValue":"English (Cyprus) - en_CY"
+   },
+   {
+      "localeID":"en_CZ",
+      "localeValue":"English (Czech Republic) - en_CZ"
+   },
+   {
+      "localeID":"en_EG",
+      "localeValue":"English (Egypt) - en_EG"
+   },
+   {
+      "localeID":"en_EE",
+      "localeValue":"English (Estonia) - en_EE"
+   },
+   {
+      "localeID":"en_FI",
+      "localeValue":"English (Finland) - en_FI"
+   },
+   {
+      "localeID":"en_GE",
+      "localeValue":"English (Georgia) - en_GE"
+   },
+   {
+      "localeID":"en_GR",
+      "localeValue":"English (Greece) - en_GR"
+   },
+   {
+      "localeID":"en_HK",
+      "localeValue":"English (Hong Kong) - en_HK"
+   },
+   {
+      "localeID":"en_HU",
+      "localeValue":"English (Hungary) - en_HU"
+   },
+   {
+      "localeID":"en_IS",
+      "localeValue":"English (Iceland) - en_IS"
+   },
+   {
+      "localeID":"en_IN",
+      "localeValue":"English (India) - en_IN"
+   },
+   {
+      "localeID":"en_ID",
+      "localeValue":"English (Indonesia) - en_ID"
+   },
+   {
+      "localeID":"en_IR",
+      "localeValue":"English (Iran) - en_IR"
+   },
+   {
+      "localeID":"en_IE",
+      "localeValue":"English (Ireland) - en_IE"
+   },
+   {
+      "localeID":"en_IL",
+      "localeValue":"English (Israel) - en_IL"
+   },
+   {
+      "localeID":"en_LV",
+      "localeValue":"English (Latvia) - en_LV"
+   },
+   {
+      "localeID":"en_LT",
+      "localeValue":"English (Lithuania) - en_LT"
+   },
+   {
+      "localeID":"en_MY",
+      "localeValue":"English (Malaysia) - en_MY"
+   },
+   {
+      "localeID":"en_MT",
+      "localeValue":"English (Malta) - en_MT"
+   },
+   {
+      "localeID":"en_MD",
+      "localeValue":"English (Moldova) - en_MD"
+   },
+   {
+      "localeID":"en_NZ",
+      "localeValue":"English (New Zealand) - en_NZ"
+   },
+   {
+      "localeID":"en_PH",
+      "localeValue":"English (Philippines) - en_PH"
+   },
+   {
+      "localeID":"en_PT",
+      "localeValue":"English (Portugal) - en_PT"
+   },
+   {
+      "localeID":"en_QA",
+      "localeValue":"English (Qatar) - en_QA"
+   },
+   {
+      "localeID":"en_RO",
+      "localeValue":"English (Romania) - en_RO"
+   },
+   {
+      "localeID":"en_SA",
+      "localeValue":"English (Saudi Arabia) - en_SA"
+   },
+   {
+      "localeID":"en_RS",
+      "localeValue":"English (Serbia) - en_RS"
+   },
+   {
+      "localeID":"en_SG",
+      "localeValue":"English (Singapore) - en_SG"
+   },
+   {
+      "localeID":"en_SK",
+      "localeValue":"English (Slovakia) - en_SK"
+   },
+   {
+      "localeID":"en_SI",
+      "localeValue":"English (Slovenia) - en_SI"
+   },
+   {
+      "localeID":"en_ZA",
+      "localeValue":"English (South Africa) - en_ZA"
+   },
+   {
+      "localeID":"en_TH",
+      "localeValue":"English (Thailand) - en_TH"
+   },
+   {
+      "localeID":"en_UA",
+      "localeValue":"English (Ukraine) - en_UA"
+   },
+   {
+      "localeID":"en_GB",
+      "localeValue":"English (United Kingdom) - en_GB"
+   },
+   {
+      "localeID":"en_US",
+      "localeValue":"English (United States) - en_US"
+   },
+   {
+      "localeID":"en",
+      "localeValue":"English - en"
+   },
+   {
+      "localeID":"nl_BE",
+      "localeValue":"Nederlands (België) - nl_BE"
+   },
+   {
+      "localeID":"nl_NL",
+      "localeValue":"Nederlands (Nederland) - nl_NL"
+   },
+   {
+      "localeID":"nl",
+      "localeValue":"Nederlands - nl"
+   },
+   {
+      "localeID":"tr_TR",
+      "localeValue":"Türkçe (Türkiye) - tr_TR"
+   },
+   {
+      "localeID":"es_AR",
+      "localeValue":"español (Argentina) - es_AR"
+   },
+   {
+      "localeID":"es_CL",
+      "localeValue":"español (Chile) - es_CL"
+   },
+   {
+      "localeID":"es_CO",
+      "localeValue":"español (Colombia) - es_CO"
+   },
+   {
+      "localeID":"es_CR",
+      "localeValue":"español (Costa Rica) - es_CR"
+   },
+   {
+      "localeID":"es_ES",
+      "localeValue":"español (España) - es_ES"
+   },
+   {
+      "localeID":"es_US",
+      "localeValue":"español (Estados Unidos) - es_US"
+   },
+   {
+      "localeID":"es_MX",
+      "localeValue":"español (México) - es_MX"
+   },
+   {
+      "localeID":"es_PA",
+      "localeValue":"español (Panamá) - es_PA"
+   },
+   {
+      "localeID":"es_PE",
+      "localeValue":"español (Perú) - es_PE"
+   },
+   {
+      "localeID":"es_PR",
+      "localeValue":"español (Puerto Rico) - es_PR"
+   },
+   {
+      "localeID":"es",
+      "localeValue":"español - es"
+   },
+   {
+      "localeID":"fr_BE",
+      "localeValue":"français (Belgique) - fr_BE"
+   },
+   {
+      "localeID":"fr_CA",
+      "localeValue":"français (Canada) - fr_CA"
+   },
+   {
+      "localeID":"fr_FR",
+      "localeValue":"français (France) - fr_FR"
+   },
+   {
+      "localeID":"fr_LU",
+      "localeValue":"français (Luxembourg) - fr_LU"
+   },
+   {
+      "localeID":"fr_CH",
+      "localeValue":"français (Suisse) - fr_CH"
+   },
+   {
+      "localeID":"fr",
+      "localeValue":"français - fr"
+   },
+   {
+      "localeID":"it_IT",
+      "localeValue":"italiano (Italia) - it_IT"
+   },
+   {
+      "localeID":"it_SM",
+      "localeValue":"italiano (San Marino) - it_SM"
+   },
+   {
+      "localeID":"it_CH",
+      "localeValue":"italiano (Svizzera) - it_CH"
+   },
+   {
+      "localeID":"it",
+      "localeValue":"italiano - it"
+   },
+   {
+      "localeID":"no_NO",
+      "localeValue":"norsk (Norge) - no_NO"
+   },
+   {
+      "localeID":"no",
+      "localeValue":"norsk - no"
+   },
+   {
+      "localeID":"pl_PL",
+      "localeValue":"polski (Polska) - pl_PL"
+   },
+   {
+      "localeID":"pt_BR",
+      "localeValue":"português (Brasil) - pt_BR"
+   },
+   {
+      "localeID":"sv_SE",
+      "localeValue":"svenska (Sverige) - sv_SE"
+   },
+   {
+      "localeID":"ru_BY",
+      "localeValue":"русский (Беларусь) - ru_BY"
+   },
+   {
+      "localeID":"ru_KZ",
+      "localeValue":"русский (Казахстан) - ru_KZ"
+   },
+   {
+      "localeID":"ru_RU",
+      "localeValue":"русский (Россия) - ru_RU"
+   },
+   {
+      "localeID":"ru_UA",
+      "localeValue":"русский (Украина) - ru_UA"
+   },
+   {
+      "localeID":"ru",
+      "localeValue":"русский - ru"
+   },
+   {
+      "localeID":"ar_AE",
+      "localeValue":"العربية (الإمارات) - ar_AE"
+   },
+   {
+      "localeID":"zh_CN",
+      "localeValue":"中文 (中国) - zh_CN"
+   },
+   {
+      "localeID":"zh_TW",
+      "localeValue":"中文 (台灣) - zh_TW"
+   },
+   {
+      "localeID":"zh_HK",
+      "localeValue":"中文 (香港) - zh_HK"
+   },
+   {
+      "localeID":"zh",
+      "localeValue":"中文 - zh"
+   },
+   {
+      "localeID":"ja_JP",
+      "localeValue":"日本語 (日本) - ja_JP"
+   },
+   {
+      "localeID":"ko_KR",
+      "localeValue":"한국어 (대한민국) - ko_KR"
+   }
+]
