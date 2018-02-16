@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import { Tabs, Tab } from 'material-ui/Tabs';
 import CreateConfiguratorStepIcon from 'material-ui/svg-icons/action/search';
 import AddProductsStepIcon from 'material-ui/svg-icons/content/add';
@@ -12,7 +14,7 @@ import AddAccessoriesStep from './AddAccessoriesStep';
 import SaveConfiguratorStep from './SaveConfiguratorStep';
 
 const Steps = () => (
-  <Tabs>
+  <Tabs value={'create'} >
     <Tab 
       label="Create or find configurator" 
       value={'create'}
@@ -30,7 +32,7 @@ const Steps = () => (
       <StepHeader />
       <h3>Add basic products</h3>
       <AddProductsStep />
-    </Tab>
+    </Tab>        
     <Tab 
       label="Add accessories" 
       value={'add-accesories'}
@@ -50,6 +52,6 @@ const Steps = () => (
       <SaveConfiguratorStep />
     </Tab>
   </Tabs>
-);
+)
 
 export default Steps;

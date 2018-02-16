@@ -1,0 +1,144 @@
+{
+  "productID": "1752",
+  "productName": "Stokke® Xplory®",
+  "description": "No pram in its class matches smooth ride or innovation of Stokke® Xplory®. Our iconic pram is height adjustable, raising your child higher to promote interaction and eye contact while you explore the world together. Front or rear facing with a five point safety harness, adjustable footrest and handle, Stokke® Xplory® provides an almost endless choice of seating positions to adapt to you and your baby's ever-changing needs.",
+  "realImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw05018025/images/mainview/MENU-images_Stroller_Xplory_20537.jpg",
+  "variations": [
+    {
+      "variationID": "175203",
+      "productName": "Stokke® Xplory® Red",
+      "isOnline": true,
+      "realImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw7d25ffcb/images/mainview/Stokke Xplory 140103-4154 Red b_15144.jpg",
+      "swatchImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw9ae6986a/images/swatch/Red 300D web-swatch 25x25px_20474.jpg",
+      "thumbnailImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw7d25ffcb/images/mainview/Stokke Xplory 140103-4154 Red b_15144.jpg"
+    },
+    {
+      "variationID": "175205",
+      "productName": "Stokke® Xplory® Purple",
+      "isOnline": true,
+      "realImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw4f8265dc/images/mainview/Stokke Xplory 140103-4154 Purple b_15145.jpg",
+      "swatchImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dwd3fcb5e6/images/swatch/Purple DoubleFaced web-swatch 25x25px_20473.jpg",
+      "thumbnailImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw4f8265dc/images/mainview/Stokke Xplory 140103-4154 Purple b_15145.jpg"
+    },
+    {
+      "variationID": "175209",
+      "productName": "Stokke® Xplory® Brown",
+      "isOnline": true,
+      "realImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw8c6ed5b4/images/mainview/Stokke Xplory 140103-4154 Brown b_15148.jpg",
+      "swatchImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dwcede9526/images/swatch/Brown DoubleFaced web-swatch 25x25px_20466.jpg",
+      "thumbnailImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw8c6ed5b4/images/mainview/Stokke Xplory 140103-4154 Brown b_15148.jpg"
+    },
+    {
+      "variationID": "175211",
+      "productName": "Stokke® Xplory® Black Melange",
+      "isOnline": true,
+      "realImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw64e0e4bb/images/mainview/Stokke Xplory 140103-4154 Black Melange b_15149.jpg",
+      "swatchImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw0f297163/images/swatch/Stroller-BlackMelange-web-swatch-50x50px_20464.jpg",
+      "thumbnailImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw64e0e4bb/images/mainview/Stokke Xplory 140103-4154 Black Melange b_15149.jpg"
+    },
+    {
+      "variationID": "175212",
+      "productName": "Stokke® Xplory® Beige Melange",
+      "isOnline": true,
+      "realImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dwa466a0af/images/mainview/Stokke Xplory 140103-4154 Beige Melange b_15425.jpg",
+      "swatchImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dwc8f08a97/images/swatch/Stroller-BeigeMelange-web-swatch-50x50px_20462.jpg",
+      "thumbnailImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dwa466a0af/images/mainview/Stokke Xplory 140103-4154 Beige Melange b_15425.jpg"
+    },
+    {
+      "variationID": "175215",
+      "productName": "Stokke® Xplory® Black",
+      "isOnline": true,
+      "realImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw2c105cb9/images/mainview/Stokke Xplory 140103-4154 Black_20418.jpg",
+      "swatchImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dwe810073a/images/swatch/Stroller-Black-web-swatch-50x50px_20944.jpg",
+      "thumbnailImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw2c105cb9/images/mainview/Stokke Xplory 140103-4154 Black_20418.jpg"
+    },
+    {
+      "variationID": "175216",
+      "productName": "Stokke® Xplory® Deep Blue",
+      "isOnline": true,
+      "realImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw37701159/images/mainview/Stokke Xplory 111107-4266 Deep blue b_22728.jpg",
+      "swatchImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw3b67168a/images/swatch/Stroller-DeepBlue-web-swatch-50x50px_20943.jpg",
+      "thumbnailImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw37701159/images/mainview/Stokke Xplory 111107-4266 Deep blue b_22728.jpg"
+    },
+    {
+      "variationID": "175217",
+      "productName": "Stokke® Xplory® Grey Melange",
+      "isOnline": true,
+      "realImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dwdbb432ed/images/mainview/Stokke Xplory 111107-4266 Grey Melange b_27116.jpg",
+      "swatchImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw4dfb24e6/images/swatch/Grey Melange web-swatch 45x45px_23286.jpg",
+      "thumbnailImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dwdbb432ed/images/mainview/Stokke Xplory 111107-4266 Grey Melange b_27116.jpg"
+    },
+    {
+      "variationID": "175201",
+      "productName": "Stokke® Xplory® Dark Navy",
+      "isOnline": false,
+      "realImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dwab7a1ee8/images/mainview/Xplory 130312-4154 Dark Navy b_15146.jpg",
+      "swatchImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dwcaa8510c/images/swatch/Dark Navy DoubleFaced web-swatch 25x25px_20467.jpg",
+      "thumbnailImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dwab7a1ee8/images/mainview/Xplory 130312-4154 Dark Navy b_15146.jpg"
+    },
+    {
+      "variationID": "175202",
+      "productName": "Stokke® Xplory® Blue",
+      "isOnline": false,
+      "realImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw05018025/images/mainview/MENU-images_Stroller_Xplory_20537.jpg",
+      "swatchImage": "",
+      "thumbnailImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw05018025/images/mainview/MENU-images_Stroller_Xplory_20537.jpg"
+    },
+    {
+      "variationID": "175204",
+      "productName": "Stokke® Xplory® Beige",
+      "isOnline": false,
+      "realImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw3a2cb8b4/images/mainview/Stokke Xplory 140103-4154 Beige_15151.jpg",
+      "swatchImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw2c7a3013/images/swatch/Beige DoubleFaced web-swatch 25x25px_20461.jpg",
+      "thumbnailImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw3a2cb8b4/images/mainview/Stokke Xplory 140103-4154 Beige_15151.jpg"
+    },
+    {
+      "variationID": "175206",
+      "productName": "Stokke® Xplory® Green",
+      "isOnline": false,
+      "realImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw05018025/images/mainview/MENU-images_Stroller_Xplory_20537.jpg",
+      "swatchImage": "",
+      "thumbnailImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw05018025/images/mainview/MENU-images_Stroller_Xplory_20537.jpg"
+    },
+    {
+      "variationID": "175207",
+      "productName": "Stokke® Xplory® Light Green",
+      "isOnline": false,
+      "realImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw05018025/images/mainview/MENU-images_Stroller_Xplory_20537.jpg",
+      "swatchImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dwa020b29e/images/swatch/Light Green 300D web-swatch 25x25px_20468.jpg",
+      "thumbnailImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw05018025/images/mainview/MENU-images_Stroller_Xplory_20537.jpg"
+    },
+    {
+      "variationID": "175208",
+      "productName": "Stokke® Xplory® Pink 3 In 1 Kit",
+      "isOnline": false,
+      "realImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw05018025/images/mainview/MENU-images_Stroller_Xplory_20537.jpg",
+      "swatchImage": "",
+      "thumbnailImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw05018025/images/mainview/MENU-images_Stroller_Xplory_20537.jpg"
+    },
+    {
+      "variationID": "175210",
+      "productName": "Stokke® Xplory® Blue Melange 2 In 1 Kit",
+      "isOnline": false,
+      "realImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw05018025/images/mainview/MENU-images_Stroller_Xplory_20537.jpg",
+      "swatchImage": "",
+      "thumbnailImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw05018025/images/mainview/MENU-images_Stroller_Xplory_20537.jpg"
+    },
+    {
+      "variationID": "175213",
+      "productName": "Stokke® Xplory® Urban Blue",
+      "isOnline": false,
+      "realImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw18ba24d1/images/mainview/Stokke Xplory 140103-4154 Urban Blue b_15143.jpg",
+      "swatchImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw1d8caef3/images/swatch/Urban Blue web-swatch 25x25px_20476.jpg",
+      "thumbnailImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw18ba24d1/images/mainview/Stokke Xplory 140103-4154 Urban Blue b_15143.jpg"
+    },
+    {
+      "variationID": "175214",
+      "productName": "Stokke® Xplory® 3in1 Orange Melange",
+      "isOnline": false,
+      "realImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw1aa17645/images/mainview/Xplory 130404-8I6274_16017.jpg",
+      "swatchImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw15013280/images/swatch/Orange Melange web-swatch 25x25px_20471.jpg",
+      "thumbnailImage": "https://dev01-web-stokke.demandware.net/on/demandware.static/-/Sites-stokke-master-catalog/default/dw1aa17645/images/mainview/Xplory 130404-8I6274_16017.jpg"
+    }
+  ]
+}

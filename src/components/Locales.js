@@ -34,7 +34,7 @@ class Locales extends Component {
     return (
       <SelectField 
         value={activeLocaleID} 
-        onChange={selectLocale}
+        onChange={(event, index, id) => selectLocale(id)}
         floatingLabelText="Locales:"
         autoWidth={true}
       >

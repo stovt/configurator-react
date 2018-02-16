@@ -2,13 +2,12 @@ import { combineReducers } from 'redux';
 import values from 'lodash/values';
 
 const byId = (state = {}, action) => {
-  if (action.response) {
-    return {
-      ...state,
-      ...action.response.entities.locales
-    };
-  }
   switch(action.type) {
+    case 'FETCH_LOCALES_SUCCESS':
+      return {
+        ...state,
+        ...action.response.entities.locales
+      };
     case 'SELECT_LOCALE':
       const oldActiveLocaleID = values(state).find( locale => locale.active === true ).id;
       return {
@@ -22,7 +21,7 @@ const byId = (state = {}, action) => {
   return state;
 };
 
-const createList = () => {
+const createLocalesList = () => {
   const ids =  (state = [], action) => {
     switch(action.type) {
       case 'FETCH_LOCALES_SUCCESS':
@@ -64,7 +63,7 @@ const createList = () => {
   });
 };
 
-export default createList;
+export default createLocalesList;
 
 export const getIsFetching = (state) => state.locales.isFetching;
 export const getErrorMessage = (state) => state.locales.errorMessage;

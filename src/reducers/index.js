@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
-import createList, * as fromLocales from './locales';
-
+import createLocalesList from './locales';
+import createConfiguratorsList from './configurators';
 
 const allReducers = combineReducers({
-  locales: createList()
+  locales: createLocalesList(),
+  configurators: createConfiguratorsList()
 });
 
 export default allReducers;

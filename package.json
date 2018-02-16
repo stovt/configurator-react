@@ -5,7 +5,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "dev": "webpack",
+    "build": "PROD_ENV=1 webpack -p --progress",
     "start": "webpack-dev-server"
   },
   "author": "",
@@ -35,6 +35,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "commondir": "^1.0.1",
+    "compression-webpack-plugin": "^1.1.6",
     "emojis-list": "^2.1.0",
     "json5": "^0.5.1",
     "make-dir": "^1.1.0",

@@ -28,7 +28,7 @@ export const fetchLocales = () => (dispatch, getState) => {
   );
 };
 
-export const selectLocale = (event, index, id)  => dispatch => 
+export const selectLocale = id => dispatch => 
   dispatch({
     type: "SELECT_LOCALE",
     id

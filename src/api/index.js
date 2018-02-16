@@ -1,10 +1,7 @@
 import axios from 'axios';
 
-const delay = ms => new Promise( resolve => setTimeout( resolve, ms ) );
-
 export const fetchLocales = () =>
-  axios.get(configUrls.GetLocalesForCurrSite).then(response => {
-
+  axios.get(configUrls.GetLocales).then(response => {
     let localesArr =  response.data.map(locale => {
       return {...locale, 'active': false }
     });
@@ -19,9 +16,40 @@ export const fetchLocales = () =>
     return localesObj;
   });
 
-/*export const selectLocale = id =>
-  delay( 500 ).then( () => {
-    const todo = fakeDatabase.todos.find( t => t.id === id );
-    todo.selected = true;
-    return todo;
-  });*/
+export const fetchConfiguratorsIds = () =>
+  axios.get(configUrls.GetConfiguratorsIds).then(response => {
+    return response.data.reduce((acc, elem) => (
+      { 
+        ...acc, 
+        [elem.id]: { ...elem }
+      }),
+    {});
+  });
+
+
+export const selectConfigurator = (id, locale) =>
+  axios.get(configUrls.GetConfiguratorByID, {
+    params: {
+      pid: id,
+      locale: locale
+    }
+  }).then((response) => {
+    return response.data;
+  });
+
+
+export const removeConfigurator = (id) =>
+  axios.get(configUrls.RemoveConfigurator, {
+    params: {
+      pid: id
+    }
+  }).then((response) => {
+    return axios.get(configUrls.GetConfiguratorsIds).then(response => {
+      return response.data.reduce((acc, elem) => (
+        { 
+          ...acc, 
+          [elem.id]: { ...elem }
+        }),
+      {});
+    });
+  });
