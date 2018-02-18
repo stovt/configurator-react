@@ -47,14 +47,11 @@ class Locales extends Component {
 }
 
 
-const mapStateToProps = (state) => {
-  return {
-    isFetching: getIsFetching(state),
-    errorMessage: getErrorMessage(state),
-    activeLocaleID: getActiveLocaleID(state),
-    locales: getLocales(state)
-  }
-};
+const mapStateToProps = (state) => ({
+  isFetching: getIsFetching(state),
+  errorMessage: getErrorMessage(state),
+  activeLocaleID: getActiveLocaleID(state),
+  locales: getLocales(state)
+});
 
 export default connect(mapStateToProps, actions) (Locales);
-

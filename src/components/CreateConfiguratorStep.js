@@ -4,7 +4,15 @@ import * as actions from '../actions/configurators';
 import { getConfiguratorsIds, getErrorMessage, getIsFetching } from '../reducers/configurators';
 import FetchError from './FetchError';
 
-import {Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
+import {
+  Table, 
+  TableBody, 
+  TableFooter, 
+  TableHeader, 
+  TableHeaderColumn, 
+  TableRow, 
+  TableRowColumn
+} from 'material-ui/Table';
 import Subheader from 'material-ui/Subheader';
 import ContentRemove from 'material-ui/svg-icons/content/delete-sweep';
 import AutoComplete from 'material-ui/AutoComplete';

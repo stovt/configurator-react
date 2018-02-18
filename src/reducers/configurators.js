@@ -1,21 +1,21 @@
 import { combineReducers } from 'redux';
-import isEmpty from 'lodash/isEmpty';
-
-const byId = (state = {}, action) => {
-  switch(action.type) {
-    case 'FETCH_CONFIGURATORS_SUCCESS':
-    case 'REMOVE_CONFIGURATOR_SUCCESS':
-      return {
-        ...state,
-        ...action.response.entities.configurators
-      };
-    default:
-      return state;
-  }
-  return state;
-};
+import active from './configurator';
 
 const createConfiguratorsList = () => {
+  const byId = (state = {}, action) => {
+    switch(action.type) {
+      case 'FETCH_CONFIGURATORS_SUCCESS':
+      case 'REMOVE_CONFIGURATOR_SUCCESS':
+        return {
+          ...state,
+          ...action.response.entities.configurators
+        };
+      default:
+        return state;
+    }
+    return state;
+  };
+
   const ids =  (state = [], action) => {
     switch(action.type) {
       case 'FETCH_CONFIGURATORS_SUCCESS':
@@ -62,27 +62,6 @@ const createConfiguratorsList = () => {
     }
   };
 
-  const active = (state = {}, action) => {
-    switch (action.type) {
-      case 'SELECT_CONFIGURATOR_SUCCESS':
-        return action.configurator;
-      case 'CREATE_CONFIGURATOR':
-        return {
-          global: {
-            isDownloadAvailable: true, 
-            isWishlistAvailable: true,
-            title: '',
-            isOnline: true
-          },
-          configuratorID: action.id,
-          baseConfigs: [],
-          accessories: []
-        }
-      default:
-        return state;
-    }
-  };
-
   return combineReducers({
     byId,
     ids,
@@ -97,5 +76,4 @@ export default createConfiguratorsList;
 export const getIsFetching = (state) => state.configurators.isFetching;
 export const getErrorMessage = (state) => state.configurators.errorMessage;
 export const getConfiguratorsIds = (state) => state.configurators.ids;
-export const getActiveConfiguratorID = (state) => isEmpty(state.configurators.active) ? null : state.configurators.active.configuratorID;
 export const getConfiguratorById = (state, id) => state.configurators.ids.find( c => c === id );

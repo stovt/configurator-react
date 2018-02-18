@@ -1,7 +1,8 @@
 import React from 'react';
+import GlobalAttributes from './GlobalAttributes';
 
 const AddProductsStep = () => (
-  <div>2</div>
+  <GlobalAttributes />
 );
 
 export default AddProductsStep;

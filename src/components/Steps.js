@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions/steps';
 import { getSteps, getStepsIds, getActiveStep } from '../reducers/steps';
-import { getActiveConfiguratorID } from '../reducers/configurators';
+import { getActiveConfiguratorID } from '../reducers/configurator';
 
 import { Tabs, Tab } from 'material-ui/Tabs';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -83,13 +83,13 @@ class Steps extends Component {
         <RaisedButton 
           label="Back" 
           secondary={true} 
-          disabled={tabsDisabled || activeStep === 'create'}
+          disabled={tabsDisabled || activeStep === stepsIds[0]}
           onClick={() => prevStep(stepsIds)} 
         />
         <RaisedButton 
           label="Next" 
           primary={true} 
-          disabled={tabsDisabled || activeStep === 'save'} 
+          disabled={tabsDisabled || activeStep === stepsIds[stepsIds.length - 1]} 
           style={{'float':'right'}}
           onClick={() => nextStep(stepsIds)} 
         />
@@ -109,4 +109,3 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, actions) (Steps);
-
