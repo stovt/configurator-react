@@ -111,6 +111,7 @@ class ConfiguratorsIds extends Component {
         </div>
 
         <AutoComplete
+          floatingLabelText="Create of find configurator"
           hintText="Type ID"
           dataSource={configuratorsIds}
           dataSourceConfig={{value: 'id',text: 'id'}}

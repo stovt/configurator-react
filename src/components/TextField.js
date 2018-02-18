@@ -6,7 +6,7 @@ class CustomTextField extends Component {
     super(props);
 
     this.state = {
-      value: this.props.value
+      value: this.props.value || ''
     };
 
     this.handleValueChange = this.handleValueChange.bind(this);
@@ -29,9 +29,10 @@ class CustomTextField extends Component {
   render() {
     return (
       <TextField
-        hintText={this.props.hintText}
-        floatingLabelText={this.props.floatingLabelText}
-        value={this.state.value}
+        hintText={this.props.hintText ? this.props.hintText : ''}
+        floatingLabelText={this.props.floatingLabelText ? this.props.floatingLabelText : ''}
+        multiLine={this.props.multiLine ? this.props.multiLine : false}
+        value={this.state.value || ''}
         onChange={this.handleValueChange} 
         onBlur={() => this.props.sendValue(this.state.value)}
       />

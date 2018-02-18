@@ -85,13 +85,14 @@ class Steps extends Component {
           secondary={true} 
           disabled={tabsDisabled || activeStep === stepsIds[0]}
           onClick={() => prevStep(stepsIds)} 
+          style={{'marginTop':'10px'}}
         />
         <RaisedButton 
           label="Next" 
           primary={true} 
           disabled={tabsDisabled || activeStep === stepsIds[stepsIds.length - 1]} 
-          style={{'float':'right'}}
-          onClick={() => nextStep(stepsIds)} 
+          onClick={() => nextStep(stepsIds)}
+          style={{'marginTop':'10px', 'float':'right'}} 
         />
       </div>
     )

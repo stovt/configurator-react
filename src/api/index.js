@@ -34,7 +34,7 @@ export const selectConfigurator = (id, locale) =>
       locale: locale
     }
   }).then((response) => {
-    return response.data;
+    return response.data.config;
   });
 
 
@@ -53,3 +53,20 @@ export const removeConfigurator = (id) =>
       {});
     });
   });
+
+export const uploadImage = (configuratorId, formData) => {
+  if ( process.env.NODE_ENV === "production" ) {
+    return axios.post(configUrls.UploadImage, formData, {
+      params: {
+        configuratorID: configuratorId
+      },
+      headers: { 'Content-Type': 'multipart/form-data' }
+    }).then((response) => {
+      return response.data.imgUrl;
+    });
+  } else {
+    return axios.get(configUrls.UploadImage).then((response) => {
+      return response.data.imgUrl;
+    });
+  }
+};

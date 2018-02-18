@@ -46,7 +46,7 @@ const GlobalAttributes = ({
       style={{'marginBottom': 16}}
     />
     <TextField
-      hintText="Configurator title"
+      hintText="Type title"
       floatingLabelText="Configurator title"
       value={title}
       sendValue={changeConfiguratorTitle}
@@ -58,7 +58,7 @@ const mapStateToProps = (state) => ({
   downloadAvailable: getDownloadAvailableFlag(state),
   wishlistAvailable: getWishlistAvailableFlag(state), 
   online: getConfiguratorOnlineFlag(state),
-  title: getConfiguratorTitle(state) || ''
+  title: getConfiguratorTitle(state)
 });
 
 export default connect(mapStateToProps, actions) (GlobalAttributes);

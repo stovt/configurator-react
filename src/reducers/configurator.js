@@ -56,6 +56,36 @@ const baseConfigs = (state = [], action) => {
       return []
     case 'SELECT_CONFIGURATOR_SUCCESS':
       return action.configurator.baseConfigs
+    case 'CHANGE_BASE_CONFIG_ID': {
+      let folder = getFolderByUniqueID(state, action.id);
+      folder.baseConfigID = action.text;
+      return [...state, ...folder];
+    }
+    case 'CHANGE_BASE_CONFIG_TITLE': {
+      let folder = getFolderByUniqueID(state, action.id);
+      folder.baseConfigTitle = action.text;
+      return [...state, ...folder];
+    }
+    case 'CHANGE_BASE_CONFIG_SUBTITLE': {
+      let folder = getFolderByUniqueID(state, action.id);
+      folder.baseConfigSubtitle = action.text;
+      return [...state, ...folder];
+    }
+    case 'CHANGE_BASE_CONFIG_DESCRIPTION': {
+      let folder = getFolderByUniqueID(state, action.id);
+      folder.baseConfigDescription = action.text;
+      return [...state, ...folder];
+    }
+    case 'REMOVE_BASE_CONFIG':
+      let folder = getFolderByUniqueID(state, action.id);
+      return [...state.slice(0, state.indexOf(folder)), ...state.slice(state.indexOf(folder) + 1)];
+    case 'ADD_BASE_CONFIG':
+      return [...state, action.config];
+    case 'UPLOAD_BASE_CONFIG_IMAGE': {
+      let folder = getFolderByUniqueID(state, action.baseConfigID);
+      folder.baseConfigImage = action.image;
+      return [...state, ...folder];
+    }
     default:
       return state;
   }
@@ -85,3 +115,6 @@ export const getDownloadAvailableFlag = (state) => state.configurators.active.gl
 export const getWishlistAvailableFlag = (state) => state.configurators.active.global.isWishlistAvailable;
 export const getConfiguratorOnlineFlag = (state) => state.configurators.active.global.isOnline;
 export const getConfiguratorTitle = (state) => state.configurators.active.global.title;
+
+export const getFolders = (state) => state.configurators.active.baseConfigs;
+export const getFolderByUniqueID = (folders, id) => folders.find( f => f.uniqueID === id );
