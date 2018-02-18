@@ -5,7 +5,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "build": "PROD_ENV=1 webpack -p --progress",
+    "build": "NODE_ENV=production webpack -p --progress",
     "start": "webpack-dev-server"
   },
   "author": "",

@@ -25,10 +25,10 @@ module.exports = {
         filename: 'js/bundle.min.js'
     },
     plugins: [
-      /*new webpack.DefinePlugin({
-        'process.env.NODE_ENV': '"production"'
-      }),*/
-      new webpack.optimize.UglifyJsPlugin({
+      new webpack.DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+      }),
+      /*new webpack.optimize.UglifyJsPlugin({
         mangle: true,
         compress: {
           warnings: false, // Suppress uglification warnings
@@ -50,6 +50,6 @@ module.exports = {
         test: /\.js$|\.css$|\.html$/,
         threshold: 10240,
         minRatio: 0
-      })
+      })*/
     ]
 };

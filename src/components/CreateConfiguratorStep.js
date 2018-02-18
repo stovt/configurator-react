@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions/configurators';
-import { getActiveLocaleID } from '../reducers/locales';
 import { getConfiguratorsIds, getErrorMessage, getIsFetching } from '../reducers/configurators';
 import FetchError from './FetchError';
 
@@ -43,7 +42,6 @@ class ConfiguratorsIds extends Component {
 
   render() {
     const { 
-      locale,
       configuratorsIds, 
       isFetching, 
       errorMessage, 
@@ -87,7 +85,7 @@ class ConfiguratorsIds extends Component {
                   <TableRowColumn style={{ paddingLeft: 0 }}>
                     <Subheader 
                       style={{ paddingLeft: 0, cursor: 'pointer' }} 
-                      onClick={() => selectConfigurator(id, locale)}
+                      onClick={() => selectConfigurator(id)}
                     >
                       {id}
                     </Subheader>
@@ -109,7 +107,7 @@ class ConfiguratorsIds extends Component {
           dataSource={configuratorsIds}
           dataSourceConfig={{value: 'id',text: 'id'}}
           onUpdateInput={this.onUpdateProduct}
-          onNewRequest={(chosenRequest) => selectConfigurator(chosenRequest.id, locale)}
+          onNewRequest={(chosenRequest) => selectConfigurator(chosenRequest.id)}
           filter={autoCompleteFilter}
           openOnFocus={true}
           style={{width: '252px'}}
@@ -118,7 +116,7 @@ class ConfiguratorsIds extends Component {
           secondary={true} 
           label="OK" 
           disabled={this.state.btnDisabled}
-          onClick={() => createOrFindConfigurator(this.state.configuratorId, locale)}
+          onClick={() => createOrFindConfigurator(this.state.configuratorId)}
           style={{margin: '40px 10px'}}
         />
       </div>   
@@ -129,7 +127,6 @@ class ConfiguratorsIds extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    locale: getActiveLocaleID(state),
     configuratorsIds: getConfiguratorsIds(state),
     isFetching: getIsFetching(state),
     errorMessage: getErrorMessage(state)

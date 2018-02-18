@@ -97,5 +97,5 @@ export default createConfiguratorsList;
 export const getIsFetching = (state) => state.configurators.isFetching;
 export const getErrorMessage = (state) => state.configurators.errorMessage;
 export const getConfiguratorsIds = (state) => state.configurators.ids;
-export const getActiveConfiguratorID = (state) => { isEmpty(state.configurators.active) ? null : state.configurators.active.configuratorID };
+export const getActiveConfiguratorID = (state) => isEmpty(state.configurators.active) ? null : state.configurators.active.configuratorID;
 export const getConfiguratorById = (state, id) => state.configurators.ids.find( c => c === id );

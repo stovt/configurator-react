@@ -1,6 +1,8 @@
 import { normalize } from 'normalizr';
 import * as schema from './schema';
+import { getActiveLocaleID } from '../reducers/locales';
 import { getIsFetching, getConfiguratorById } from '../reducers/configurators';
+import { getStepsIds } from '../reducers/steps';
 import * as api from '../api';
 
 export const fetchConfiguratorsIds = () => (dispatch, getState) => {
@@ -28,7 +30,7 @@ export const fetchConfiguratorsIds = () => (dispatch, getState) => {
   );
 };
 
-export const selectConfigurator = (id, locale) => (dispatch, getState) => {
+export const selectConfigurator = (id) => (dispatch, getState) => {
   if(getIsFetching(getState())) {
     return Promise.resolve();
   }
@@ -37,11 +39,15 @@ export const selectConfigurator = (id, locale) => (dispatch, getState) => {
     type: 'SELECT_CONFIGURATOR_REQUEST'
   });
 
-  return api.selectConfigurator(id, locale).then(
+  return api.selectConfigurator(id, getActiveLocaleID(getState())).then(
     response => {
       dispatch({
         type: 'SELECT_CONFIGURATOR_SUCCESS',
         configurator: response
+      });
+      dispatch({
+        type: 'NEXT_STEP',
+        steps: getStepsIds(getState())
       });
     },
     error => {
@@ -79,17 +85,25 @@ export const removeConfigurator = (id) => (dispatch, getState) => {
 };
 
 
-export const createOrFindConfigurator = (id, locale) => (dispatch, getState) => {
+export const createOrFindConfigurator = (id) => (dispatch, getState) => {
+  if(getIsFetching(getState())) {
+    return Promise.resolve();
+  }
+
   if(getConfiguratorById(getState(), id)) {
     dispatch({
       type: 'SELECT_CONFIGURATOR_REQUEST'
     });
 
-    return api.selectConfigurator(id, locale).then(
+    return api.selectConfigurator(id, getActiveLocaleID(getState())).then(
       response => {
         dispatch({
           type: 'SELECT_CONFIGURATOR_SUCCESS',
           configurator: response
+        });
+        dispatch({
+          type: 'NEXT_STEP',
+          steps: getStepsIds(getState())
         });
       },
       error => {
@@ -105,4 +119,9 @@ export const createOrFindConfigurator = (id, locale) => (dispatch, getState) => 
       id: id
     });
   }
+
+  dispatch({
+    type: 'NEXT_STEP',
+    steps: getStepsIds(getState())
+  });
 };
