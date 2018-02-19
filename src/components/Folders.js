@@ -1,11 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../actions/configurator';
+import { bindActionCreators } from 'redux';
+import * as configuratorActions from '../actions/configurator';
+import * as productActions from '../actions/products';
 import { getFolders } from '../reducers/configurator';
 
 import TextField from './TextField';
 import ProductImage from './ProductImage';
 import ProductAutocomplete from './ProductAutocomplete';
+import Product from './Product';
 
 import Paper from 'material-ui/Paper';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
@@ -19,6 +22,7 @@ const Folders = ({
   changeBaseConfigSubtitle,
   changeBaseConfigDescription,
   removeBaseConfig,
+  removeProduct,
   addBaseConfig
 }) => (
   <div>          
@@ -68,12 +72,39 @@ const Folders = ({
                 <div style={{"clear": "both"}} />
               </div>
               <ProductAutocomplete 
-                type={'ADD_BASE_CONFIG_PRODUCT'} 
                 baseConfigID={folder.uniqueID}
               />
 
-              <div>TODO: other</div>
-
+              {folder.productIDs.map((product, key) => {
+                return (
+                  <Paper 
+                    key={product.productID} 
+                    zDepth={2} 
+                    style={{margin: '20px', position: 'relative'}}
+                  >
+                    <Product 
+                      product={product}
+                      baseConfigID={folder.uniqueID}
+                    />
+                    <FloatingActionButton 
+                      secondary={true} 
+                      mini={true} 
+                      onClick={() => removeProduct(folder.uniqueID, product.productID)} 
+                      style={{
+                        cursor: 'pointer',
+                        transform: 'rotate(45deg)',
+                        float: 'right',
+                        marginRight: '65px',
+                        position: 'absolute',
+                        right: '0px',
+                        top: '15px',
+                      }}
+                    >
+                      <ContentAdd />
+                    </FloatingActionButton>
+                  </Paper>
+                )
+              })}
               <FloatingActionButton 
                 secondary={true} 
                 mini={true} 
@@ -101,4 +132,8 @@ const mapStateToProps = (state) => ({
   folders: getFolders(state)
 });
 
-export default connect(mapStateToProps, actions) (Folders);
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({...{}, ...configuratorActions, ...productActions}, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps) (Folders);

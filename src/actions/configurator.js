@@ -63,8 +63,8 @@ export const addBaseConfig = () => ({
   }
 });
 
-export const uploadImage = (configuratorId, formData, type, data) => (dispatch, getState) => {
-  return api.uploadImage(configuratorId, formData).then(
+export const uploadImage = (configuratorId, formData, type, data) => (dispatch, getState) =>
+  api.uploadImage(configuratorId, formData).then(
     response => {
       switch (type) {
         case 'UPLOAD_BASE_CONFIG_IMAGE':
@@ -115,4 +115,3 @@ export const uploadImage = (configuratorId, formData, type, data) => (dispatch, 
       }
     }
   );
-};

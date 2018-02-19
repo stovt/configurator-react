@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions/products';
 import { getProducts, getErrorMessage, getIsFetching } from '../reducers/products';
+import { getFolderProductIDs, getAccessoryProductIDs } from '../reducers/configurator';
 import { autoCompleteFilter } from '../helpers/MaterialUIHelper';
 import FetchError from './FetchError';
+
 import AutoComplete from 'material-ui/AutoComplete';
 import CircularProgress from 'material-ui/CircularProgress';
+import Snackbar from 'material-ui/Snackbar';
 
 class ProductAutocomplete extends Component {  
 
@@ -13,7 +16,8 @@ class ProductAutocomplete extends Component {
     super(props);
     
     this.state = {
-      searchText: ''
+      searchText: '',
+      showSnackbar: false
     };
   }
 
@@ -22,8 +26,10 @@ class ProductAutocomplete extends Component {
   }
 
   fetchData() {
-    const { fetchProducts } = this.props;
-    fetchProducts();
+    const { fetchProducts, products, isFetching } = this.props;
+    if (!products.length) {
+      fetchProducts();
+    }
   }
 
   searchTextChanged(value) {
@@ -38,8 +44,37 @@ class ProductAutocomplete extends Component {
     });
   }
 
+  addProduct(baseConfigID, productID, accessory) {
+    const { addProduct, baseConfigProductIDs, accessoryProductIDs } = this.props;
+    if (accessory) {
+      if (accessoryProductIDs.indexOf(productID) !== -1) {
+        this.setState({
+          showSnackbar: true
+        });
+        return;
+      }
+    } else {
+      if (baseConfigProductIDs.indexOf(productID) !== -1) {
+        this.setState({
+          showSnackbar: true
+        });
+        return;
+      }
+    }
+    addProduct(baseConfigID, productID, accessory);
+    this.setState({
+      searchText: ''
+    });
+  }
+
+  closeSnackbar() {
+    this.setState({
+      showSnackbar: false
+    });
+  }
+
   render() {
-    const { products, addProduct, type, baseConfigID, isFetching, errorMessage } = this.props;
+    const { products, baseConfigID, accessory, isFetching, errorMessage } = this.props;
     if (errorMessage && !products.length) {
       return (
         <FetchError
@@ -53,28 +88,42 @@ class ProductAutocomplete extends Component {
       return (<CircularProgress />);
     }
     else {
-      return (    
-        <AutoComplete
-          floatingLabelText="Product name or ID"
-          hintText="Type name or ID"
-          dataSource={products}
-          dataSourceConfig={{ text: 'name', value: 'id' }}
-          onUpdateInput={(value) => this.searchTextChanged(value)}
-          onNewRequest={(chosenRequest) => addProduct(chosenRequest.id, type, baseConfigID)}
-          maxSearchResults={25}
-          searchText={this.state.searchText}
-          filter={autoCompleteFilter}
-          onFocus={(value) => this.resetSearchText(value)}
-        />
+      return ( 
+        <div>   
+          <AutoComplete
+            floatingLabelText="Product name or ID"
+            hintText="Type name or ID"
+            dataSource={products}
+            dataSourceConfig={{ text: 'name', value: 'id' }}
+            onUpdateInput={(value) => this.searchTextChanged(value)}
+            onNewRequest={(chosenRequest) => this.addProduct(baseConfigID, chosenRequest.id, accessory)}
+            maxSearchResults={25}
+            searchText={this.state.searchText}
+            filter={autoCompleteFilter}
+            onFocus={(value) => this.resetSearchText(value)}
+          />
+          <Snackbar
+            open={this.state.showSnackbar}
+            message="Product is already in list"
+            autoHideDuration={2000}
+            onRequestClose={() => this.closeSnackbar()}
+          />
+        </div>
       );
     }
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, { baseConfigID }) => ({
   isFetching: getIsFetching(state),
   errorMessage: getErrorMessage(state),
-  products: getProducts(state)
+  products: getProducts(state),
+  baseConfigProductIDs: getFolderProductIDs(state, baseConfigID),
+  accessoryProductIDs: getAccessoryProductIDs(state, baseConfigID)
 });
 
 export default connect(mapStateToProps, actions) (ProductAutocomplete);
+
+ProductAutocomplete.defaultProps = {
+  accessory: false  
+};

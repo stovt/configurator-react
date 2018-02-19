@@ -78,7 +78,10 @@ const baseConfigs = (state = [], action) => {
     }
     case 'REMOVE_BASE_CONFIG': {
       let folder = getFolderByUniqueID(state, action.id);
-      return [...state.slice(0, state.indexOf(folder)), ...state.slice(state.indexOf(folder) + 1)];
+      return [
+        ...state.slice(0, state.indexOf(folder)), 
+        ...state.slice(state.indexOf(folder) + 1)
+      ];
     }
     case 'ADD_BASE_CONFIG': 
       return [...state, action.config];
@@ -89,7 +92,60 @@ const baseConfigs = (state = [], action) => {
     }
     case 'ADD_BASE_CONFIG_PRODUCT': {
       let folder = getFolderByUniqueID(state, action.baseConfigID);
-      folder.productIDs = [...folder.productIDs, action.product];
+      folder.productIDs = [
+        ...folder.productIDs, 
+        action.product
+      ];
+      return [...state, ...folder];
+    }
+    case 'REMOVE_BASE_CONFIG_PRODUCT': {
+      let folder = getFolderByUniqueID(state, action.baseConfigID);
+      let product = getFolderProductByID(folder, action.productID);
+      folder.productIDs = [
+        ...folder.productIDs.slice(0, folder.productIDs.indexOf(product)), 
+        ...folder.productIDs.slice(folder.productIDs.indexOf(product) + 1)
+      ];
+      return [...state, ...folder];
+    }
+    case 'CHANGE_BASE_CONFIG_PRODUCT_TITLE': {
+      let folder = getFolderByUniqueID(state, action.baseConfigID);
+      let product = getFolderProductByID(folder, action.productID);
+      product.productName = action.text;
+      folder.productIDs = [
+        ...folder.productIDs, 
+        ...product
+      ];
+      return [...state, ...folder];
+    }
+    case 'CHANGE_BASE_CONFIG_PRODUCT_SHORT_TITLE': {
+      let folder = getFolderByUniqueID(state, action.baseConfigID);
+      let product = getFolderProductByID(folder, action.productID);
+      product.productShortName = action.text;
+      folder.productIDs = [
+        ...folder.productIDs, 
+        ...product
+      ];
+      return [...state, ...folder];
+    }
+    case 'CHANGE_BASE_CONFIG_PRODUCT_DESCRIPTION': {
+      let folder = getFolderByUniqueID(state, action.baseConfigID);
+      let product = getFolderProductByID(folder, action.productID);
+      product.description = action.text;
+      folder.productIDs = [
+        ...folder.productIDs, 
+        ...product
+      ];
+      return [...state, ...folder];
+    }
+    case 'REFRESH_BASE_CONFIG_PRODUCT': {
+      let folder = getFolderByUniqueID(state, action.baseConfigID);
+      let product = getFolderProductByID(folder, action.product.productID);
+      let productIndex = folder.productIDs.indexOf(product);
+      folder.productIDs = [
+        ...folder.productIDs.slice(0, productIndex), 
+        {...product, ...action.product},
+        ...folder.productIDs.slice(productIndex + 1)
+      ];
       return [...state, ...folder];
     }
     default:
@@ -110,7 +166,7 @@ const accessories = (state = [], action) => {
 
 export default combineReducers({
   ready,
-  'global': globalAttributes,
+  global: globalAttributes,
   configuratorID,
   baseConfigs,
   accessories
@@ -124,3 +180,10 @@ export const getConfiguratorTitle = (state) => state.configurators.active.global
 
 export const getFolders = (state) => state.configurators.active.baseConfigs;
 export const getFolderByUniqueID = (folders, id) => folders.find( f => f.uniqueID === id );
+export const getFolderProductByID = (folder, id) => folder.productIDs.find( p => p.productID === id );
+export const getFolderProductIDs = (state, folderID) => {
+  const folders = getFolders(state);
+  const folder = getFolderByUniqueID(folders, folderID);
+  return folder.productIDs.map( p => p.productID );
+};
+export const getAccessoryProductIDs = (state) => state.configurators.active.accessories.map( p => p.productID );

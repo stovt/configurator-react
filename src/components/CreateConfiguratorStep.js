@@ -116,7 +116,7 @@ class ConfiguratorsIds extends Component {
           dataSource={configuratorsIds}
           dataSourceConfig={{value: 'id',text: 'id'}}
           onUpdateInput={this.onUpdateProduct}
-          onNewRequest={(chosenRequest) => selectConfigurator(chosenRequest.id)}
+          onNewRequest={(id) => selectConfigurator(id)}
           filter={autoCompleteFilter}
           openOnFocus={true}
           style={{width: '252px'}}
