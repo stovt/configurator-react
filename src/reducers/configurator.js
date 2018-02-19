@@ -76,14 +76,20 @@ const baseConfigs = (state = [], action) => {
       folder.baseConfigDescription = action.text;
       return [...state, ...folder];
     }
-    case 'REMOVE_BASE_CONFIG':
+    case 'REMOVE_BASE_CONFIG': {
       let folder = getFolderByUniqueID(state, action.id);
       return [...state.slice(0, state.indexOf(folder)), ...state.slice(state.indexOf(folder) + 1)];
-    case 'ADD_BASE_CONFIG':
+    }
+    case 'ADD_BASE_CONFIG': 
       return [...state, action.config];
     case 'UPLOAD_BASE_CONFIG_IMAGE': {
       let folder = getFolderByUniqueID(state, action.baseConfigID);
       folder.baseConfigImage = action.image;
+      return [...state, ...folder];
+    }
+    case 'ADD_BASE_CONFIG_PRODUCT': {
+      let folder = getFolderByUniqueID(state, action.baseConfigID);
+      folder.productIDs = [...folder.productIDs, action.product];
       return [...state, ...folder];
     }
     default:

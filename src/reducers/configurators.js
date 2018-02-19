@@ -13,7 +13,6 @@ const createConfiguratorsList = () => {
       default:
         return state;
     }
-    return state;
   };
 
   const ids =  (state = [], action) => {

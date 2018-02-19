@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux';
 import createLocalesList from './locales';
-import createConfiguratorsList from './configurators';
 import createStepsList from './steps';
+import createConfiguratorsList from './configurators';
+import createProductsList from './products';
 
 const allReducers = combineReducers({
   locales: createLocalesList(),
+  steps: createStepsList(),
   configurators: createConfiguratorsList(),
-  steps: createStepsList()
+  products: createProductsList(),
 });
 
 export default allReducers;

@@ -5,6 +5,7 @@ import { getFolders } from '../reducers/configurator';
 
 import TextField from './TextField';
 import ProductImage from './ProductImage';
+import ProductAutocomplete from './ProductAutocomplete';
 
 import Paper from 'material-ui/Paper';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
@@ -66,6 +67,13 @@ const Folders = ({
                 </div>
                 <div style={{"clear": "both"}} />
               </div>
+              <ProductAutocomplete 
+                type={'ADD_BASE_CONFIG_PRODUCT'} 
+                baseConfigID={folder.uniqueID}
+              />
+
+              <div>TODO: other</div>
+
               <FloatingActionButton 
                 secondary={true} 
                 mini={true} 

@@ -70,3 +70,19 @@ export const uploadImage = (configuratorId, formData) => {
     });
   }
 };
+
+export const fetchProducts = () =>
+  axios.get(configUrls.GetAllProducts).then(response => {
+    return response.data;
+  });
+
+  
+export const getProductByID = (id, locale) =>
+  axios.get(configUrls.GetProductByID, {
+    params: {
+      pid: id,
+      locale: locale
+    }
+  }).then((response) => {
+    return response.data;
+  });
