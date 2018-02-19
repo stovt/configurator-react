@@ -6,9 +6,11 @@ import { getActiveConfiguratorID } from '../reducers/configurator';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import Checkbox from 'material-ui/Checkbox';
 import RaisedButton from 'material-ui/RaisedButton';
+import List from 'material-ui/List/List';
 
 import ProductImage from './ProductImage';
 import TextField from './TextField';
+import ProductListItem from './ProductListItem';
 
 const Product = ({ 
   product, 
@@ -81,11 +83,23 @@ const Product = ({
         />
       </div>
       <div style={{"clear": "both"}} />
+      <List>
+        {product.variations.map((variation, key) => {
+          return (
+            <ProductListItem 
+              key={key}
+              baseConfigID={baseConfigID}
+              productID={product.productID}
+              variation={variation} 
+            />
+          )
+        })}
+      </List>
     </CardText>
   </Card>
 );
 
-const mapStateToProps = (state, { baseConfigID } ) => ({
+const mapStateToProps = (state) => ({
   configuratorID: getActiveConfiguratorID(state)
 });
 

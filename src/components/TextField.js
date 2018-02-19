@@ -35,6 +35,7 @@ class CustomTextField extends Component {
         value={this.state.value || ''}
         onChange={this.handleValueChange} 
         onBlur={() => this.props.sendValue(this.state.value)}
+        style={this.props.style || null}
       />
     )
   }

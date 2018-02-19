@@ -1,15 +1,5 @@
 import { combineReducers } from 'redux';
 
-const ready =  (state = false, action) => {
-  switch (action.type) {
-    case 'SELECT_CONFIGURATOR_SUCCESS':
-    case 'CREATE_CONFIGURATOR':
-      return true;
-    default:
-      return state;
-  }
-};
-
 const globalAttributes = (state = {
   'isDownloadAvailable': true, 
   'isWishlistAvailable': true,
@@ -90,6 +80,17 @@ const baseConfigs = (state = [], action) => {
       folder.baseConfigImage = action.image;
       return [...state, ...folder];
     }
+    case 'UPLOAD_BASE_CONFIG_PRODUCT_IMAGE': {
+      let folder = getFolderByUniqueID(state, action.baseConfigID);
+      let product = getFolderProductByID(folder, action.productID);
+      let productIndex = folder.productIDs.indexOf(product);
+      folder.productIDs = [
+        ...folder.productIDs.slice(0, productIndex), 
+        {...product, realImage: action.image},
+        ...folder.productIDs.slice(productIndex + 1)
+      ];
+      return [...state, ...folder];
+    }
     case 'ADD_BASE_CONFIG_PRODUCT': {
       let folder = getFolderByUniqueID(state, action.baseConfigID);
       folder.productIDs = [
@@ -110,30 +111,33 @@ const baseConfigs = (state = [], action) => {
     case 'CHANGE_BASE_CONFIG_PRODUCT_TITLE': {
       let folder = getFolderByUniqueID(state, action.baseConfigID);
       let product = getFolderProductByID(folder, action.productID);
-      product.productName = action.text;
+      let productIndex = folder.productIDs.indexOf(product);
       folder.productIDs = [
-        ...folder.productIDs, 
-        ...product
+        ...folder.productIDs.slice(0, productIndex), 
+        {...product, productName: action.text},
+        ...folder.productIDs.slice(productIndex + 1)
       ];
       return [...state, ...folder];
     }
     case 'CHANGE_BASE_CONFIG_PRODUCT_SHORT_TITLE': {
       let folder = getFolderByUniqueID(state, action.baseConfigID);
       let product = getFolderProductByID(folder, action.productID);
-      product.productShortName = action.text;
+      let productIndex = folder.productIDs.indexOf(product);
       folder.productIDs = [
-        ...folder.productIDs, 
-        ...product
+        ...folder.productIDs.slice(0, productIndex), 
+        {...product, productShortName: action.text},
+        ...folder.productIDs.slice(productIndex + 1)
       ];
       return [...state, ...folder];
     }
     case 'CHANGE_BASE_CONFIG_PRODUCT_DESCRIPTION': {
       let folder = getFolderByUniqueID(state, action.baseConfigID);
       let product = getFolderProductByID(folder, action.productID);
-      product.description = action.text;
+      let productIndex = folder.productIDs.indexOf(product);
       folder.productIDs = [
-        ...folder.productIDs, 
-        ...product
+        ...folder.productIDs.slice(0, productIndex), 
+        {...product, description: action.text},
+        ...folder.productIDs.slice(productIndex + 1)
       ];
       return [...state, ...folder];
     }
@@ -146,6 +150,115 @@ const baseConfigs = (state = [], action) => {
         {...product, ...action.product},
         ...folder.productIDs.slice(productIndex + 1)
       ];
+      return [...state, ...folder];
+    }
+    case 'TOGGLE_BASE_CONFIG_VARIATION_ENABLE': {
+      let folder = getFolderByUniqueID(state, action.baseConfigID);
+      let product = getFolderProductByID(folder, action.productID);
+      let productIndex = folder.productIDs.indexOf(product);
+      let variation = getVariationByID(product.variations, action.variationID);
+      let variationIndex = product.variations.indexOf(variation);
+
+      product.variations = [
+        ...product.variations.slice(0, variationIndex), 
+        {...variation, enabled: !variation.enabled},
+        ...product.variations.slice(variationIndex + 1)
+      ];
+
+      folder.productIDs = [
+        ...folder.productIDs.slice(0, productIndex), 
+        {...product, ...action.product},
+        ...folder.productIDs.slice(productIndex + 1)
+      ];
+
+      return [...state, ...folder];
+    }
+    case 'TOGGLE_BASE_CONFIG_VARIATION_DEFAULT': {
+      let folder = getFolderByUniqueID(state, action.baseConfigID);
+      let product = getFolderProductByID(folder, action.productID);
+      let productIndex = folder.productIDs.indexOf(product);
+      let variation = getVariationByID(product.variations, action.variationID);
+      let variationIndex = product.variations.indexOf(variation);
+
+      product.variations = product.variations.map(v => {
+        return { ...v, isDefaultVariation: false }
+      });
+
+      product.variations = [
+        ...product.variations.slice(0, variationIndex), 
+        {...variation, isDefaultVariation: !variation.isDefaultVariation},
+        ...product.variations.slice(variationIndex + 1)
+      ];
+
+      folder.productIDs = [
+        ...folder.productIDs.slice(0, productIndex), 
+        {...product, ...action.product},
+        ...folder.productIDs.slice(productIndex + 1)
+      ];
+
+      return [...state, ...folder];
+    }
+    case 'UPLOAD_BASE_CONFIG_PRODUCT_VARIATION_REAL_IMAGE': {
+      let folder = getFolderByUniqueID(state, action.baseConfigID);
+      let product = getFolderProductByID(folder, action.productID);
+      let productIndex = folder.productIDs.indexOf(product);
+      let variation = getVariationByID(product.variations, action.variationID);
+      let variationIndex = product.variations.indexOf(variation);
+
+      product.variations = [
+        ...product.variations.slice(0, variationIndex), 
+        {...variation, realImage: action.image},
+        ...product.variations.slice(variationIndex + 1)
+      ];
+
+      folder.productIDs = [
+        ...folder.productIDs.slice(0, productIndex), 
+        {...product, ...action.product},
+        ...folder.productIDs.slice(productIndex + 1)
+      ];
+      
+      return [...state, ...folder];
+    }
+    case 'UPLOAD_BASE_CONFIG_PRODUCT_VARIATION_SWATCH_IMAGE': {
+      let folder = getFolderByUniqueID(state, action.baseConfigID);
+      let product = getFolderProductByID(folder, action.productID);
+      let productIndex = folder.productIDs.indexOf(product);
+      let variation = getVariationByID(product.variations, action.variationID);
+      let variationIndex = product.variations.indexOf(variation);
+
+      product.variations = [
+        ...product.variations.slice(0, variationIndex), 
+        {...variation, swatchImage: action.image},
+        ...product.variations.slice(variationIndex + 1)
+      ];
+
+      folder.productIDs = [
+        ...folder.productIDs.slice(0, productIndex), 
+        {...product, ...action.product},
+        ...folder.productIDs.slice(productIndex + 1)
+      ];
+      
+      return [...state, ...folder];
+    }
+    case 'UPLOAD_BASE_CONFIG_PRODUCT_VARIATION_THUMB_IMAGE': {
+      let folder = getFolderByUniqueID(state, action.baseConfigID);
+      let product = getFolderProductByID(folder, action.productID);
+      let productIndex = folder.productIDs.indexOf(product);
+      let variation = getVariationByID(product.variations, action.variationID);
+      let variationIndex = product.variations.indexOf(variation);
+
+      product.variations = [
+        ...product.variations.slice(0, variationIndex), 
+        {...variation, thumbnailImage: action.image},
+        ...product.variations.slice(variationIndex + 1)
+      ];
+
+      folder.productIDs = [
+        ...folder.productIDs.slice(0, productIndex), 
+        {...product, ...action.product},
+        ...folder.productIDs.slice(productIndex + 1)
+      ];
+      
       return [...state, ...folder];
     }
     default:
@@ -165,7 +278,6 @@ const accessories = (state = [], action) => {
 };
 
 export default combineReducers({
-  ready,
   global: globalAttributes,
   configuratorID,
   baseConfigs,
@@ -187,3 +299,4 @@ export const getFolderProductIDs = (state, folderID) => {
   return folder.productIDs.map( p => p.productID );
 };
 export const getAccessoryProductIDs = (state) => state.configurators.active.accessories.map( p => p.productID );
+export const getVariationByID = (variations, variationID) => variations.find( v => v.variationID === variationID );
