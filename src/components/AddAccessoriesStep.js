@@ -1,7 +1,8 @@
 import React from 'react';
+import AccessoryList from './AccessoryList';
 
 const AddAccessoriesStep = () => (
-  <div>3</div>
+  <AccessoryList />
 );
 
 export default AddAccessoriesStep;

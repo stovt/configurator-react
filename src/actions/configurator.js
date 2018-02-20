@@ -115,37 +115,3 @@ export const uploadImage = (configuratorId, formData, type, data) => (dispatch, 
       }
     }
   );
-
-export const toggleVariationEnable = (baseConfigID, productID, variationID, accessory)  => (dispatch, getState) => {
-  if (accessory) {
-    dispatch({
-      type: 'TOGGLE_ACCESSORY_VARIATION_ENABLE',
-      productID,
-      variationID
-    });
-  } else {
-    dispatch({
-      type: 'TOGGLE_BASE_CONFIG_VARIATION_ENABLE',
-      baseConfigID,
-      productID,
-      variationID
-    });
-  }  
-};
-
-export const toggleVariationDefault = (baseConfigID, productID, variationID, accessory)  => (dispatch, getState) => {
-  if (accessory) {
-    dispatch({
-      type: 'TOGGLE_ACCESSORY_VARIATION_DEFAULT',
-      productID,
-      variationID
-    });
-  } else {
-    dispatch({
-      type: 'TOGGLE_BASE_CONFIG_VARIATION_DEFAULT',
-      baseConfigID,
-      productID,
-      variationID
-    });
-  }  
-};

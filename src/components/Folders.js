@@ -22,7 +22,6 @@ const Folders = ({
   changeBaseConfigSubtitle,
   changeBaseConfigDescription,
   removeBaseConfig,
-  removeProduct,
   addBaseConfig
 }) => (
   <div>          
@@ -77,32 +76,11 @@ const Folders = ({
 
               {folder.productIDs.map((product, key) => {
                 return (
-                  <Paper 
+                  <Product 
+                    product={product}
                     key={product.productID} 
-                    zDepth={2} 
-                    style={{margin: '20px', position: 'relative'}}
-                  >
-                    <Product 
-                      product={product}
-                      baseConfigID={folder.uniqueID}
-                    />
-                    <FloatingActionButton 
-                      secondary={true} 
-                      mini={true} 
-                      onClick={() => removeProduct(folder.uniqueID, product.productID)} 
-                      style={{
-                        cursor: 'pointer',
-                        transform: 'rotate(45deg)',
-                        float: 'right',
-                        marginRight: '65px',
-                        position: 'absolute',
-                        right: '0px',
-                        top: '15px',
-                      }}
-                    >
-                      <ContentAdd />
-                    </FloatingActionButton>
-                  </Paper>
+                    baseConfigID={folder.uniqueID}
+                  />
                 )
               })}
               <FloatingActionButton 

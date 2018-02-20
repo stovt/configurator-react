@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions/products';
 import { getProducts, getErrorMessage, getIsFetching } from '../reducers/products';
-import { getFolderProductIDs, getAccessoryProductIDs } from '../reducers/configurator';
+import { getAllProductIDs } from '../reducers/configurator';
 import { autoCompleteFilter } from '../helpers/MaterialUIHelper';
 import FetchError from './FetchError';
 
@@ -45,21 +45,13 @@ class ProductAutocomplete extends Component {
   }
 
   addProduct(baseConfigID, productID, accessory) {
-    const { addProduct, baseConfigProductIDs, accessoryProductIDs } = this.props;
-    if (accessory) {
-      if (accessoryProductIDs.indexOf(productID) !== -1) {
-        this.setState({
-          showSnackbar: true
-        });
-        return;
-      }
-    } else {
-      if (baseConfigProductIDs.indexOf(productID) !== -1) {
-        this.setState({
-          showSnackbar: true
-        });
-        return;
-      }
+    const { addProduct, allProductIDs } = this.props;
+    console.log(allProductIDs, productID, allProductIDs.indexOf(productID));
+    if (allProductIDs.indexOf(productID) !== -1) {
+      this.setState({
+        showSnackbar: true
+      });
+      return;
     }
     addProduct(baseConfigID, productID, accessory);
     this.setState({
@@ -118,8 +110,7 @@ const mapStateToProps = (state, { baseConfigID }) => ({
   isFetching: getIsFetching(state),
   errorMessage: getErrorMessage(state),
   products: getProducts(state),
-  baseConfigProductIDs: getFolderProductIDs(state, baseConfigID),
-  accessoryProductIDs: getAccessoryProductIDs(state, baseConfigID)
+  allProductIDs: getAllProductIDs(state)
 });
 
 export default connect(mapStateToProps, actions) (ProductAutocomplete);

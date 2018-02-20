@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../actions/configurator';
+import * as actions from '../actions/products';
 import { getActiveConfiguratorID } from '../reducers/configurator';
 
 import ListItem from 'material-ui/List/ListItem';
@@ -134,7 +134,3 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, actions) (ProductListItem);
-
-ProductListItem.defaultProps = {
-  accessory: false  
-};

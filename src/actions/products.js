@@ -33,7 +33,6 @@ export const addProduct = (baseConfigID, productID, accessory = false) => (dispa
       if (accessory) {
         dispatch({
           type: 'ADD_ACCESSORY_PRODUCT',
-          baseConfigID,
           product: response,
         });
       } else {
@@ -50,7 +49,6 @@ export const removeProduct = (baseConfigID, productID, accessory = false) => (di
   if (accessory) {
     dispatch({
       type: 'REMOVE_ACCESSORY_PRODUCT',
-      baseConfigID,
       productID,
     });
   } else {
@@ -66,7 +64,6 @@ export const changeProductTitle = (baseConfigID, productID, text, accessory = fa
   if (accessory) {
     dispatch({
       type: 'CHANGE_ACCESSORY_PRODUCT_TITLE',
-      baseConfigID,
       productID,
       text
     });
@@ -84,7 +81,6 @@ export const changeProductShortTitle = (baseConfigID, productID, text, accessory
   if (accessory) {
     dispatch({
       type: 'CHANGE_ACCESSORY_PRODUCT_SHORT_TITLE',
-      baseConfigID,
       productID,
       text
     });
@@ -102,7 +98,6 @@ export const changeProductDescription = (baseConfigID, productID, text, accessor
   if (accessory) {
     dispatch({
       type: 'CHANGE_ACCESSORY_PRODUCT_DESCRIPTION',
-      baseConfigID,
       productID,
       text
     });
@@ -122,7 +117,6 @@ export const refreshProduct = (baseConfigID, productID, accessory = false) => (d
       if (accessory) {
         dispatch({
           type: 'REFRESH_ACCESSORY_PRODUCT',
-          baseConfigID,
           product: response
         });
       } else {
@@ -134,3 +128,64 @@ export const refreshProduct = (baseConfigID, productID, accessory = false) => (d
       }
     }
   );
+
+export const toggleVariationEnable = (baseConfigID, productID, variationID, accessory)  => (dispatch, getState) => {
+  if (accessory) {
+    dispatch({
+      type: 'TOGGLE_ACCESSORY_VARIATION_ENABLE',
+      productID,
+      variationID
+    });
+  } else {
+    dispatch({
+      type: 'TOGGLE_BASE_CONFIG_VARIATION_ENABLE',
+      baseConfigID,
+      productID,
+      variationID
+    });
+  }  
+};
+
+export const toggleVariationDefault = (baseConfigID, productID, variationID, accessory)  => (dispatch, getState) => {
+  if (accessory) {
+    dispatch({
+      type: 'TOGGLE_ACCESSORY_VARIATION_DEFAULT',
+      productID,
+      variationID
+    });
+  } else {
+    dispatch({
+      type: 'TOGGLE_BASE_CONFIG_VARIATION_DEFAULT',
+      baseConfigID,
+      productID,
+      variationID
+    });
+  }  
+};
+
+export const refreshAllAccessories = (accesories) => (dispatch, getState) => 
+  accesories.forEach(accessory => {
+    api.getProductByID(accessory.productID, getActiveLocaleID(getState())).then(
+      response => {
+        dispatch({
+          type: 'REFRESH_ACCESSORY_PRODUCT',
+          product: response
+        });
+      }
+    );
+  });
+  
+export const toggleAccessoryExternal = (productID) => ({
+  type: 'TOGGLE_ACCESSORY_EXTERNAL',
+  productID
+});
+
+export const upAccessory = (productID) => ({
+  type: 'UP_ACCESSORY_PRODUCT',
+  productID
+});
+
+export const downAccessory = (productID) => ({
+  type: 'DOWN_ACCESSORY_PRODUCT',
+  productID
+});

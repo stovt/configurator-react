@@ -11,8 +11,6 @@ class ProductImage extends Component {
     this.state = {
       loading: false
     };
-
-    this.uploadImage = this.uploadImage.bind(this);
   };
 
   uploadImage(files) {
