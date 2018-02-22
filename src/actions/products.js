@@ -189,3 +189,40 @@ export const downAccessory = (productID) => ({
   type: 'DOWN_ACCESSORY_PRODUCT',
   productID
 });
+
+export const togglePreselectedAccessory = (baseConfigID, accessoryID) => ({
+  type: 'TOGGLE_ACCESSORY_PRESELECTED',
+  baseConfigID,
+  accessoryID
+});
+
+export const toggleRequireAccessory = (baseConfigID, accessoryID) => ({
+  type: 'TOGGLE_ACCESSORY_REQUIRE',
+  baseConfigID,
+  accessoryID
+});
+
+
+export const selectReusableProduct = (id, productID, baseConfigID, accessory)  => (dispatch, getState) => {
+  if (accessory) {
+    dispatch({
+      type: 'SELECT_ACCESSORY_REUSABLE_PRODUCT',
+      id,
+      productID
+    });
+  } else {
+    dispatch({
+      type: 'SELECT_BASE_CONFIG_REUSABLE_PRODUCT',
+      id,
+      productID,
+      baseConfigID
+    });
+  }  
+};
+
+export const selectRequiredAccessory = (id, productID) => ({
+  type: 'SELECT_ACCESSORY_REQUIRED',
+  id,
+  productID
+});
+

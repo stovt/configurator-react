@@ -1,29 +1,29 @@
 import { combineReducers } from 'redux';
 
 const globalAttributes = (state = {
-  'isDownloadAvailable': true, 
-  'isWishlistAvailable': true,
-  'title': null,
-  'isOnline': true
+  isDownloadAvailable: true, 
+  isWishlistAvailable: true,
+  title: null,
+  isOnline: true
 }, action) => {
   switch(action.type) {
     case 'CREATE_CONFIGURATOR':
       return {
-        'isDownloadAvailable': true, 
-        'isWishlistAvailable': true,
-        'title': null,
-        'isOnline': true
+        isDownloadAvailable: true, 
+        isWishlistAvailable: true,
+        title: null,
+        isOnline: true
       };
     case 'SELECT_CONFIGURATOR_SUCCESS':
       return action.configurator.global
     case 'TOGGLE_CONFIGURATOR_DOWNLOAD_FLAG':
-      return {...state, 'isDownloadAvailable': !state.isDownloadAvailable};
+      return {...state, isDownloadAvailable: !state.isDownloadAvailable};
     case 'TOGGLE_CONFIGURATOR_WISHLIST_FLAG':
-      return {...state, 'isWishlistAvailable': !state.isWishlistAvailable};
+      return {...state, isWishlistAvailable: !state.isWishlistAvailable};
     case 'TOGGLE_CONFIGURATOR_ONLINE_FLAG':
-      return {...state, 'isOnline': !state.isOnline};
+      return {...state, isOnline: !state.isOnline};
     case 'CHANGE_CONFIGURATOR_TITLE':
-      return {...state, 'title': action.text};
+      return {...state, title: action.text};
     default:
       return state;
   }
@@ -141,6 +141,17 @@ const baseConfigs = (state = [], action) => {
       ];
       return [...state, ...folder];
     }
+    case 'SELECT_BASE_CONFIG_REUSABLE_PRODUCT': {
+      let folder = getFolderByUniqueID(state, action.baseConfigID);
+      let product = getFolderProductByID(folder, action.productID);
+      let productIndex = folder.productIDs.indexOf(product);
+      folder.productIDs = [
+        ...folder.productIDs.slice(0, productIndex), 
+        {...product, reusePartsFromProductID: action.id},
+        ...folder.productIDs.slice(productIndex + 1)
+      ];
+      return [...state, ...folder];
+    }
     case 'REFRESH_BASE_CONFIG_PRODUCT': {
       let folder = getFolderByUniqueID(state, action.baseConfigID);
       let product = getFolderProductByID(folder, action.product.productID);
@@ -170,6 +181,34 @@ const baseConfigs = (state = [], action) => {
         {...product, ...action.product},
         ...folder.productIDs.slice(productIndex + 1)
       ];
+
+      return [...state, ...folder];
+    }
+    case 'TOGGLE_ACCESSORY_PRESELECTED': {
+      let folder = getFolderByUniqueID(state, action.baseConfigID);
+      if (folder.accessoryIDs.indexOf(action.accessoryID) !== -1 ) {
+        folder.accessoryIDs = [
+          ...folder.accessoryIDs.slice(0, folder.accessoryIDs.indexOf(action.accessoryID)), 
+          ...folder.accessoryIDs.slice(folder.accessoryIDs.indexOf(action.accessoryID) + 1)
+        ];
+      } else {
+        folder.accessoryIDs = [...folder.accessoryIDs, action.accessoryID];
+      }
+
+      return [...state, ...folder];
+    }
+    case 'TOGGLE_ACCESSORY_REQUIRE': {
+      let folder = getFolderByUniqueID(state, action.baseConfigID);
+      if (folder.requiredBaseConfigProductIDs.indexOf(action.accessoryID) !== -1 ) {
+        folder.requiredBaseConfigProductIDs = [
+          ...folder.requiredBaseConfigProductIDs
+            .slice(0, folder.requiredBaseConfigProductIDs.indexOf(action.accessoryID)), 
+          ...folder.requiredBaseConfigProductIDs
+            .slice(folder.requiredBaseConfigProductIDs.indexOf(action.accessoryID) + 1)
+        ];
+      } else {
+        folder.requiredBaseConfigProductIDs = [...folder.requiredBaseConfigProductIDs, action.accessoryID];
+      }
 
       return [...state, ...folder];
     }
@@ -327,6 +366,24 @@ const accessories = (state = [], action) => {
       return [
         ...state.slice(0, productIndex), 
         {...product, ...action.product},
+        ...state.slice(productIndex + 1)
+      ];
+    }
+    case 'SELECT_ACCESSORY_REQUIRED': {
+      let product = getAccessoryProductByID(state, action.productID);
+      let productIndex = state.indexOf(product);
+      return [
+        ...state.slice(0, productIndex), 
+        {...product, requiredAccessoryID: action.id},
+        ...state.slice(productIndex + 1)
+      ];
+    }
+    case 'SELECT_ACCESSORY_REUSABLE_PRODUCT': {
+      let product = getAccessoryProductByID(state, action.productID);
+      let productIndex = state.indexOf(product);
+      return [
+        ...state.slice(0, productIndex), 
+        {...product, reusePartsFromProductID: action.id},
         ...state.slice(productIndex + 1)
       ];
     }
@@ -489,6 +546,19 @@ export const getConfiguratorTitle = (state) => state.configurators.active.global
 export const getFolders = (state) => state.configurators.active.baseConfigs;
 export const getFolderByUniqueID = (folders, id) => folders.find( f => f.uniqueID === id );
 export const getFolderProductByID = (folder, id) => folder.productIDs.find( p => p.productID === id );
+export const getFoldersProducts = (state) => {
+  let products = [];
+  let productIDs = [];
+  state.configurators.active.baseConfigs.forEach(config => {
+    config.productIDs.forEach(product => {
+      if (productIDs.indexOf(product.productID) === -1) {
+        productIDs = [...productIDs, product.productID];
+        products = [...products, product];
+      }
+    })
+  })
+  return products;
+};
 export const getFolderProductIDs = (state, folderID) => {
   const folders = getFolders(state);
   const folder = getFolderByUniqueID(folders, folderID);
@@ -506,4 +576,17 @@ export const getAllProductIDs = (state) => {
   productIDs = [...productIDs, ...state.configurators.active.accessories.map( p => p.productID )];
 
   return productIDs;
+};
+export const getAllProducts = (state) => {
+  let products = [];
+  let productIDs = [];
+  state.configurators.active.baseConfigs.forEach(config => {
+    config.productIDs.forEach(product => {
+      if (productIDs.indexOf(product.productID) === -1) {
+        productIDs = [...productIDs, product.productID];
+        products = [...products, product];
+      }
+    })
+  })
+  return [...products, ...state.configurators.active.accessories];
 };

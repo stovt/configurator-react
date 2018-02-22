@@ -1,949 +1,1338 @@
 {  
-   "meta":{  
-      "pageTitle":"Stokke® Steps™ | Create and Buy | Stokke®",
-      "pageKeywords":"bouncer, high chair",
-      "pageDescription":"Stokke® Steps™ is a concept built piece by piece. Begin by choosing legs and seat, then add your desired accessories.",
-      "pageImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+ "meta":{  
+    "pageTitle":"Stokke® Steps™ | Create and Buy | Stokke®",
+    "pageKeywords":"bouncer, high chair",
+    "pageDescription":"Stokke® Steps™ is a concept built piece by piece. Begin by choosing legs and seat, then add your desired accessories.",
+    "pageImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+ },
+ "config":{
+   "global": {
+      "isDownloadAvailable": true,
+      "isWishlistAvailable": true,
+      "title": "Wählen Sie Ihr Stokke ® Scoot™ Modell ",
+      "isOnline": true
    },
-   "config":{  
-      "global":{  
-         "isDownloadAvailable":false,
-         "isWishlistAvailable":true,
-         "title":"Wählen Sie Ihr STOKKE® STEPS®",
-         "isOnline":true
+   "configuratorID": "scoot",
+   "title": "",
+   "baseConfigs": [
+      {
+         "baseConfigID": 1487767556712,
+         "baseConfigImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+         "baseConfigDescription": "0 - 36 Monate",
+         "baseConfigTitle": "Stokke ® Scoot™ Newborn",
+         "baseConfigSubtitle": "mit Babyschale",
+         "baseConfigProductIDs": [
+            "4634",
+            "4640"
+         ],
+         "productIDs": [
+            {
+               "productID": "4634",
+               "productName": "Stokke® Scoot™",
+               "description": "Der Stokke® Scoot ist ein kompakter, urbaner Kinderwagen, der mit Ihrem Kind mitwächst. Geschmeidig und leichtgängig rollt er über jedes Pflaster. Er wird einfach mit dem Sitz zusammengelegt und kann mühelos getragen werden. Seine erstklassigen Eigenschaften machen ihn zum idealen Begleiter auf Reisen, vollen Straßen und im öffentlichen Verkehr – perfekt für einen dynamischen Lifestyle. Jetzt können Sie sogar die Farben des Stokke® Scoots und des Verdecks individuell wählen. Für die ganz kleinen Passagiere wird der Kinderwagen extra behaglich mit der zusätzlichen Stokke® Scoot™ Softbag. Als Teil des Reisesystems ist er mit dem Stokke® iZi Go™ X1 und dem Stokke® iZi Go™ Modular by BeSafe® kompatibel.",
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "variations": [
+                  {
+                     "variationID": "463401",
+                     "productName": "Stokke® Scoot™ Black Melange",
+                     "isOnline": true,
+                     "enabled": true,
+                     "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "isDefaultVariation": false,
+                     "imageVariations": []
+                  },
+                  {
+                     "variationID": "463402",
+                     "productName": "Stokke® Scoot™ Black",
+                     "isOnline": true,
+                     "enabled": true,
+                     "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "isDefaultVariation": false,
+                     "imageVariations": []
+                  },
+                  {
+                     "variationID": "463403",
+                     "productName": "Stokke® Scoot™ Grey Melange",
+                     "isOnline": true,
+                     "enabled": true,
+                     "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "isDefaultVariation": false,
+                     "imageVariations": []
+                  }
+               ],
+               "uniqueID": "46341487767571023",
+               "order": 2
+            },
+            {
+               "productID": "4640",
+               "productName": "Stokke® Scoot™ Verdeck",
+               "description": "Das verspielte und funktionell geformte Stokke® Scoot™ Verdeck schützt Ihr Baby besonders stylisch. Mit dem großzügigen Sonnenschutz, Textilien mit UPF 50 und der guten Belüftung gestaltet sich jeder Stadtbummel extra komfortabel für Ihren kleinen Passagier.\n\nNachdem Sie die Sitzbasis Ihres Stokke® Scoot™ bestimmt haben, wählen Sie eine Verdeckfarbe (oder zwei) aus – und kreieren Sie so Ihre eigene Kombination.\n\nGenießen Sie es, gemeinsam durch die City zu fegen!",
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "variations": [
+                  {
+                     "variationID": "464001",
+                     "productName": "Stokke® Scoot™ Verdeck Black Melange",
+                     "isOnline": true,
+                     "enabled": true,
+                     "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "isDefaultVariation": false,
+                     "imageVariations": []
+                  },
+                  {
+                     "variationID": "464002",
+                     "productName": "Stokke® Scoot™ Verdeck Grey Melange",
+                     "isOnline": true,
+                     "enabled": true,
+                     "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "isDefaultVariation": false,
+                     "imageVariations": []
+                  },
+                  {
+                     "variationID": "464003",
+                     "productName": "Stokke® Scoot™ Verdeck Red",
+                     "isOnline": true,
+                     "enabled": true,
+                     "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "isDefaultVariation": false,
+                     "imageVariations": []
+                  },
+                  {
+                     "variationID": "464004",
+                     "productName": "Stokke® Scoot™ Verdeck Orange",
+                     "isOnline": true,
+                     "enabled": true,
+                     "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "isDefaultVariation": false,
+                     "imageVariations": []
+                  },
+                  {
+                     "variationID": "464005",
+                     "productName": "Stokke® Scoot™ Verdeck Green",
+                     "isOnline": true,
+                     "enabled": true,
+                     "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "isDefaultVariation": false,
+                     "imageVariations": []
+                  },
+                  {
+                     "variationID": "464006",
+                     "productName": "Stokke® Scoot™ Verdeck Blue",
+                     "isOnline": true,
+                     "enabled": true,
+                     "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "isDefaultVariation": false,
+                     "imageVariations": []
+                  },
+                  {
+                     "variationID": "464007",
+                     "productName": "Stokke® Scoot™ Verdeck Black",
+                     "isOnline": true,
+                     "enabled": true,
+                     "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "isDefaultVariation": false,
+                     "imageVariations": []
+                  }
+               ],
+               "uniqueID": "46401487767574059",
+               "order": 3
+            }
+         ],
+         "requiredBaseConfigProductIDs": [],
+         "accessoryIDs": [
+            "4710"
+         ],
+         "uniqueID": 1487767556712
       },
-      "configuratorID":"steps-configurator",
-      "title":"",
-      "baseConfigs":[  
-         {  
-            "baseConfigID":1479207542949,
-            "baseConfigImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-            "baseConfigDescription":"Ab der Geburt",
-            "baseConfigTitle":"Stokke ® Steps™ Newborn",
-            "baseConfigSubtitle":"Wippe",
-            "baseConfigProductIDs":[  
-               "3494",
-               "4600"
-            ],
-            "productIDs":[  
-               {  
-                  "productID":"3494",
-                  "productName":"Wood Leg Complete 4pcs",
-                  "description":"",
-                  "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "variations":[  
-                     {  
-                        "variationID":"349401",
-                        "productName":"Stokke® Steps™ Stuhlbeine, Buche in Natural",
-                        "isOnline":true,
-                        "enabled":true,
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "imageVariations":[  
-
-                        ]
-                     },
-                     {  
-                        "variationID":"349403",
-                        "productName":"Stokke® Steps™ Stuhlbeine, Buche in Whitewash",
-                        "isOnline":true,
-                        "enabled":true,
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "imageVariations":[  
-
-                        ]
-                     },
-                     {  
-                        "variationID":"349404",
-                        "productName":"Stokke® Steps™ Stuhlbeine, Buche in Storm Grey",
-                        "isOnline":true,
-                        "enabled":true,
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "imageVariations":[  
-
-                        ]
-                     },
-                     {  
-                        "variationID":"349405",
-                        "productName":"Stokke® Steps™ Stuhlbeine, Buche in Hazy Grey",
-                        "isOnline":true,
-                        "enabled":true,
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "imageVariations":[  
-
-                        ]
-                     },
-                     {  
-                        "variationID":"349406",
-                        "productName":"Stokke® Steps™ Stuhlbeine, Eiche in Natural",
-                        "isOnline":true,
-                        "enabled":true,
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "imageVariations":[  
-
-                        ]
-                     },
-                     {  
-                        "variationID":"349407",
-                        "productName":"Stokke® Steps™ Stuhlbeine, Eiche in Black",
-                        "isOnline":true,
-                        "enabled":true,
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "imageVariations":[  
-
-                        ]
-                     },
-                     {  
-                        "variationID":"349402",
-                        "productName":"Stokke® Steps™ Stuhlbeine, Buche in Walnut",
-                        "isOnline":false,
-                        "enabled":false,
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
-                     }
-                  ],
-                  "uniqueID":"34941479207691527",
-                  "order":0
-               },
-               {  
-                  "productID":"4600",
-                  "productName":"Stokke® Steps™ Stuhlsitz",
-                  "description":"",
-                  "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "variations":[  
-                     {  
-                        "variationID":"460001",
-                        "productName":"Stokke® Steps™ Stuhlsitz in White",
-                        "isOnline":true,
-                        "enabled":true,
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "imageVariations":[  
-                           {  
-                              "productID":"3498",
-                              "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                              "productName":"Stokke® Steps™ Baby Set"
-                           },
-                           {  
-                              "productID":"3499",
-                              "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                              "productName":"Stokke® Steps™ Baby Set Cushion"
-                           },
-                           {  
-                              "productID":"3500",
-                              "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                              "productName":"Stokke® Steps™ Baby Set Tray"
-                           }
-                        ],
-                        "isDefaultVariation":false
-                     },
-                     {  
-                        "variationID":"460002",
-                        "productName":"Stokke® Steps™ Stuhlsitz in Black",
-                        "isOnline":true,
-                        "enabled":true,
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "imageVariations":[  
-                           {  
-                              "productID":"3498",
-                              "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                              "productName":"Stokke® Steps™ Baby Set"
-                           },
-                           {  
-                              "productID":"3499",
-                              "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                              "productName":"Stokke® Steps™ Baby Set Cushion"
-                           },
-                           {  
-                              "productID":"3500",
-                              "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                              "productName":"Stokke® Steps™ Baby Set Tray"
-                           }
-                        ],
-                        "isDefaultVariation":false
-                     }
-                  ],
-                  "uniqueID":"46001479207580557",
-                  "order":3
-               }
-            ],
-            "requiredBaseConfigProductIDs":[  
-               "3501"
-            ],
-            "accessoryIDs":[  
-               "3501"
-            ],
-            "uniqueID":1479207542949
-         },
-         {  
-            "baseConfigID":1479207769363,
-            "baseConfigImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-            "baseConfigDescription":"Ab 6 Monate",
-            "baseConfigTitle":"Stokke ® Steps™",
-            "baseConfigProductIDs":[  
-               "3494",
-               "4600"
-            ],
-            "productIDs":[  
-               {  
-                  "productID":"3494",
-                  "productName":"Wood Leg Complete 4pcs",
-                  "description":"",
-                  "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "variations":[  
-                     {  
-                        "variationID":"349401",
-                        "productName":"Stokke® Steps™ Chair legs Beech Natural",
-                        "isOnline":true,
-                        "enabled":true,
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "isDefaultVariation":false,
-                        "imageVariations":[  
-
-                        ]
-                     },
-                     {  
-                        "variationID":"349403",
-                        "productName":"Stokke® Steps™ Chair legs Beech Whitewash",
-                        "isOnline":true,
-                        "enabled":true,
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "isDefaultVariation":false,
-                        "imageVariations":[  
-
-                        ]
-                     },
-                     {  
-                        "variationID":"349404",
-                        "productName":"Stokke® Steps™ Chair legs Beech Storm Grey",
-                        "isOnline":true,
-                        "enabled":true,
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "isDefaultVariation":false,
-                        "imageVariations":[  
-
-                        ]
-                     },
-                     {  
-                        "variationID":"349405",
-                        "productName":"Stokke® Steps™ Chair legs Beech Hazy Grey",
-                        "isOnline":true,
-                        "enabled":true,
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "isDefaultVariation":false,
-                        "imageVariations":[  
-
-                        ]
-                     },
-                     {  
-                        "variationID":"349406",
-                        "productName":"Stokke® Steps™ Chair legs Oak Natural",
-                        "isOnline":true,
-                        "enabled":true,
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "isDefaultVariation":false,
-                        "imageVariations":[  
-
-                        ]
-                     },
-                     {  
-                        "variationID":"349407",
-                        "productName":"Stokke® Steps™ Chair legs Oak Black",
-                        "isOnline":true,
-                        "enabled":true,
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "isDefaultVariation":false,
-                        "imageVariations":[  
-
-                        ]
-                     },
-                     {  
-                        "variationID":"349402",
-                        "productName":"Stokke® Steps™ Chair legs Beech Walnut",
-                        "isOnline":false,
-                        "enabled":false,
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "isDefaultVariation":false
-                     }
-                  ],
-                  "uniqueID":"34941479207833999",
-                  "order":1
-               },
-               {  
-                  "productID":"4600",
-                  "productName":"Chair Seat",
-                  "description":"",
-                  "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "variations":[  
-                     {  
-                        "variationID":"460001",
-                        "productName":"Stokke® Steps™ Chair Seat White",
-                        "isOnline":true,
-                        "enabled":true,
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "isDefaultVariation":false,
-                        "imageVariations":[  
-                           {  
-                              "productID":"3498",
-                              "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                              "productName":"Stokke® Steps™ Baby Set"
-                           },
-                           {  
-                              "productID":"3499",
-                              "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                              "productName":"Stokke® Steps™ Baby Set Cushion"
-                           },
-                           {  
-                              "productID":"3500",
-                              "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                              "productName":"Stokke® Steps™ Baby Set Tray"
-                           }
-                        ]
-                     },
-                     {  
-                        "variationID":"460002",
-                        "productName":"Stokke® Steps™ Chair Seat Black",
-                        "isOnline":true,
-                        "enabled":true,
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "isDefaultVariation":false,
-                        "imageVariations":[  
-                           {  
-                              "productID":"3498",
-                              "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                              "productName":"Stokke® Steps™ Baby Set"
-                           },
-                           {  
-                              "productID":"3499",
-                              "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                              "productName":"Stokke® Steps™ Baby Set Cushion"
-                           },
-                           {  
-                              "productID":"3500",
-                              "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                              "productName":"Stokke® Steps™ Baby Set Tray"
-                           }
-                        ]
-                     }
-                  ],
-                  "uniqueID":"46001479207824986",
-                  "order":4
-               }
-            ],
-            "requiredBaseConfigProductIDs":[  
-               "3498"
-            ],
-            "accessoryIDs":[  
-               "3498"
-            ]
-         },
-         {  
-            "baseConfigID":1479208083713,
-            "baseConfigImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-            "baseConfigDescription":"Ab 3 Jahre",
-            "baseConfigTitle":"Stokke ® Steps™",
-            "baseConfigProductIDs":[  
-               "3494",
-               "4600"
-            ],
-            "productIDs":[  
-               {  
-                  "productID":"3494",
-                  "productName":"Wood Leg Complete 4pcs",
-                  "description":"",
-                  "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "variations":[  
-                     {  
-                        "variationID":"349401",
-                        "productName":"Stokke® Steps™ Chair legs Beech Natural",
-                        "isOnline":true,
-                        "enabled":true,
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "imageVariations":[  
-
-                        ]
-                     },
-                     {  
-                        "variationID":"349403",
-                        "productName":"Stokke® Steps™ Chair legs Beech Whitewash",
-                        "isOnline":true,
-                        "enabled":true,
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "imageVariations":[  
-
-                        ]
-                     },
-                     {  
-                        "variationID":"349404",
-                        "productName":"Stokke® Steps™ Chair legs Beech Storm Grey",
-                        "isOnline":true,
-                        "enabled":true,
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "imageVariations":[  
-
-                        ]
-                     },
-                     {  
-                        "variationID":"349405",
-                        "productName":"Stokke® Steps™ Chair legs Beech Hazy Grey",
-                        "isOnline":true,
-                        "enabled":true,
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "imageVariations":[  
-
-                        ]
-                     },
-                     {  
-                        "variationID":"349406",
-                        "productName":"Stokke® Steps™ Chair legs Oak Natural",
-                        "isOnline":true,
-                        "enabled":true,
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "imageVariations":[  
-
-                        ]
-                     },
-                     {  
-                        "variationID":"349407",
-                        "productName":"Stokke® Steps™ Chair legs Oak Black",
-                        "isOnline":true,
-                        "enabled":true,
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "imageVariations":[  
-
-                        ]
-                     },
-                     {  
-                        "variationID":"349402",
-                        "productName":"Stokke® Steps™ Chair legs Beech Walnut",
-                        "isOnline":false,
-                        "enabled":false,
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
-                     }
-                  ],
-                  "uniqueID":"34941479208188384",
-                  "order":2
-               },
-               {  
-                  "productID":"4600",
-                  "productName":"Stokke® Steps™ Stuhlsitz",
-                  "productShortName":"",
-                  "description":"",
-                  "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "variations":[  
-                     {  
-                        "variationID":"460001",
-                        "productName":"Stokke® Steps™ Stuhlsitz in White",
-                        "isOnline":true,
-                        "enabled":true,
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "imageVariations":[  
-                           {  
-                              "productID":"3498",
-                              "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                              "productName":"Stokke® Steps™ Baby Set"
-                           },
-                           {  
-                              "productID":"3499",
-                              "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                              "productName":"Stokke® Steps™ Baby Set Cushion"
-                           },
-                           {  
-                              "productID":"3500",
-                              "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                              "productName":"Stokke® Steps™ Baby Set Tray"
-                           }
-                        ],
-                        "isDefaultVariation":false
-                     },
-                     {  
-                        "variationID":"460002",
-                        "productName":"Stokke® Steps™ Stuhlsitz in Black",
-                        "isOnline":true,
-                        "enabled":true,
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "imageVariations":[  
-                           {  
-                              "productID":"3498",
-                              "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                              "productName":"Stokke® Steps™ Baby Set"
-                           },
-                           {  
-                              "productID":"3499",
-                              "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                              "productName":"Stokke® Steps™ Baby Set Cushion"
-                           },
-                           {  
-                              "productID":"3500",
-                              "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                              "productName":"Stokke® Steps™ Baby Set Tray"
-                           }
-                        ],
-                        "isDefaultVariation":false
-                     }
-                  ],
-                  "uniqueID":"46001479208178484",
-                  "order":5
-               }
-            ],
-            "requiredBaseConfigProductIDs":[  
-
-            ],
-            "accessoryIDs":[  
-
-            ],
-            "uniqueID":1479208083713
-         }
-      ],
-      "accessories":[  
-         {  
-            "productID":"3498",
-            "productName":"Stokke® Steps™ Baby Set",
-            "description":"Mit dem Stokke® Steps™ Baby Set verwandelt sich der Stokke® Steps™ Stuhl schnell und unkompliziert in einen Hochstuhl für Babys ab circa 6 Monate. Das sichere, bequeme und ergonomische Baby Set gewährleistet, dass Ihr Kleines in der richtigen Körperhaltung sitzt. Die höhen- und tiefenverstellbare Rückenlehne kann perfekt auf Ihr heranwachsendes Kind eingestellt werden. Das Stokke® Steps™ Baby Set wird einfach und ganz ohne Werkzeug am Stokke® Steps™ Stuhl befestigt.",
-            "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-            "variations":[  
-               {  
-                  "variationID":"349801",
-                  "productName":"Stokke® Steps™ Baby Set White",
-                  "isOnline":true,
-                  "enabled":true,
-                  "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "imageVariations":[  
-
-                  ],
-                  "isDefaultVariation":false
-               },
-               {  
-                  "variationID":"349802",
-                  "productName":"Stokke® Steps™ Baby Set Black",
-                  "isOnline":true,
-                  "enabled":true,
-                  "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "imageVariations":[  
-
-                  ],
-                  "isDefaultVariation":false
-               },
-               {  
-                  "variationID":"349803",
-                  "productName":"Stokke® Steps™ Baby Set Pink",
-                  "isOnline":true,
-                  "enabled":true,
-                  "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "imageVariations":[  
-
-                  ],
-                  "isDefaultVariation":false
-               },
-               {  
-                  "variationID":"349804",
-                  "productName":"Stokke® Steps™ Baby Set Aqua Blue",
-                  "isOnline":true,
-                  "enabled":true,
-                  "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "isDefaultVariation":false,
-                  "imageVariations":[  
-
-                  ]
-               }
-            ],
-            "uniqueID":"34981479208289592",
-            "order":6,
-            "requiredAccessoryID":false
-         },
-         {  
-            "productID":"3499",
-            "productName":"Stokke® Steps™ Baby Set Kissen",
-            "description":"Das weich gepolsterte Kissen für das Stokke® Steps™ Baby Set bietet zusätzlichen Komfort und Style. Gestalten Sie den Stuhl ganz nach Ihren Wünschen und Ihrem Geschmack!",
-            "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-            "variations":[  
-               {  
-                  "variationID":"349901",
-                  "productName":"Stokke® Steps™ Baby Set Kissen Red",
-                  "isOnline":true,
-                  "enabled":true,
-                  "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "imageVariations":[  
-                     {  
-                        "productID":"3498",
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "productName":"Stokke® Steps™ Baby Set"
-                     }
-                  ],
-                  "isDefaultVariation":false
-               },
-               {  
-                  "variationID":"349902",
-                  "productName":"Stokke® Steps™ Baby Set Kissen Orange",
-                  "isOnline":true,
-                  "enabled":true,
-                  "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "imageVariations":[  
-                     {  
-                        "productID":"3498",
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "productName":"Stokke® Steps™ Baby Set"
-                     }
-                  ],
-                  "isDefaultVariation":false
-               },
-               {  
-                  "variationID":"349903",
-                  "productName":"Stokke® Steps™ Baby Set Kissen Blue",
-                  "isOnline":true,
-                  "enabled":true,
-                  "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "imageVariations":[  
-                     {  
-                        "productID":"3498",
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "productName":"Stokke® Steps™ Baby Set"
-                     }
-                  ],
-                  "isDefaultVariation":false
-               },
-               {  
-                  "variationID":"349904",
-                  "productName":"Stokke® Steps™ Baby Set Kissen Greige",
-                  "isOnline":true,
-                  "enabled":true,
-                  "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "imageVariations":[  
-                     {  
-                        "productID":"3498",
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "productName":"Stokke® Steps™ Baby Set"
-                     }
-                  ],
-                  "isDefaultVariation":false
-               },
-               {  
-                  "variationID":"349905",
-                  "productName":"Stokke® Steps™ Baby Set Kissen Pink",
-                  "isOnline":true,
-                  "enabled":true,
-                  "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "imageVariations":[  
-                     {  
-                        "productID":"3498",
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "productName":"Stokke® Steps™ Baby Set"
-                     }
-                  ],
-                  "isDefaultVariation":false
-               },
-               {  
-                  "variationID":"349906",
-                  "productName":"Stokke® Steps™ Baby Set Kissen Grey Clouds",
-                  "isOnline":true,
-                  "enabled":true,
-                  "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "imageVariations":[  
-                     {  
-                        "productID":"3498",
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "productName":"Stokke® Steps™ Baby Set"
-                     }
-                  ],
-                  "isDefaultVariation":false
-               },
-               {  
-                  "variationID":"349907",
-                  "productName":"Stokke® Steps™ Baby Set Cushion Black",
-                  "isOnline":true,
-                  "enabled":true,
-                  "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "isDefaultVariation":false,
-                  "imageVariations":[  
-                     {  
-                        "productID":"3498",
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "productName":"Stokke® Steps™ Baby Set"
-                     }
-                  ]
-               },
-               {  
-                  "variationID":"349908",
-                  "productName":"Stokke® Steps™ Baby Set Cushion Soft Sprinkle",
-                  "isOnline":true,
-                  "enabled":true,
-                  "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "isDefaultVariation":false,
-                  "imageVariations":[  
-                     {  
-                        "productID":"3498",
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "productName":"Stokke® Steps™ Baby Set"
-                     }
-                  ]
-               },
-               {  
-                  "variationID":"349909",
-                  "productName":"Stokke® Steps™ Baby Set Cushion Aqua Mountains OCS",
-                  "isOnline":false,
-                  "enabled":false,
-                  "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "swatchImage":"",
-                  "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "isDefaultVariation":false
-               }
-            ],
-            "uniqueID":"34991479208312590",
-            "order":7,
-            "requiredAccessoryID":"3498"
-         },
-         {  
-            "productID":"3500",
-            "productName":"Stokke® Steps™ Baby Set Tray",
-            "description":"Der zusätzlich erhältliche Tray für das Stokke® Steps™ Baby Set gibt Ihrem Kind einen eigenen Platz zum Spielen und Essen. Er wird waagerecht abgezogen und ist pflegeleicht.",
-            "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-            "variations":[  
-               {  
-                  "variationID":"350001",
-                  "productName":"Stokke® Steps™ Baby Set Tray White",
-                  "isOnline":true,
-                  "enabled":true,
-                  "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "imageVariations":[  
-                     {  
-                        "productID":"3498",
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "productName":"Stokke® Steps™ Baby Set"
-                     },
-                     {  
-                        "productID":"3499",
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "productName":"Stokke® Steps™ Baby Set Cushion"
-                     }
-                  ]
-               },
-               {  
-                  "variationID":"350002",
-                  "productName":"Stokke® Steps™ Baby Set Tray Black",
-                  "isOnline":true,
-                  "enabled":true,
-                  "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "imageVariations":[  
-                     {  
-                        "productID":"3498",
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "productName":"Stokke® Steps™ Baby Set"
-                     },
-                     {  
-                        "productID":"3499",
-                        "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                        "productName":"Stokke® Steps™ Baby Set Cushion"
-                     }
-                  ]
-               }
-            ],
-            "uniqueID":"35001479208327902",
-            "order":8,
-            "requiredAccessoryID":"3498"
-         },
-         {  
-            "productID":"3501",
-            "productName":"Stokke® Steps™ Wippe",
-            "description":"Die weich gepolsterte Wippe mit ihrer einzigartigen\nSchaukelbewegung gibt Ihrem Baby das Gefühl, in\nIhren Armen zu liegen und geschaukelt zu werden.\nUnsere Neugeboreneneinlage wurde gemeinsam mit\neinem Kinderphysiotherapeuten entwickelt, damit Ihr\nNeugeborenes in der Wippe richtig gestützt wird.\nAn dem abnehmbaren Spielzeughalter können Sie das\nLieblingsspielzeug Ihres Neugeborenen aufhängen.",
-            "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-            "variations":[  
-               {  
-                  "variationID":"350101",
-                  "productName":"Stokke® Steps™ Wippe Red",
-                  "isOnline":true,
-                  "enabled":true,
-                  "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
-               },
-               {  
-                  "variationID":"350102",
-                  "productName":"Stokke® Steps™ Wippe Orange",
-                  "isOnline":true,
-                  "enabled":true,
-                  "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "imageVariations":[  
-
-                  ]
-               },
-               {  
-                  "variationID":"350103",
-                  "productName":"Stokke® Steps™ Wippe Blue",
-                  "isOnline":true,
-                  "enabled":true,
-                  "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
-               },
-               {  
-                  "variationID":"350104",
-                  "productName":"Stokke® Steps™ Wippe Greige",
-                  "isOnline":true,
-                  "enabled":true,
-                  "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
-               },
-               {  
-                  "variationID":"350105",
-                  "productName":"Stokke® Steps™ Bouncer Pink",
-                  "isOnline":true,
-                  "enabled":true,
-                  "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
-               },
-               {  
-                  "variationID":"350106",
-                  "productName":"Stokke® Steps™ Wippe Grey Clouds",
-                  "isOnline":true,
-                  "enabled":true,
-                  "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "imageVariations":[  
-
-                  ]
-               },
-               {  
-                  "variationID":"350107",
-                  "productName":"Stokke® Steps™ Bouncer White Mountains",
-                  "isOnline":false,
-                  "enabled":false,
-                  "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "swatchImage":"",
-                  "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
-               }
-            ],
-            "uniqueID":"35011479375645836",
-            "order":9,
-            "isExternalAccessory":true,
-            "requiredAccessoryID":false
-         },
-         {  
-            "productID":"5044",
-            "productName":"Stokke® Steps™ Kissen",
-            "description":"Das Stokke® Steps™ Kissen eignet sich für Kinder, die dem Baby Set entwachsen sind, und harmoniert mit vielen Farben und Einrichtungsstilen. Größere Kinder können damit ihren Stuhl individuell und bequem gestalten. Die rutschfeste Unterseite sorgt dafür, dass es an Ort und Stelle bleibt.",
-            "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-            "variations":[  
-               {  
-                  "variationID":"504401",
-                  "productName":"Stokke® Steps™ Cushion Adult Jade Twill",
-                  "isOnline":true,
-                  "enabled":true,
-                  "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300",
-                  "isDefaultVariation":false,
-                  "imageVariations":[  
-
-                  ]
-               },
-               {  
-                  "variationID":"504402",
-                  "productName":"Stokke® Steps™ Cushion Adult Slate Twill",
-                  "isOnline":false,
-                  "enabled":false,
-                  "realImage":"",
-                  "swatchImage":"",
-                  "thumbnailImage":"",
-                  "isDefaultVariation":false
-               },
-               {  
-                  "variationID":"504403",
-                  "productName":"Stokke® Steps™ Cushion Adult Black Twill",
-                  "isOnline":false,
-                  "enabled":false,
-                  "realImage":"",
-                  "swatchImage":"",
-                  "thumbnailImage":"",
-                  "isDefaultVariation":false
-               }
-            ],
-            "uniqueID":"50441517471553133",
-            "requiredAccessoryID":false
-         }
-      ]
-   }
+      {
+         "baseConfigID": 1472461751932,
+         "baseConfigImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+         "baseConfigDescription": "6 - 36 Monate",
+         "baseConfigTitle": "Stokke ® Scoot™",
+         "baseConfigSubtitle": "",
+         "baseConfigProductIDs": [
+            "4634",
+            "4640"
+         ],
+         "productIDs": [
+            {
+               "productID": "4634",
+               "productName": "Stokke® Scoot™",
+               "productShortName": "Seat",
+               "description": "Der Stokke® Scoot ist ein kompakter, urbaner Kinderwagen, der mit Ihrem Kind mitwächst. Geschmeidig und leichtgängig rollt er über jedes Pflaster. Er wird einfach mit dem Sitz zusammengelegt und kann mühelos getragen werden. Seine erstklassigen Eigenschaften machen ihn zum idealen Begleiter auf Reisen, vollen Straßen und im öffentlichen Verkehr – perfekt für einen dynamischen Lifestyle. Jetzt können Sie sogar die Farben des Stokke® Scoots und des Verdecks individuell wählen. Für die ganz kleinen Passagiere wird der Kinderwagen extra behaglich mit der zusätzlichen Stokke® Scoot™ Softbag. Als Teil des Reisesystems ist er mit dem Stokke® iZi Go™ X1 und dem Stokke® iZi Go™ Modular by BeSafe® kompatibel.",
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "variations": [
+                  {
+                     "variationID": "463401",
+                     "productName": "Stokke® Scoot™ Black Melange",
+                     "isOnline": true,
+                     "enabled": true,
+                     "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "isDefaultVariation": false,
+                     "imageVariations": []
+                  },
+                  {
+                     "variationID": "463402",
+                     "productName": "Stokke® Scoot™ Black",
+                     "isOnline": true,
+                     "enabled": true,
+                     "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "isDefaultVariation": false,
+                     "imageVariations": []
+                  },
+                  {
+                     "variationID": "463403",
+                     "productName": "Stokke® Scoot™ Grey Melange",
+                     "isOnline": true,
+                     "enabled": true,
+                     "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "isDefaultVariation": false,
+                     "imageVariations": []
+                  }
+               ],
+               "uniqueID": "46341472462063716",
+               "order": 1
+            },
+            {
+               "productID": "4640",
+               "productName": "Stokke® Scoot™ Verdeck",
+               "productShortName": "Canopy",
+               "description": "Das verspielte und funktionell geformte Stokke® Scoot™ Verdeck schützt Ihr Baby besonders stylisch. Mit dem großzügigen Sonnenschutz, Textilien mit UPF 50 und der guten Belüftung gestaltet sich jeder Stadtbummel extra komfortabel für Ihren kleinen Passagier.\n\nNachdem Sie die Sitzbasis Ihres Stokke® Scoot™ bestimmt haben, wählen Sie eine Verdeckfarbe (oder zwei) aus – und kreieren Sie so Ihre eigene Kombination.\n\nGenießen Sie es, gemeinsam durch die City zu fegen!",
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "variations": [
+                  {
+                     "variationID": "464002",
+                     "productName": "Stokke® Scoot™ Verdeck Grey Melange",
+                     "isOnline": true,
+                     "enabled": true,
+                     "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "isDefaultVariation": false
+                  },
+                  {
+                     "variationID": "464001",
+                     "productName": "Stokke® Scoot™ Verdeck Black Melange",
+                     "isOnline": true,
+                     "enabled": true,
+                     "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "isDefaultVariation": false
+                  },
+                  {
+                     "variationID": "464003",
+                     "productName": "Stokke® Scoot™ Verdeck Red",
+                     "isOnline": true,
+                     "enabled": true,
+                     "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "isDefaultVariation": false
+                  },
+                  {
+                     "variationID": "464006",
+                     "productName": "Stokke® Scoot™ Verdeck Blue",
+                     "isOnline": true,
+                     "enabled": true,
+                     "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "isDefaultVariation": false
+                  },
+                  {
+                     "variationID": "464005",
+                     "productName": "Stokke® Scoot™ Verdeck Green",
+                     "isOnline": true,
+                     "enabled": true,
+                     "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "isDefaultVariation": false
+                  },
+                  {
+                     "variationID": "464004",
+                     "productName": "Stokke® Scoot™ Verdeck Orange",
+                     "isOnline": true,
+                     "enabled": true,
+                     "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "isDefaultVariation": false
+                  },
+                  {
+                     "variationID": "464007",
+                     "productName": "Stokke® Scoot™ Verdeck Black",
+                     "isOnline": true,
+                     "enabled": true,
+                     "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+                     "isDefaultVariation": false,
+                     "imageVariations": []
+                  }
+               ],
+               "uniqueID": "46401472461978924",
+               "order": 3
+            }
+         ],
+         "requiredBaseConfigProductIDs": [],
+         "accessoryIDs": [],
+         "uniqueID": 1472461751932
+      }
+   ],
+   "accessories": [
+      {
+         "productID": "4710",
+         "productName": "Stokke® Scoot™ Babyschale",
+         "description": "Die Stokke® Scoot™ Babyschale ist ideal für unterwegs: sie ist kompakt, bietet Neugeborenen aber genug Platz für eine sanfte, geschmeidige Fahrt. Auf Ihren City-Touren kann Ihr Kleines in der praktischen, schützenden Schale bequem ruhen und schlafen. Wie der Stokke® Scoot™ selbst beansprucht sie nur wenig Fläche – das ist perfekt, wenn’s mal eng wird wie in Cafés oder Restaurants. Mit ihren zierlichen Proportionen ist sie ideal in Kleinwagen und auf Reisen.",
+         "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+         "variations": [
+            {
+               "variationID": "471001",
+               "productName": "Stokke® Scoot™ Babyschale Black Melange",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "471002",
+               "productName": "Stokke® Scoot™ Babyschale Black",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "471003",
+               "productName": "Stokke® Scoot™ Babyschale Grey Melange",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            }
+         ],
+         "uniqueID": "47101487767622046",
+         "reusePartsFromProductID": "4634",
+         "order": 18,
+         "isExternalAccessory": true,
+         "requiredAccessoryID": false
+      },
+      {
+         "productID": "4831",
+         "productName": "Stokke® Scoot™ Sitzverkleinerer",
+         "description": "Der Stokke® Scoot™ Sitzverkleinerer ist ein funktionales Zubehör, das den Komfort für Säuglinge und Kleinkinder erhöht. Hergestellt aus weichem Frotteestoff, stylisch und benutzerfreundlich. Das abnehmbare Polster gibt Ihrem Neugeborenen auf Ihren Ausflügen in die City extra Komfort im Kopf- und Fußbereich. Damit Ihr Baby bei nassem Wetter trocken bleibt. Das ist noch nicht alles: der Sitzverkleinerer kann ab der Geburt bis ins Kleinkindalter verwendet werden.",
+         "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+         "variations": [
+            {
+               "variationID": "483101",
+               "productName": "Stokke® Scoot™ Sitzverkleinerer Confetti Blue",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "483102",
+               "productName": "Stokke® Scoot™ Sitzverkleinerer Confetti Yellow",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            }
+         ],
+         "uniqueID": "48311487852448703",
+         "isExternalAccessory": true,
+         "requiredAccessoryID": false,
+         "order": 19
+      },
+      {
+         "productID": "4490",
+         "productName": "Stokke® iZi Go Modular™ by BeSafe®",
+         "productShortName": "iZi Go Modular™",
+         "description": "Mit nur 4,4 kg Gewicht lässt sich der leichte Stokke® iZi Go Modular™ by BeSafe® Autositz einfach befestigen und transportieren. Der Sitz ist ausgestattet mit einem ergonomischen Tragegriff, einem verstellbaren 5-Punkt-Sicherheitsgurt, einem integrierten Verdeck mit eingenähter Lüftungsöffnung sowie einer kuscheligen Polsterung für außergewöhnlichen Komfort und extra Schutz. Sie können sich sicher sein, dass Ihr Baby auf Ihren gemeinsamen Unternehmungen darin extra komfortabel und sicher aufgehoben ist. Der Autositz wurde von dem renommierten norwegischen Autositzhersteller BeSafe® entwickelt, der seit 1963 Sicherheit nach skandinavischem Maßstab liefert.",
+         "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+         "variations": [
+            {
+               "variationID": "449001",
+               "productName": "Stokke® iZi Go Modular™ by BeSafe® Black",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "449002",
+               "productName": "Stokke® iZi Go Modular™ by BeSafe® Black Melange",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "449003",
+               "productName": "Stokke® iZi Go Modular™ by BeSafe® Red",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "449004",
+               "productName": "Stokke® iZi Go Modular™ by BeSafe® Brown",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "449005",
+               "productName": "Stokke® iZi Go Modular™ by BeSafe® Beige Melange",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "449006",
+               "productName": "Stokke® iZi Go Modular™ by BeSafe® Purple",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "449007",
+               "productName": "Stokke® iZi Go Modular™ by BeSafe® Deep Blue",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "449008",
+               "productName": "Stokke® iZi Go Modular™ by BeSafe® Grey Melange",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            }
+         ],
+         "uniqueID": "44901473164920696",
+         "order": 4,
+         "isExternalAccessory": true,
+         "requiredAccessoryID": false
+      },
+      {
+         "productID": "4571",
+         "productName": "Stokke® Wickeltasche",
+         "productShortName": "Changing Bag",
+         "description": "Das neue Design der Stokke Wickeltasche ist genial! Sie können sie an den Kinderwagen hängen, über der Schulter oder als Rucksack tragen. Die abnehmbaren Ringe helfen, sie einfach individuell anzupassen. Alles was Ihr Baby braucht ist griffbereit. Praktisch sind auch die unterschiedlich großen Innentaschen und die wasserfeste Seitentasche. Die weiche Wickelunterlage befindet jetzt in einer Seitentasche und ist leichter greifbar. Ein herausnehmbares Windeltäschchen gehört ebenfalls dazu.",
+         "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+         "variations": [
+            {
+               "variationID": "457101",
+               "productName": "Stokke® Wickeltasche in Red",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "457102",
+               "productName": "Stokke® Wickeltasche in Purple",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "457103",
+               "productName": "Stokke® Wickeltasche in Brown",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "457104",
+               "productName": "Stokke® Wickeltasche in Black Melange",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "457105",
+               "productName": "Stokke® Wickeltasche in Beige Melange",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "457106",
+               "productName": "Stokke® Wickeltasche in Black",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "457107",
+               "productName": "Stokke® Wickeltasche in Deep Blue",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "457108",
+               "productName": "Stokke® Wickeltasche in Grey Melange",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            }
+         ],
+         "uniqueID": "45711472462344074",
+         "order": 5,
+         "isExternalAccessory": true,
+         "requiredAccessoryID": false
+      },
+      {
+         "productID": "1770",
+         "productName": "Stokke® Wickeltasche",
+         "productShortName": "Bag",
+         "description": "Zur Wickeltasche gehören: eine faltbare Wickelunterlage mit Tasche, ein Schnullertäschchen und viel Stauraum. Sie können die Tasche am Kinderwagen befestigen oder über der Schulter tragen.\n     ",
+         "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+         "variations": [
+            {
+               "variationID": "177003",
+               "productName": "Stokke® Wickeltasche Red",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "isDefaultVariation": false
+            },
+            {
+               "variationID": "177005",
+               "productName": "Stokke® Wickeltasche Purple",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "isDefaultVariation": false
+            },
+            {
+               "variationID": "177007",
+               "productName": "Stokke® Wickeltasche Hellgrün",
+               "isOnline": true,
+               "enabled": false,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "isDefaultVariation": false,
+               "imageVariations": []
+            },
+            {
+               "variationID": "177009",
+               "productName": "Stokke® Wickeltasche Brown",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "isDefaultVariation": false
+            },
+            {
+               "variationID": "177011",
+               "productName": "Stokke® Wickeltasche Black Melange",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "isDefaultVariation": false
+            },
+            {
+               "variationID": "177012",
+               "productName": "Stokke® Wickeltasche Beige Melange",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "isDefaultVariation": false
+            },
+            {
+               "variationID": "177015",
+               "productName": "Stokke® Wickeltasche Black",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "isDefaultVariation": false
+            },
+            {
+               "variationID": "177016",
+               "productName": "Stokke® Wickeltasche Deep Blue",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "isDefaultVariation": false
+            },
+            {
+               "variationID": "177017",
+               "productName": "Stokke® Wickeltasche Grey Melange",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "isDefaultVariation": false
+            },
+            {
+               "variationID": "177001",
+               "productName": "Stokke® Wickeltasche Dark Navy",
+               "isOnline": false,
+               "enabled": false,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "isDefaultVariation": false
+            },
+            {
+               "variationID": "177004",
+               "productName": "Stokke® Wickeltasche Beige",
+               "isOnline": false,
+               "enabled": false,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "isDefaultVariation": false
+            },
+            {
+               "variationID": "177006",
+               "productName": "Stokke® Wickeltasche Green",
+               "isOnline": false,
+               "enabled": false,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "isDefaultVariation": false
+            },
+            {
+               "variationID": "177008",
+               "productName": "Stokke® Wickeltasche Pink",
+               "isOnline": false,
+               "enabled": false,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "isDefaultVariation": false
+            },
+            {
+               "variationID": "177010",
+               "productName": "Stokke® Wickeltasche Blue Melange",
+               "isOnline": false,
+               "enabled": false,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "isDefaultVariation": false
+            },
+            {
+               "variationID": "177013",
+               "productName": "Stokke® Wickeltasche Urban Blue",
+               "isOnline": false,
+               "enabled": false,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "isDefaultVariation": false
+            }
+         ],
+         "uniqueID": "17701472462107079",
+         "order": 6,
+         "requiredAccessoryID": false
+      },
+      {
+         "productID": "1771",
+         "productName": "Stokke® Kinderwagen Sonnenschirm",
+         "productShortName": "Parasol",
+         "description": "Der Winkel und die Position des Sonnenschirms können frei eingestellt werden, so dass Ihr Kind immer optimal beschattet ist. Kann an der Babyschale und am Sitz befestigt werden und schützt mit Lichtschutzfaktor SPS 50+ vor schädlichen UVA- und UVB-Strahlen.",
+         "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+         "variations": [
+            {
+               "variationID": "177102",
+               "productName": "Stokke® Kinderwagen Sonnenschirm Blue",
+               "isOnline": true,
+               "enabled": false,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "isDefaultVariation": false,
+               "imageVariations": []
+            },
+            {
+               "variationID": "177103",
+               "productName": "Stokke® Kinderwagen Sonnenschirm Red",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "isDefaultVariation": false
+            },
+            {
+               "variationID": "177105",
+               "productName": "Stokke® Kinderwagen Sonnenschirm Purple",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "isDefaultVariation": false
+            },
+            {
+               "variationID": "177106",
+               "productName": "Stokke® Kinderwagen Sonnenschirm Green",
+               "isOnline": true,
+               "enabled": false,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "isDefaultVariation": false,
+               "imageVariations": []
+            },
+            {
+               "variationID": "177109",
+               "productName": "Stokke® Kinderwagen Sonnenschirm Brown",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "isDefaultVariation": false
+            },
+            {
+               "variationID": "177111",
+               "productName": "Stokke® Kinderwagen Sonnenschirm Black Melange",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "isDefaultVariation": false
+            },
+            {
+               "variationID": "177112",
+               "productName": "Stokke® Kinderwagen Sonnenschirm Beige Melange",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "isDefaultVariation": false
+            },
+            {
+               "variationID": "177113",
+               "productName": "Stokke® Kinderwagen Sonnenschirm Urban Blue",
+               "isOnline": true,
+               "enabled": false,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "isDefaultVariation": false,
+               "imageVariations": []
+            },
+            {
+               "variationID": "177115",
+               "productName": "Stokke® Kinderwagen Sonnenschirm Black",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "isDefaultVariation": false
+            },
+            {
+               "variationID": "177116",
+               "productName": "Stokke® Kinderwagen Sonnenschirm Deep Blue",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "isDefaultVariation": false
+            },
+            {
+               "variationID": "177117",
+               "productName": "Stokke® Kinderwagen Sonnenschirm Grey Melange",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "isDefaultVariation": false
+            },
+            {
+               "variationID": "177101",
+               "productName": "Stokke® Kinderwagen Sonnenschirm Dark Navy",
+               "isOnline": false,
+               "enabled": false,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "isDefaultVariation": false
+            },
+            {
+               "variationID": "177104",
+               "productName": "Stokke® Kinderwagen Sonnenschirm Beige",
+               "isOnline": false,
+               "enabled": false,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "isDefaultVariation": false
+            },
+            {
+               "variationID": "177107",
+               "productName": "Stokke® Kinderwagen Sonnenschirm Hellgrün",
+               "isOnline": false,
+               "enabled": false,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "isDefaultVariation": false
+            },
+            {
+               "variationID": "177108",
+               "productName": "Stokke® Kinderwagen Sonnenschirm Pink",
+               "isOnline": false,
+               "enabled": false,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "isDefaultVariation": false
+            },
+            {
+               "variationID": "177118",
+               "productName": "Stokke® Stroller Parasol True Black",
+               "isOnline": false,
+               "enabled": false,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "isDefaultVariation": false
+            }
+         ],
+         "uniqueID": "17711472462175928",
+         "order": 7,
+         "requiredAccessoryID": false
+      },
+      {
+         "productID": "443500",
+         "productName": "Stokke® Stroller Becherhalter",
+         "productShortName": "Cup Holder",
+         "description": "Zur Anbringung am Handgriff. Kompatibel zum Stokke® Xplory Gestell ab Seriennummer 331324 und höher und zu allen Stokke® Crusi™, Stokke® Trailz™ und Stokke® Scoot™ Gestellen.\nFür das Stokke® Xplory® Gestell ab Seriennummer 127390 bis 331323 ist ein Adapter notwendig, dieser  kann separat gekauft werden.",
+         "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+         "variations": [],
+         "uniqueID": "4435001472462267883",
+         "order": 8,
+         "isExternalAccessory": true,
+         "requiredAccessoryID": false
+      },
+      {
+         "productID": "1778",
+         "productName": "Stokke® Kinderwagen Strickdecke",
+         "productShortName": "Blanket",
+         "description": "Die Stokke Kinderwagendecke ist eine vielfach verwendbare, weich gestrickte und atmungsaktive Decke. Sie hält Ihr Baby bei kühlem Wetter kuschelig warm und passt perfekt zu der Stokke Kinderwagen Farbpalette.\n\nAus 100 % Baumwolle. Stokke® Textilien entsprechen dem Oeko-Tex® Standard 100, Klasse 1 und sind frei von Schadstoffen dank der neuesten Forschungsergebnisse und Technologie, das Beste für Ihr Baby berücksichtigend.\n\n\nAchten Sie bitte darauf, dass Decken die Öffnung des Kinderwagens nicht abdecken sollten, damit adäquate Ventilation und Wärmeregulierung gewährleistet werden.",
+         "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+         "variations": [
+            {
+               "variationID": "177807",
+               "productName": "Stokke® Kinderwagen Strickdecke Purple Orange 100x77cm",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "177809",
+               "productName": "Stokke® Kinderwagen Strickdecke Greige Pearl 100x77cm",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "177810",
+               "productName": "Stokke® Kinderwagen Strickdecke Grey Pearl 100x77cm",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "177811",
+               "productName": "Stokke® Kinderwagen Strickdecke in Forest 90x70cm",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "177812",
+               "productName": "Stokke® Kinderwagen Strickdecke in Horizon 90x70cm",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "177813",
+               "productName": "Stokke® Kinderwagen Strickdecke in Cable Cream 90x70cm",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "177814",
+               "productName": "Stokke® Kinderwagen Strickdecke in Cable Grey 90x70cm",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "177803",
+               "productName": "Stokke® Kinderwagen Strickdecke Green Multi",
+               "isOnline": false,
+               "enabled": false,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "177805",
+               "productName": "Stokke® Kinderwagen Strickdecke Brown Multi",
+               "isOnline": false,
+               "enabled": false,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "177806",
+               "productName": "Stokke® Kinderwagen Strickdecke Black Multi",
+               "isOnline": false,
+               "enabled": false,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "177808",
+               "productName": "Stokke® Kinderwagen Strickdecke Grey Blue",
+               "isOnline": false,
+               "enabled": false,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            }
+         ],
+         "uniqueID": "17781472462274811",
+         "order": 10,
+         "isExternalAccessory": true,
+         "requiredAccessoryID": false
+      },
+      {
+         "productID": "3445",
+         "productName": "Stokke® Scoot™ Softbag",
+         "productShortName": "Softbag",
+         "description": "Die Softbag ist in den gleichen trendigen Farben erhältlich wie der Stokke® Scoot.",
+         "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+         "variations": [
+            {
+               "variationID": "344501",
+               "productName": "Stokke® Scoot™ Softbag Black Melange",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "344502",
+               "productName": "Stokke® Scoot™ Softbag Beige",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "344503",
+               "productName": "Stokke® Scoot™ Softbag Dark Navy",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "344504",
+               "productName": "Stokke® Scoot™ Softbag Purple",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "344505",
+               "productName": "Stokke® Scoot™ Softbag Red",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "344507",
+               "productName": "Stokke® Scoot™ Softbag Brown",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "344508",
+               "productName": "Stokke® Scoot™ Softbag Black",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "344509",
+               "productName": "Stokke® Scoot™ Softbag Grey Melange",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "344512",
+               "productName": "Stokke® Scoot™ Softbag Beige Melange",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "344513",
+               "productName": "Stokke® Scoot™ Softbag Urban Blue",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            }
+         ],
+         "uniqueID": "34451472462282148",
+         "order": 9,
+         "isExternalAccessory": true,
+         "requiredAccessoryID": false
+      },
+      {
+         "productID": "321500",
+         "productName": "Stokke® Kinderwagen Car Seat Adapter Multi",
+         "productShortName": "Multi Adaptor",
+         "description": "Ermöglicht Ihnen ausgewählte Maxi-Cosi®, Nuna®, oder Cybex Autositze mit bestimmten Stokke® Kinderwagen zu kombinieren.",
+         "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+         "variations": [],
+         "uniqueID": "3215001472462288569",
+         "order": 11,
+         "isExternalAccessory": true,
+         "requiredAccessoryID": false
+      },
+      {
+         "productID": "191400",
+         "productName": "Stokke® PramPack™",
+         "productShortName": "PramPack",
+         "description": "Das Reisen mit Kindern ist eine der schönsten Erfahrungen im Leben. Damit Sie sich voll und ganz darauf konzentrieren können, haben wir das Stokke® PramPack™ kreiert. Im Stokke® PramPack™ kommt Ihr Kinderwagen sicher und intakt am Ziel an. Das Stokke® PramPack™ wurde von Fluggesellschaften getestet und eignet sich für die meisten Kinderwagen. Nach der Ankunft müssen Sie es nur noch zusammenrollen und verstauen. Ganz einfach. Gute Reise!",
+         "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+         "variations": [],
+         "uniqueID": "1914001472462297054",
+         "order": 12,
+         "isExternalAccessory": true,
+         "requiredAccessoryID": false
+      },
+      {
+         "productID": "177500",
+         "productName": "Stokke® Schaffelleinlage",
+         "productShortName": "Sheepskin",
+         "description": "Unser Futter aus echtem Schaffell eignet sich perfekt für unsere Kinderwagen und Ihr Baby. Es stammt aus Neuseeland und Australien, ist natürlich, behaglich und stylish.\n \nAllgemein herrscht die Meinung vor, dass Schaffell einfach nur warm hält - das ist jedoch nur die halbe Wahrheit. Dank seiner Faserstruktur ist reines Schaffell auf natürliche Weise atmungsaktiv und sorgt dafür, dass die Körpertemperatur Ihres Kleinen immer gleich bleibt, egal bei welchem Wetter. Schaffell ist flauschig weich und zart zu der empfindlichen Haut Ihres Babys.\n \nDie Bürste, mit der Sie das Futter auffrischen und neu in Form bringen können, ist inklusive.\n \nPassend zum 5-Punkt-Sicherheitsgurt.",
+         "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+         "variations": [],
+         "uniqueID": "1775001472462304090",
+         "order": 13,
+         "isExternalAccessory": true,
+         "requiredAccessoryID": false
+      },
+      {
+         "productID": "321400",
+         "productName": "Stokke® Stokke® Kinderwagen Car Seat Adapter für Peg Perego",
+         "productShortName": "Peg Perego Adaptor",
+         "description": "Ermöglicht Ihnen ausgewählte Peg Perego Autositze mit bestimmten Stokke® Kinderwagen zu kombinieren.",
+         "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+         "variations": [],
+         "uniqueID": "3214001472462310682",
+         "order": 14,
+         "isExternalAccessory": true,
+         "requiredAccessoryID": false
+      },
+      {
+         "productID": "405900",
+         "productName": "Stokke® Kinderwagen Car Seat Adapter für Chicco",
+         "productShortName": "Chicco Adaptor",
+         "description": "Ermöglicht Ihnen, ausgewählte Chicco Autositze mit allen Stokke® Kinderwagen zu kombinieren.",
+         "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+         "variations": [],
+         "uniqueID": "4059001472462318953",
+         "order": 15,
+         "isExternalAccessory": true,
+         "requiredAccessoryID": false
+      },
+      {
+         "productID": "4489",
+         "productName": "Stokke® Scoot™ Style Kit Racing Range",
+         "productShortName": "Kit Racing Range",
+         "description": "Für ein Leben auf der Überholspur: die neuen Style Kits in der Tradition des europäischen Motorsports.Das Rennen hat begonnen: Holen Sie sich eines von vier neuen Style Kits in der Limited Edition – nur für den Stokke® Scoot™! Inspiriert von den Traditionsfarben der historischen europäischen Rennwagen reflektieren die Farben den Spirit des klassischen Rennsports. Das Zielflaggenmuster und die dezenten Details verleihen diesem sportlichen Kit Exklusivität.Die üppig gepolsterte Sitzeinlage mit Velour-Haptik ist für Kinder extra komfortabel.Machen Sie eine Testfahrt!",
+         "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+         "variations": [
+            {
+               "variationID": "448901",
+               "productName": "Stokke® Scoot™ Style Kit Racing Blue",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "448902",
+               "productName": "Stokke® Scoot™ Style Kit Racing Yellow",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "448903",
+               "productName": "Stokke® Scoot™ Style Kit Racing Green",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "448904",
+               "productName": "Stokke® Scoot™ Style Kit Racing Red",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            }
+         ],
+         "uniqueID": "44891472462327209",
+         "order": 17,
+         "isExternalAccessory": true,
+         "requiredAccessoryID": false
+      },
+      {
+         "productID": "2553",
+         "productName": "Stokke® iZi Go™ X1 by BeSafe®",
+         "productShortName": "iZi Go™ X1",
+         "description": "Die nur 4,2 kg schwere Stokke® iZi Go X1 by BeSafe® wird unkompliziert befestigt und ist noch einfacher zu tragen. Die ultraleichte Autoschale ist ausgestattet mit einem verstellbaren 5-Punkt-Sicherheitsgurt, einem integrierten Sonnenverdeck und kuscheliger Polsterung für außergewöhnlichen Komfort und extra Schutz. Und das ist noch nicht alles: als Kinderwagensitz ist die Stokke® iZi Go X1 by BeSafe® auch mit allen Stokke® Kinderwagen kompatibel. Sie brauchen keinen Adapter, sondern können sie einfach in das Chassis einrasten. Erhältlich in passenden Farben für ein perfektes Styling. Stokke® iZi Go X1 by BeSafe® macht die kleinen Übergänge im Leben so viel einfacher!",
+         "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+         "variations": [
+            {
+               "variationID": "255307",
+               "productName": "Stokke® iZi Go™ X1 by BeSafe® Black Melange",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "255308",
+               "productName": "Stokke® iZi Go™ X1 by BeSafe® Black",
+               "isOnline": true,
+               "enabled": true,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "255301",
+               "productName": "Stokke® iZi Go™ X1 by BeSafe® Dark Navy",
+               "isOnline": false,
+               "enabled": false,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "255302",
+               "productName": "Stokke® iZi Go™ X1 by BeSafe® Red",
+               "isOnline": false,
+               "enabled": false,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "255303",
+               "productName": "Stokke® iZi Go™ X1 by BeSafe® Beige",
+               "isOnline": false,
+               "enabled": false,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "255304",
+               "productName": "Stokke® iZi Go™ X1 by BeSafe® Purple",
+               "isOnline": false,
+               "enabled": false,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "255305",
+               "productName": "Stokke® iZi Go™ X1 by BeSafe® Light Green",
+               "isOnline": false,
+               "enabled": false,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "255306",
+               "productName": "Stokke® iZi Go™ X1 by BeSafe® Brown",
+               "isOnline": false,
+               "enabled": false,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "255309",
+               "productName": "Stokke® iZi Go™ X1 by BeSafe® Deep Blue",
+               "isOnline": false,
+               "enabled": false,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "255312",
+               "productName": "Stokke® iZi Go™ X1 by BeSafe® Beige Melange",
+               "isOnline": false,
+               "enabled": false,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            },
+            {
+               "variationID": "255313",
+               "productName": "Stokke® iZi Go™ X1 by BeSafe® Urban Blue",
+               "isOnline": false,
+               "enabled": false,
+               "realImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "swatchImage": "https://i.vimeocdn.com/portrait/58832_300x300",
+               "thumbnailImage": "https://i.vimeocdn.com/portrait/58832_300x300"
+            }
+         ],
+         "uniqueID": "25531473164924414",
+         "order": 16,
+         "isExternalAccessory": true,
+         "requiredAccessoryID": false
+      }
+    ]
+  }
 }

@@ -11,6 +11,8 @@ import ProductAutocomplete from './ProductAutocomplete';
 import Product from './Product';
 
 import Paper from 'material-ui/Paper';
+import { List, ListItem } from 'material-ui/List';
+import Subheader from 'material-ui/Subheader';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
@@ -98,6 +100,30 @@ const Folders = ({
                 }}>
               <ContentAdd />
             </FloatingActionButton>
+            <List>
+              {folder.accessoryIDs.length > 0
+                ? <Subheader>Preselected accessories</Subheader>
+                : null
+              }
+              {folder.accessoryIDs.map((accessory,key) => {
+                return (
+                  <ListItem key={key} disabled={true} >
+                    {accessory}
+                  </ListItem>
+                )
+              })}
+              {folder.requiredBaseConfigProductIDs.length > 0
+                ? <Subheader>Required accessories</Subheader>
+                : null
+              }
+              {folder.requiredBaseConfigProductIDs.map((accessory,key) => {
+                return (
+                  <ListItem key={key} disabled={true} >
+                    {accessory}
+                  </ListItem>
+                )
+              })}
+            </List>
           </Paper>
         </div>
         )

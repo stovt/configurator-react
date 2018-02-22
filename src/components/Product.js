@@ -1,11 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions/products';
-import { getActiveConfiguratorID } from '../reducers/configurator';
+import { 
+  getActiveConfiguratorID, 
+  getFolders, 
+  getFoldersProducts, 
+  getAccessories, 
+  getAllProducts
+} from '../reducers/configurator';
 
 import Paper from 'material-ui/Paper';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import List from 'material-ui/List/List';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
 import Checkbox from 'material-ui/Checkbox';
 import RaisedButton from 'material-ui/RaisedButton';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
@@ -16,17 +24,26 @@ import ArrowDown from 'material-ui/svg-icons/navigation/arrow-downward';
 import ProductImage from './ProductImage';
 import TextField from './TextField';
 import ProductListItem from './ProductListItem';
+import AccessoriesTable from './AccessoriesTable';
 
 const Product = ({ 
   product, 
   baseConfigID, 
   accessory, 
   configuratorID, 
+  folders,
+  foldersProducts,
+  accessories,
+  allProducts,
   refreshProduct, 
   changeProductTitle,
   changeProductShortTitle,
   changeProductDescription,
   toggleAccessoryExternal ,
+  togglePreselectedAccessory,
+  toggleRequireAccessory,
+  selectReusableProduct,
+  selectRequiredAccessory,
   upAccessory,
   downAccessory,
   removeProduct
@@ -71,7 +88,8 @@ const Product = ({
                 checked={product.isExternalAccessory}
                 onCheck={() => toggleAccessoryExternal(product.productID)}
                 label="External accessory"
-                style={{ display: 'inline-block', width: '50%'}}/>
+                style={{ display: 'inline-block', width: '50%', marginTop: '25px'}}
+              />
             : null
           }
 
@@ -97,6 +115,53 @@ const Product = ({
             multiLine={true}
             style={{width: '50%'}}
           />
+          {accessory
+            ? <div>
+                <AccessoriesTable 
+                  folders={folders}
+                  accessoryID={product.productID}
+                  togglePreselectedAccessory={(baseConfigID, accessoryID) => togglePreselectedAccessory(baseConfigID, accessoryID)}
+                  toggleRequireAccessory={(baseConfigID, accessoryID) => toggleRequireAccessory(baseConfigID, accessoryID)}
+                />
+                <SelectField 
+                  floatingLabelText="Choose required accessory" 
+                  value={product.requiredAccessoryID || ''} 
+                  onChange={(event, index, id) => selectRequiredAccessory(id, product.productID)}>
+                    <MenuItem 
+                      value={false} 
+                      primaryText={'NONE'}
+                    />
+                  {accessories.map(accessory => {
+                    return(
+                      <MenuItem 
+                        key={accessory.productID} 
+                        value={accessory.productID} 
+                        primaryText={accessory.productName}
+                      />
+                    )
+                  })}
+                </SelectField>
+              </div>
+            : null
+          }
+          <SelectField 
+            floatingLabelText="Product with reusable" 
+            value={product.reusePartsFromProductID || ''} 
+            onChange={(event, index, id) => selectReusableProduct(id, product.productID, baseConfigID, accessory)}>
+              <MenuItem 
+                value={false} 
+                primaryText={'NONE'}
+              />
+            {allProducts.map(accessory => {
+              return(
+                <MenuItem 
+                  key={accessory.productID} 
+                  value={accessory.productID} 
+                  primaryText={accessory.productName}
+                />
+              )
+            })}
+          </SelectField>
         </div>
         <div style={{"clear": "both"}} />
         <List>
@@ -168,11 +233,15 @@ const Product = ({
 );
 
 const mapStateToProps = (state) => ({
-  configuratorID: getActiveConfiguratorID(state)
+  configuratorID: getActiveConfiguratorID(state),
+  folders: getFolders(state),
+  foldersProducts: getFoldersProducts(state),
+  accessories: getAccessories(state),
+  allProducts: getAllProducts(state)
 });
 
 export default connect(mapStateToProps, actions) (Product);
 
 ProductImage.defaultProps = {
-  accessory: false  
+  accessory: false
 };
