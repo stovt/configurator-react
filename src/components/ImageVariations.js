@@ -70,8 +70,8 @@ class ImageVariations extends Component {
     const { 
       allProducts, 
       variation, 
-      productID, 
-      baseConfigID, 
+      product, 
+      folder, 
       accessory, 
       configuratorID,
       addImageVariation,
@@ -95,7 +95,7 @@ class ImageVariations extends Component {
             floatingLabelText="Product with reusable" 
             value={false} 
             onChange={(event, index, id) => addImageVariation(
-                id, event.target.innerText, productID, variation.variationID, baseConfigID, accessory
+                id, event.target.innerText, product, variation, folder, accessory
             )}
           >
             {allProducts.map(product => {
@@ -134,10 +134,10 @@ class ImageVariations extends Component {
                                 : 'UPLOAD_BASE_CONFIG_IMAGE_VARIATION'
                               }
                               data={{ 
-                                baseConfigID: baseConfigID, 
-                                productID: productID,  
-                                variationID: variation.variationID,
-                                imageVariationID: imageVariation.productID
+                                folder: folder, 
+                                product: product,  
+                                variation: variation,
+                                imageVariation: imageVariation
                               }}
                             />
                           </GridTile>
@@ -149,7 +149,7 @@ class ImageVariations extends Component {
                           secondary={true} 
                           mini={true} 
                           onClick={() => removeImageVariation(
-                            imageVariation.productID, productID, variation.variationID, baseConfigID, accessory
+                            imageVariation, product, variation, folder, accessory
                           )} 
                           style={{
                             cursor: 'pointer',

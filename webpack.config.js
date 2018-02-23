@@ -28,28 +28,39 @@ module.exports = {
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
       }),
-      /*new webpack.optimize.UglifyJsPlugin({
+      /*new webpack.NoEmitOnErrorsPlugin(),
+      new webpack.optimize.CommonsChunkPlugin({
+        children: true,
+        async: true,
+      }),
+      new webpack.optimize.UglifyJsPlugin({
         mangle: true,
+        sourceMap: true, 
+        minimize: true,
+        beautify: false,
+        comments: false,
         compress: {
           warnings: false, // Suppress uglification warnings
           pure_getters: true,
           unsafe: true,
           unsafe_comps: true,
-          screw_ie8: true
-        },
-        output: {
-          comments: false,
-        },
-        exclude: [/\.min\.js$/gi] // skip pre-minified libs
+          screw_ie8: true,
+            sequences     : true,
+            booleans      : true,
+            loops         : true,
+            unused        : true,
+            warnings      : false,
+            drop_console  : true
+        }
       }),
-      new webpack.IgnorePlugin(/^\.\/locale$/, [/moment$/]),
-      new webpack.NoEmitOnErrorsPlugin(),
+      new webpack.optimize.OccurrenceOrderPlugin(),
       new CompressionPlugin({
         asset: "[path].gz[query]",
         algorithm: "gzip",
-        test: /\.js$|\.css$|\.html$/,
+        test: /\.js$|\.html$/,
         threshold: 10240,
-        minRatio: 0
-      })*/
+        minRatio: 0.8
+      }),
+      new webpack.optimize.ModuleConcatenationPlugin()*/
     ]
 };

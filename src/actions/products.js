@@ -27,7 +27,7 @@ export const fetchProducts = () => (dispatch, getState) => {
   );
 };
 
-export const addProduct = (baseConfigID, productID, accessory = false) => (dispatch, getState) => 
+export const addProduct = (folder, productID, accessory = false) => (dispatch, getState) => 
   api.getProductByID(productID, getActiveLocaleID(getState())).then(
     response => {
       if (accessory) {
@@ -38,127 +38,129 @@ export const addProduct = (baseConfigID, productID, accessory = false) => (dispa
       } else {
         dispatch({
           type: 'ADD_BASE_CONFIG_PRODUCT',
-          baseConfigID,
+          folder,
           product: response,
         });
       }
     }
   );
 
-export const removeProduct = (baseConfigID, productID, accessory = false) => (dispatch, getState) => {
+export const removeProduct = (folder, product, accessory = false) => (dispatch, getState) => {
   if (accessory) {
     dispatch({
       type: 'REMOVE_ACCESSORY_PRODUCT',
-      productID,
+      product,
     });
   } else {
     dispatch({
       type: 'REMOVE_BASE_CONFIG_PRODUCT',
-      baseConfigID,
-      productID,
+      folder,
+      product,
     });
   }
 };
 
-export const changeProductTitle = (baseConfigID, productID, text, accessory = false) => (dispatch, getState) => {
+export const changeProductTitle = (folder, product, text, accessory = false) => (dispatch, getState) => {
   if (accessory) {
     dispatch({
       type: 'CHANGE_ACCESSORY_PRODUCT_TITLE',
-      productID,
+      product,
       text
     });
   } else {
     dispatch({
       type: 'CHANGE_BASE_CONFIG_PRODUCT_TITLE',
-      baseConfigID,
-      productID,
+      folder,
+      product,
       text
     });
   }
 };
 
-export const changeProductShortTitle = (baseConfigID, productID, text, accessory = false) => (dispatch, getState) => {
+export const changeProductShortTitle = (folder, product, text, accessory = false) => (dispatch, getState) => {
   if (accessory) {
     dispatch({
       type: 'CHANGE_ACCESSORY_PRODUCT_SHORT_TITLE',
-      productID,
+      product,
       text
     });
   } else {
     dispatch({
       type: 'CHANGE_BASE_CONFIG_PRODUCT_SHORT_TITLE',
-      baseConfigID,
-      productID,
+      folder,
+      product,
       text
     });
   }
 };
 
-export const changeProductDescription = (baseConfigID, productID, text, accessory = false) => (dispatch, getState) => {
+export const changeProductDescription = (folder, product, text, accessory = false) => (dispatch, getState) => {
   if (accessory) {
     dispatch({
       type: 'CHANGE_ACCESSORY_PRODUCT_DESCRIPTION',
-      productID,
+      product,
       text
     });
   } else {
     dispatch({
       type: 'CHANGE_BASE_CONFIG_PRODUCT_DESCRIPTION',
-      baseConfigID,
-      productID,
+      folder,
+      product,
       text
     });
   }
 };
 
-export const refreshProduct = (baseConfigID, productID, accessory = false) => (dispatch, getState) => 
+export const refreshProduct = (folder, oldProduct, productID, accessory = false) => (dispatch, getState) => 
   api.getProductByID(productID, getActiveLocaleID(getState())).then(
     response => {
       if (accessory) {
         dispatch({
           type: 'REFRESH_ACCESSORY_PRODUCT',
+          oldProduct,
           product: response
         });
       } else {
         dispatch({
           type: 'REFRESH_BASE_CONFIG_PRODUCT',
-          baseConfigID,
+          folder,
+          oldProduct,
           product: response
         });
       }
     }
   );
 
-export const toggleVariationEnable = (baseConfigID, productID, variationID, accessory)  => (dispatch, getState) => {
+export const toggleVariationEnable = (folder, product, variation, accessory)  => (dispatch, getState) => {
   if (accessory) {
     dispatch({
       type: 'TOGGLE_ACCESSORY_VARIATION_ENABLE',
-      productID,
-      variationID
+      product,
+      variation
     });
   } else {
     dispatch({
       type: 'TOGGLE_BASE_CONFIG_VARIATION_ENABLE',
-      baseConfigID,
-      productID,
-      variationID
+      folder,
+      product,
+      variation
     });
   }  
 };
 
-export const toggleVariationDefault = (baseConfigID, productID, variationID, accessory)  => (dispatch, getState) => {
+export const toggleVariationDefault = (folder, product, variation, accessory)  => (dispatch, getState) => {
   if (accessory) {
     dispatch({
       type: 'TOGGLE_ACCESSORY_VARIATION_DEFAULT',
-      productID,
-      variationID
+      product,
+      variation
     });
   } else {
     dispatch({
       type: 'TOGGLE_BASE_CONFIG_VARIATION_DEFAULT',
-      baseConfigID,
-      productID,
-      variationID
+      product,
+      variation,
+      folder
     });
   }  
 };
@@ -169,100 +171,101 @@ export const refreshAllAccessories = (accesories) => (dispatch, getState) =>
       response => {
         dispatch({
           type: 'REFRESH_ACCESSORY_PRODUCT',
+          oldProduct: accessory,
           product: response
         });
       }
     );
   });
   
-export const toggleAccessoryExternal = (productID) => ({
+export const toggleAccessoryExternal = (product) => ({
   type: 'TOGGLE_ACCESSORY_EXTERNAL',
-  productID
+  product
 });
 
-export const upAccessory = (productID) => ({
+export const upAccessory = (product) => ({
   type: 'UP_ACCESSORY_PRODUCT',
-  productID
+  product
 });
 
-export const downAccessory = (productID) => ({
+export const downAccessory = (product) => ({
   type: 'DOWN_ACCESSORY_PRODUCT',
-  productID
+  product
 });
 
-export const togglePreselectedAccessory = (baseConfigID, accessoryID) => ({
+export const togglePreselectedAccessory = (folder, accessoryID) => ({
   type: 'TOGGLE_ACCESSORY_PRESELECTED',
-  baseConfigID,
+  folder,
   accessoryID
 });
 
-export const toggleRequireAccessory = (baseConfigID, accessoryID) => ({
+export const toggleRequireAccessory = (folder, accessoryID) => ({
   type: 'TOGGLE_ACCESSORY_REQUIRE',
-  baseConfigID,
+  folder,
   accessoryID
 });
 
 
-export const selectReusableProduct = (id, productID, baseConfigID, accessory)  => (dispatch, getState) => {
+export const selectReusableProduct = (id, product, folder, accessory)  => (dispatch, getState) => {
   if (accessory) {
     dispatch({
       type: 'SELECT_ACCESSORY_REUSABLE_PRODUCT',
       id,
-      productID
+      product
     });
   } else {
     dispatch({
       type: 'SELECT_BASE_CONFIG_REUSABLE_PRODUCT',
       id,
-      productID,
-      baseConfigID
+      product,
+      folder
     });
   }  
 };
 
-export const selectRequiredAccessory = (id, productID) => ({
+export const selectRequiredAccessory = (id, product) => ({
   type: 'SELECT_ACCESSORY_REQUIRED',
   id,
-  productID
+  product
 });
 
 
-export const addImageVariation = (id, name, productID, variationID, baseConfigID, accessory)  => (dispatch, getState) => {
+export const addImageVariation = (id, name, product, variation, folder, accessory)  => (dispatch, getState) => {
   if (accessory) {
     dispatch({
       type: 'ADD_ACCESSORY_IMAGE_VARIATION',
       id,
       name,
-      productID,
-      variationID
+      product,
+      variation
     });
   } else {
     dispatch({
       type: 'ADD_BASE_CONFIG_IMAGE_VARIATION',
       id,
       name,
-      productID,
-      variationID,
-      baseConfigID
+      product,
+      variation,
+      folder
     });
   }
 };
 
-export const removeImageVariation = (imageVariationID, productID, variationID, baseConfigID, accessory)  => (dispatch, getState) => {
+export const removeImageVariation = (imageVariation, product, variation, folder, accessory)  => (dispatch, getState) => {
   if (accessory) {
     dispatch({
       type: 'REMOVE_ACCESSORY_IMAGE_VARIATION',
-      imageVariationID,
-      productID,
-      variationID
+      imageVariation,
+      product,
+      variation
     });
   } else {
     dispatch({
       type: 'REMOVE_BASE_CONFIG_IMAGE_VARIATION',
-      imageVariationID,
-      productID,
-      variationID,
-      baseConfigID
+      imageVariation,
+      product,
+      variation,
+      folder
     });
   }
 };

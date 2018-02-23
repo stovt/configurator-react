@@ -34,7 +34,7 @@ const AccessoriesTable = ( {
             <TableRowColumn>
               <div style={{'overflow': 'hidden'}}>
                 <Checkbox
-                  onCheck={() => togglePreselectedAccessory(folder.uniqueID, accessoryID)}
+                  onCheck={() => togglePreselectedAccessory(folder, accessoryID)}
                   checked={isChecked(folder.accessoryIDs, accessoryID)}
                 />
               </div>
@@ -42,7 +42,7 @@ const AccessoriesTable = ( {
             <TableRowColumn>
               <div style={{'overflow': 'hidden'}}>
                 <Checkbox
-                  onCheck={() => toggleRequireAccessory(folder.uniqueID, accessoryID)}
+                  onCheck={() => toggleRequireAccessory(folder, accessoryID)}
                   checked={isChecked(folder.requiredBaseConfigProductIDs, accessoryID)}
                 />
               </div>

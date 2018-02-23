@@ -37,7 +37,7 @@ const Folders = ({
                 image={folder.baseConfigImage} 
                 configuratorID={folder.configuratorID} 
                 type={'UPLOAD_BASE_CONFIG_IMAGE'}
-                data={{baseConfigID: folder.uniqueID}}
+                data={{folder: folder}}
               />
               </div>
               <div style={{float: 'left'}}>
@@ -45,35 +45,35 @@ const Folders = ({
                   hintText="Type ID"
                   floatingLabelText="Folder ID"
                   value={folder.baseConfigID}
-                  sendValue={(value) => changeBaseConfigID(folder.uniqueID, value)}
+                  sendValue={(value) => changeBaseConfigID(folder, value)}
                 />
                 <br />
                 <TextField
                   hintText="Type title"
                   floatingLabelText="Folder Title"
                   value={folder.baseConfigTitle}
-                  sendValue={(value) => changeBaseConfigTitle(folder.uniqueID, value)}
+                  sendValue={(value) => changeBaseConfigTitle(folder, value)}
                 />
                 <br />
                 <TextField
                   hintText="Type subtitle"
                   floatingLabelText="Folder Subtitle"
                   value={folder.baseConfigSubtitle}
-                  sendValue={(value) => changeBaseConfigSubtitle(folder.uniqueID, value)}
+                  sendValue={(value) => changeBaseConfigSubtitle(folder, value)}
                 />
                 <br />
                 <TextField
                   hintText="Type description"
                   floatingLabelText="Folder Description"
                   value={folder.baseConfigDescription}
-                  sendValue={(value) => changeBaseConfigDescription(folder.uniqueID, value)}
+                  sendValue={(value) => changeBaseConfigDescription(folder, value)}
                   multiLine={true}
                 />
                 </div>
                 <div style={{"clear": "both"}} />
               </div>
               <ProductAutocomplete 
-                baseConfigID={folder.uniqueID}
+                folder={folder}
               />
 
               {folder.productIDs.map((product, key) => {
@@ -81,14 +81,14 @@ const Folders = ({
                   <Product 
                     product={product}
                     key={product.productID} 
-                    baseConfigID={folder.uniqueID}
+                    folder={folder}
                   />
                 )
               })}
               <FloatingActionButton 
                 secondary={true} 
                 mini={true} 
-                onClick={() => removeBaseConfig(folder.uniqueID)}
+                onClick={() => removeBaseConfig(folder)}
                 style={{
                   cursor: 'pointer',
                   transform: 'rotate(45deg)',

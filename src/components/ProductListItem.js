@@ -11,8 +11,8 @@ import ImageVariations from './ImageVariations';
 
 const ProductListItem = ({ 
   variation, 
-  productID, 
-  baseConfigID, 
+  product, 
+  folder, 
   accessory, 
   configuratorID,
   toggleVariationEnable,
@@ -26,7 +26,7 @@ const ProductListItem = ({
     <div style={{float: "left", minWidth: "30%"}}>
       <Checkbox 
         checked={variation.enabled}
-        onCheck={() => toggleVariationEnable(baseConfigID, productID, variation.variationID, accessory)}
+        onCheck={() => toggleVariationEnable(folder, product, variation, accessory)}
         label="Enable this product"
         disabled={!variation.isOnline}
       />
@@ -38,7 +38,7 @@ const ProductListItem = ({
       </h4>
       <Checkbox 
         checked={variation.isDefaultVariation}
-        onCheck={() => toggleVariationDefault(baseConfigID, productID, variation.variationID, accessory)}
+        onCheck={() => toggleVariationDefault(folder, product, variation, accessory)}
         disabled={!variation.enabled}
         label="Default Variation"
       />
@@ -64,9 +64,9 @@ const ProductListItem = ({
             : 'UPLOAD_BASE_CONFIG_PRODUCT_VARIATION_REAL_IMAGE'
           }
           data={{ 
-            variationID: variation.variationID,
-            baseConfigID: baseConfigID, 
-            productID: productID 
+            variation: variation,
+            folder: folder, 
+            product: product 
           }}
           disabled={!variation.enabled}
         />
@@ -91,9 +91,9 @@ const ProductListItem = ({
             : 'UPLOAD_BASE_CONFIG_PRODUCT_VARIATION_THUMB_IMAGE'
           }
           data={{ 
-            variationID: variation.variationID,
-            baseConfigID: baseConfigID, 
-            productID: productID 
+            variation: variation,
+            folder: folder, 
+            product: product 
           }}
           disabled={!variation.enabled}
         />
@@ -118,9 +118,9 @@ const ProductListItem = ({
             : 'UPLOAD_BASE_CONFIG_PRODUCT_VARIATION_SWATCH_IMAGE'
           }
           data={{ 
-            variationID: variation.variationID,
-            baseConfigID: baseConfigID, 
-            productID: productID 
+            variation: variation,
+            folder: folder, 
+            product: product 
           }}
           disabled={!variation.enabled}
         />
@@ -128,8 +128,8 @@ const ProductListItem = ({
     </div>
     <ImageVariations 
       variation={variation}
-      productID={productID}
-      baseConfigID={baseConfigID}
+      product={product}
+      folder={folder}
       accessory={accessory}
       configuratorID={configuratorID}
     />

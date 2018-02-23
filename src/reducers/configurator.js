@@ -17,13 +17,25 @@ const globalAttributes = (state = {
     case 'SELECT_CONFIGURATOR_SUCCESS':
       return action.configurator.global
     case 'TOGGLE_CONFIGURATOR_DOWNLOAD_FLAG':
-      return {...state, isDownloadAvailable: !state.isDownloadAvailable};
+      return {
+        ...state, 
+        isDownloadAvailable: !state.isDownloadAvailable
+      };
     case 'TOGGLE_CONFIGURATOR_WISHLIST_FLAG':
-      return {...state, isWishlistAvailable: !state.isWishlistAvailable};
+      return {
+        ...state, 
+        isWishlistAvailable: !state.isWishlistAvailable
+      };
     case 'TOGGLE_CONFIGURATOR_ONLINE_FLAG':
-      return {...state, isOnline: !state.isOnline};
+      return {
+        ...state, 
+        isOnline: !state.isOnline
+      };
     case 'CHANGE_CONFIGURATOR_TITLE':
-      return {...state, title: action.text};
+      return {
+        ...state, 
+        title: action.text
+      };
     default:
       return state;
   }
@@ -46,368 +58,408 @@ const baseConfigs = (state = [], action) => {
       return []
     case 'SELECT_CONFIGURATOR_SUCCESS':
       return action.configurator.baseConfigs
-    case 'CHANGE_BASE_CONFIG_ID': {
-      let folder = getFolderByUniqueID(state, action.id);
-      folder.baseConfigID = action.text;
-      return [...state, ...folder];
-    }
-    case 'CHANGE_BASE_CONFIG_TITLE': {
-      let folder = getFolderByUniqueID(state, action.id);
-      folder.baseConfigTitle = action.text;
-      return [...state, ...folder];
-    }
-    case 'CHANGE_BASE_CONFIG_SUBTITLE': {
-      let folder = getFolderByUniqueID(state, action.id);
-      folder.baseConfigSubtitle = action.text;
-      return [...state, ...folder];
-    }
-    case 'CHANGE_BASE_CONFIG_DESCRIPTION': {
-      let folder = getFolderByUniqueID(state, action.id);
-      folder.baseConfigDescription = action.text;
-      return [...state, ...folder];
-    }
-    case 'REMOVE_BASE_CONFIG': {
-      let folder = getFolderByUniqueID(state, action.id);
+    case 'CHANGE_BASE_CONFIG_ID':
       return [
-        ...state.slice(0, state.indexOf(folder)), 
-        ...state.slice(state.indexOf(folder) + 1)
+        ...state.slice(0, state.indexOf(action.folder)), 
+        {...action.folder, baseConfigID: action.text},
+        ...state.slice(state.indexOf(action.folder) + 1)
       ];
-    }
+    case 'CHANGE_BASE_CONFIG_TITLE':
+      return [
+        ...state.slice(0, state.indexOf(action.folder)), 
+        {...action.folder, baseConfigTitle: action.text},
+        ...state.slice(state.indexOf(action.folder) + 1)
+      ];
+    case 'CHANGE_BASE_CONFIG_SUBTITLE':
+      return [
+        ...state.slice(0, state.indexOf(action.folder)), 
+        {...action.folder, baseConfigSubtitle: action.text},
+        ...state.slice(state.indexOf(action.folder) + 1)
+      ];
+    case 'CHANGE_BASE_CONFIG_DESCRIPTION':
+      return [
+        ...state.slice(0, state.indexOf(action.folder)), 
+        {...action.folder, baseConfigDescription: action.text},
+        ...state.slice(state.indexOf(action.folder) + 1)
+      ];
+    case 'REMOVE_BASE_CONFIG':
+      return [
+        ...state.slice(0, state.indexOf(action.folder)), 
+        ...state.slice(state.indexOf(action.folder) + 1)
+      ];
     case 'ADD_BASE_CONFIG': 
       return [...state, action.config];
-    case 'UPLOAD_BASE_CONFIG_IMAGE': {
-      let folder = getFolderByUniqueID(state, action.baseConfigID);
-      folder.baseConfigImage = action.image;
-      return [...state, ...folder];
-    }
-    case 'UPLOAD_BASE_CONFIG_PRODUCT_IMAGE': {
-      let folder = getFolderByUniqueID(state, action.baseConfigID);
-      let product = getFolderProductByID(folder, action.productID);
-      let productIndex = folder.productIDs.indexOf(product);
-      folder.productIDs = [
-        ...folder.productIDs.slice(0, productIndex), 
-        {...product, realImage: action.image},
-        ...folder.productIDs.slice(productIndex + 1)
+    case 'UPLOAD_BASE_CONFIG_IMAGE':
+      return [
+        ...state.slice(0, state.indexOf(action.folder)), 
+        {...action.folder, baseConfigImage: action.image},
+        ...state.slice(state.indexOf(action.folder) + 1)
       ];
-      return [...state, ...folder];
-    }
-    case 'ADD_BASE_CONFIG_PRODUCT': {
-      let folder = getFolderByUniqueID(state, action.baseConfigID);
-      folder.productIDs = [
-        ...folder.productIDs, 
-        action.product
+    case 'UPLOAD_BASE_CONFIG_PRODUCT_IMAGE':
+      return [
+        ...state.slice(0, state.indexOf(action.folder)), 
+        {
+          ...action.folder, 
+          productIDs: [
+            ...action.folder.productIDs.slice(0, action.folder.productIDs.indexOf(action.product)), 
+            {...action.product, realImage: action.image},
+            ...action.folder.productIDs.slice(action.folder.productIDs.indexOf(action.product) + 1)
+          ]
+        },
+        ...state.slice(state.indexOf(action.folder) + 1)
       ];
-      return [...state, ...folder];
-    }
-    case 'REMOVE_BASE_CONFIG_PRODUCT': {
-      let folder = getFolderByUniqueID(state, action.baseConfigID);
-      let product = getFolderProductByID(folder, action.productID);
-      folder.productIDs = [
-        ...folder.productIDs.slice(0, folder.productIDs.indexOf(product)), 
-        ...folder.productIDs.slice(folder.productIDs.indexOf(product) + 1)
+    case 'ADD_BASE_CONFIG_PRODUCT':
+      return [
+        ...state.slice(0, state.indexOf(action.folder)), 
+        {
+          ...action.folder, 
+          productIDs: [
+            ...action.folder.productIDs,
+            action.product
+          ]
+        },
+        ...state.slice(state.indexOf(action.folder) + 1)
       ];
-      return [...state, ...folder];
-    }
-    case 'CHANGE_BASE_CONFIG_PRODUCT_TITLE': {
-      let folder = getFolderByUniqueID(state, action.baseConfigID);
-      let product = getFolderProductByID(folder, action.productID);
-      let productIndex = folder.productIDs.indexOf(product);
-      folder.productIDs = [
-        ...folder.productIDs.slice(0, productIndex), 
-        {...product, productName: action.text},
-        ...folder.productIDs.slice(productIndex + 1)
+    case 'REMOVE_BASE_CONFIG_PRODUCT':
+      return [
+        ...state.slice(0, state.indexOf(action.folder)), 
+        {
+          ...action.folder, 
+          productIDs: [
+            ...action.folder.productIDs.slice(0, action.folder.productIDs.indexOf(action.product)), 
+            ...action.folder.productIDs.slice(action.folder.productIDs.indexOf(action.product) + 1)
+          ]
+        },
+        ...state.slice(state.indexOf(action.folder) + 1)
       ];
-      return [...state, ...folder];
-    }
-    case 'CHANGE_BASE_CONFIG_PRODUCT_SHORT_TITLE': {
-      let folder = getFolderByUniqueID(state, action.baseConfigID);
-      let product = getFolderProductByID(folder, action.productID);
-      let productIndex = folder.productIDs.indexOf(product);
-      folder.productIDs = [
-        ...folder.productIDs.slice(0, productIndex), 
-        {...product, productShortName: action.text},
-        ...folder.productIDs.slice(productIndex + 1)
+    case 'CHANGE_BASE_CONFIG_PRODUCT_TITLE':
+      return [
+        ...state.slice(0, state.indexOf(action.folder)), 
+        {
+          ...action.folder, 
+          productIDs: [
+            ...action.folder.productIDs.slice(0, action.folder.productIDs.indexOf(action.product)), 
+            {...action.product, productName: action.text},
+            ...action.folder.productIDs.slice(action.folder.productIDs.indexOf(action.product) + 1)
+          ]
+        },
+        ...state.slice(state.indexOf(action.folder) + 1)
       ];
-      return [...state, ...folder];
-    }
-    case 'CHANGE_BASE_CONFIG_PRODUCT_DESCRIPTION': {
-      let folder = getFolderByUniqueID(state, action.baseConfigID);
-      let product = getFolderProductByID(folder, action.productID);
-      let productIndex = folder.productIDs.indexOf(product);
-      folder.productIDs = [
-        ...folder.productIDs.slice(0, productIndex), 
-        {...product, description: action.text},
-        ...folder.productIDs.slice(productIndex + 1)
+    case 'CHANGE_BASE_CONFIG_PRODUCT_SHORT_TITLE':
+      return [
+        ...state.slice(0, state.indexOf(action.folder)), 
+        {
+          ...action.folder, 
+          productIDs: [
+            ...action.folder.productIDs.slice(0, action.folder.productIDs.indexOf(action.product)), 
+            {...action.product, productShortName: action.text},
+            ...action.folder.productIDs.slice(action.folder.productIDs.indexOf(action.product) + 1)
+          ]
+        },
+        ...state.slice(state.indexOf(action.folder) + 1)
       ];
-      return [...state, ...folder];
-    }
-    case 'SELECT_BASE_CONFIG_REUSABLE_PRODUCT': {
-      let folder = getFolderByUniqueID(state, action.baseConfigID);
-      let product = getFolderProductByID(folder, action.productID);
-      let productIndex = folder.productIDs.indexOf(product);
-      folder.productIDs = [
-        ...folder.productIDs.slice(0, productIndex), 
-        {...product, reusePartsFromProductID: action.id},
-        ...folder.productIDs.slice(productIndex + 1)
+    case 'CHANGE_BASE_CONFIG_PRODUCT_DESCRIPTION':
+      return [
+        ...state.slice(0, state.indexOf(action.folder)), 
+        {
+          ...action.folder, 
+          productIDs: [
+            ...action.folder.productIDs.slice(0, action.folder.productIDs.indexOf(action.product)), 
+            {...action.product, description: action.text},
+            ...action.folder.productIDs.slice(action.folder.productIDs.indexOf(action.product) + 1)
+          ]
+        },
+        ...state.slice(state.indexOf(action.folder) + 1)
       ];
-      return [...state, ...folder];
-    }
-    case 'REFRESH_BASE_CONFIG_PRODUCT': {
-      let folder = getFolderByUniqueID(state, action.baseConfigID);
-      let product = getFolderProductByID(folder, action.product.productID);
-      let productIndex = folder.productIDs.indexOf(product);
-      folder.productIDs = [
-        ...folder.productIDs.slice(0, productIndex), 
-        {...product, ...action.product},
-        ...folder.productIDs.slice(productIndex + 1)
+    case 'SELECT_BASE_CONFIG_REUSABLE_PRODUCT':
+      return [
+        ...state.slice(0, state.indexOf(action.folder)), 
+        {
+          ...action.folder, 
+          productIDs: [
+            ...action.folder.productIDs.slice(0, action.folder.productIDs.indexOf(action.product)), 
+            {...action.product, reusePartsFromProductID: action.id},
+            ...action.folder.productIDs.slice(action.folder.productIDs.indexOf(action.product) + 1)
+          ]
+        },
+        ...state.slice(state.indexOf(action.folder) + 1)
       ];
-      return [...state, ...folder];
-    }
-    case 'TOGGLE_BASE_CONFIG_VARIATION_ENABLE': {
-      let folder = getFolderByUniqueID(state, action.baseConfigID);
-      let product = getFolderProductByID(folder, action.productID);
-      let productIndex = folder.productIDs.indexOf(product);
-      let variation = getVariationByID(product.variations, action.variationID);
-      let variationIndex = product.variations.indexOf(variation);
-
-      product.variations = [
-        ...product.variations.slice(0, variationIndex), 
-        {...variation, enabled: !variation.enabled},
-        ...product.variations.slice(variationIndex + 1)
+    case 'REFRESH_BASE_CONFIG_PRODUCT':
+      return [
+        ...state.slice(0, state.indexOf(action.folder)), 
+        {
+          ...action.folder, 
+          productIDs: [
+            ...action.folder.productIDs.slice(0, action.folder.productIDs.indexOf(action.oldProduct)), 
+            {
+              ...action.product, 
+              realImage: action.oldProduct.realImage,
+              variations: action.product.variations.map(variation => {
+                let oldProductVariation = action.oldProduct.variations.find( v => v.variationID === variation.variationID );
+                if (oldProductVariation) {
+                  return {
+                    ...variation, 
+                    realImage: oldProductVariation.realImage,
+                    swatchImage: oldProductVariation.swatchImage,
+                    thumbnailImage: oldProductVariation.thumbnailImage
+                  };
+                } else {
+                  return variation;
+                }
+              })
+            },
+            ...action.folder.productIDs.slice(action.folder.productIDs.indexOf(action.oldProduct) + 1)
+          ]
+        },
+        ...state.slice(state.indexOf(action.folder) + 1)
       ];
-
-      folder.productIDs = [
-        ...folder.productIDs.slice(0, productIndex), 
-        {...product, ...action.product},
-        ...folder.productIDs.slice(productIndex + 1)
+    case 'TOGGLE_BASE_CONFIG_VARIATION_ENABLE':
+      return [
+        ...state.slice(0, state.indexOf(action.folder)), 
+        {
+          ...action.folder, 
+          productIDs: [
+            ...action.folder.productIDs.slice(0, action.folder.productIDs.indexOf(action.product)), 
+            {
+              ...action.product, 
+              variations: [
+                ...action.product.variations.slice(0, action.product.variations.indexOf(action.variation)),
+                {...action.variation, enabled: !action.variation.enabled},
+                ...action.product.variations.slice(action.product.variations.indexOf(action.variation) + 1)
+              ]
+            },
+            ...action.folder.productIDs.slice(action.folder.productIDs.indexOf(action.product) + 1)
+          ]
+        },
+        ...state.slice(state.indexOf(action.folder) + 1)
       ];
-
-      return [...state, ...folder];
-    }
-    case 'TOGGLE_ACCESSORY_PRESELECTED': {
-      let folder = getFolderByUniqueID(state, action.baseConfigID);
-      if (folder.accessoryIDs.indexOf(action.accessoryID) !== -1 ) {
-        folder.accessoryIDs = [
-          ...folder.accessoryIDs.slice(0, folder.accessoryIDs.indexOf(action.accessoryID)), 
-          ...folder.accessoryIDs.slice(folder.accessoryIDs.indexOf(action.accessoryID) + 1)
-        ];
-      } else {
-        folder.accessoryIDs = [...folder.accessoryIDs, action.accessoryID];
-      }
-
-      return [...state, ...folder];
-    }
-    case 'TOGGLE_ACCESSORY_REQUIRE': {
-      let folder = getFolderByUniqueID(state, action.baseConfigID);
-      if (folder.requiredBaseConfigProductIDs.indexOf(action.accessoryID) !== -1 ) {
-        folder.requiredBaseConfigProductIDs = [
-          ...folder.requiredBaseConfigProductIDs
-            .slice(0, folder.requiredBaseConfigProductIDs.indexOf(action.accessoryID)), 
-          ...folder.requiredBaseConfigProductIDs
-            .slice(folder.requiredBaseConfigProductIDs.indexOf(action.accessoryID) + 1)
-        ];
-      } else {
-        folder.requiredBaseConfigProductIDs = [...folder.requiredBaseConfigProductIDs, action.accessoryID];
-      }
-
-      return [...state, ...folder];
-    }
-    case 'TOGGLE_BASE_CONFIG_VARIATION_DEFAULT': {
-      let folder = getFolderByUniqueID(state, action.baseConfigID);
-      let product = getFolderProductByID(folder, action.productID);
-      let productIndex = folder.productIDs.indexOf(product);
-      let variation = getVariationByID(product.variations, action.variationID);
-      let variationIndex = product.variations.indexOf(variation);
-
-      product.variations = product.variations.map(v => {
-        return { ...v, isDefaultVariation: false }
-      });
-
-      product.variations = [
-        ...product.variations.slice(0, variationIndex), 
-        {...variation, isDefaultVariation: !variation.isDefaultVariation},
-        ...product.variations.slice(variationIndex + 1)
+    case 'TOGGLE_BASE_CONFIG_VARIATION_DEFAULT':
+      return [
+        ...state.slice(0, state.indexOf(action.folder)), 
+        {
+          ...action.folder, 
+          productIDs: [
+            ...action.folder.productIDs.slice(0, action.folder.productIDs.indexOf(action.product)), 
+            {
+              ...action.product, 
+              variations: action.product.variations.map(v => {
+                if (!action.variation.isDefaultVariation && v.variationID === action.variation.variationID) {
+                    return {...v, isDefaultVariation: !action.variation.isDefaultVariation};
+                  } else {
+                    return {...v, isDefaultVariation: false};
+                  }
+              })
+            },
+            ...action.folder.productIDs.slice(action.folder.productIDs.indexOf(action.product) + 1)
+          ]
+        },
+        ...state.slice(state.indexOf(action.folder) + 1)
       ];
-
-      folder.productIDs = [
-        ...folder.productIDs.slice(0, productIndex), 
-        {...product, ...action.product},
-        ...folder.productIDs.slice(productIndex + 1)
+    case 'TOGGLE_ACCESSORY_PRESELECTED':
+      return [
+        ...state.slice(0, state.indexOf(action.folder)), 
+        (action.folder.accessoryIDs.indexOf(action.accessoryID) !== -1
+          ? {
+              ...action.folder,
+              accessoryIDs: [
+                ...action.folder.accessoryIDs.slice(0, action.folder.accessoryIDs.indexOf(action.accessoryID)),
+                ...action.folder.accessoryIDs.slice(action.folder.accessoryIDs.indexOf(action.accessoryID) + 1)
+              ] 
+            }
+          : {
+              ...action.folder,
+              accessoryIDs: [
+                ...action.folder.accessoryIDs,
+                action.accessoryID
+              ] 
+            }
+        ),
+        ...state.slice(state.indexOf(action.folder) + 1)
       ];
-
-      return [...state, ...folder];
-    }
-    case 'UPLOAD_BASE_CONFIG_PRODUCT_VARIATION_REAL_IMAGE': {
-      let folder = getFolderByUniqueID(state, action.baseConfigID);
-      let product = getFolderProductByID(folder, action.productID);
-      let productIndex = folder.productIDs.indexOf(product);
-      let variation = getVariationByID(product.variations, action.variationID);
-      let variationIndex = product.variations.indexOf(variation);
-
-      product.variations = [
-        ...product.variations.slice(0, variationIndex), 
-        {...variation, realImage: action.image},
-        ...product.variations.slice(variationIndex + 1)
+    case 'TOGGLE_ACCESSORY_REQUIRE':
+      return [
+        ...state.slice(0, state.indexOf(action.folder)), 
+        (action.folder.requiredBaseConfigProductIDs.indexOf(action.accessoryID) !== -1
+          ? {
+              ...action.folder,
+              requiredBaseConfigProductIDs: [
+                ...action.folder.requiredBaseConfigProductIDs.slice(0, action.folder.requiredBaseConfigProductIDs.indexOf(action.accessoryID)),
+                ...action.folder.requiredBaseConfigProductIDs.slice(action.folder.requiredBaseConfigProductIDs.indexOf(action.accessoryID) + 1)
+              ] 
+            }
+          : {
+              ...action.folder,
+              requiredBaseConfigProductIDs: [
+                ...action.folder.requiredBaseConfigProductIDs,
+                action.accessoryID
+              ] 
+            }
+        ),
+        ...state.slice(state.indexOf(action.folder) + 1)
       ];
-
-      folder.productIDs = [
-        ...folder.productIDs.slice(0, productIndex), 
-        {...product, ...action.product},
-        ...folder.productIDs.slice(productIndex + 1)
+    case 'UPLOAD_BASE_CONFIG_PRODUCT_VARIATION_REAL_IMAGE':
+      return [
+        ...state.slice(0, state.indexOf(action.folder)), 
+        {
+          ...action.folder, 
+          productIDs: [
+            ...action.folder.productIDs.slice(0, action.folder.productIDs.indexOf(action.product)), 
+            {
+              ...action.product, 
+              variations: [
+                ...action.product.variations.slice(0, action.product.variations.indexOf(action.variation)),
+                {...action.variation, realImage: action.image},
+                ...action.product.variations.slice(action.product.variations.indexOf(action.variation) + 1)
+              ]
+            },
+            ...action.folder.productIDs.slice(action.folder.productIDs.indexOf(action.product) + 1)
+          ]
+        },
+        ...state.slice(state.indexOf(action.folder) + 1)
       ];
-      
-      return [...state, ...folder];
-    }
-    case 'UPLOAD_BASE_CONFIG_PRODUCT_VARIATION_SWATCH_IMAGE': {
-      let folder = getFolderByUniqueID(state, action.baseConfigID);
-      let product = getFolderProductByID(folder, action.productID);
-      let productIndex = folder.productIDs.indexOf(product);
-      let variation = getVariationByID(product.variations, action.variationID);
-      let variationIndex = product.variations.indexOf(variation);
-
-      product.variations = [
-        ...product.variations.slice(0, variationIndex), 
-        {...variation, swatchImage: action.image},
-        ...product.variations.slice(variationIndex + 1)
+    case 'UPLOAD_BASE_CONFIG_PRODUCT_VARIATION_SWATCH_IMAGE':
+      return [
+        ...state.slice(0, state.indexOf(action.folder)), 
+        {
+          ...action.folder, 
+          productIDs: [
+            ...action.folder.productIDs.slice(0, action.folder.productIDs.indexOf(action.product)), 
+            {
+              ...action.product, 
+              variations: [
+                ...action.product.variations.slice(0, action.product.variations.indexOf(action.variation)),
+                {...action.variation, swatchImage: action.image},
+                ...action.product.variations.slice(action.product.variations.indexOf(action.variation) + 1)
+              ]
+            },
+            ...action.folder.productIDs.slice(action.folder.productIDs.indexOf(action.product) + 1)
+          ]
+        },
+        ...state.slice(state.indexOf(action.folder) + 1)
       ];
-
-      folder.productIDs = [
-        ...folder.productIDs.slice(0, productIndex), 
-        {...product, ...action.product},
-        ...folder.productIDs.slice(productIndex + 1)
+    case 'UPLOAD_BASE_CONFIG_PRODUCT_VARIATION_THUMB_IMAGE':
+      return [
+        ...state.slice(0, state.indexOf(action.folder)), 
+        {
+          ...action.folder, 
+          productIDs: [
+            ...action.folder.productIDs.slice(0, action.folder.productIDs.indexOf(action.product)), 
+            {
+              ...action.product, 
+              variations: [
+                ...action.product.variations.slice(0, action.product.variations.indexOf(action.variation)),
+                {...action.variation, thumbnailImage: action.image},
+                ...action.product.variations.slice(action.product.variations.indexOf(action.variation) + 1)
+              ]
+            },
+            ...action.folder.productIDs.slice(action.folder.productIDs.indexOf(action.product) + 1)
+          ]
+        },
+        ...state.slice(state.indexOf(action.folder) + 1)
       ];
-      
-      return [...state, ...folder];
-    }
-    case 'UPLOAD_BASE_CONFIG_PRODUCT_VARIATION_THUMB_IMAGE': {
-      let folder = getFolderByUniqueID(state, action.baseConfigID);
-      let product = getFolderProductByID(folder, action.productID);
-      let productIndex = folder.productIDs.indexOf(product);
-      let variation = getVariationByID(product.variations, action.variationID);
-      let variationIndex = product.variations.indexOf(variation);
-
-      product.variations = [
-        ...product.variations.slice(0, variationIndex), 
-        {...variation, thumbnailImage: action.image},
-        ...product.variations.slice(variationIndex + 1)
-      ];
-
-      folder.productIDs = [
-        ...folder.productIDs.slice(0, productIndex), 
-        {...product, ...action.product},
-        ...folder.productIDs.slice(productIndex + 1)
-      ];
-      
-      return [...state, ...folder];
-    }
     case 'ADD_BASE_CONFIG_IMAGE_VARIATION': {
-      let folder = getFolderByUniqueID(state, action.baseConfigID);
-      let product = getFolderProductByID(folder, action.productID);
-      let productIndex = folder.productIDs.indexOf(product);
-      let variation = getVariationByID(product.variations, action.variationID);
-      let variationIndex = product.variations.indexOf(variation);
-
-      if ( variation.imageVariations ) {
-        let imageVariationIDs = variation.imageVariations.map(v => v.productID);
+      if ( action.variation.imageVariations ) {
+        let imageVariationIDs = action.variation.imageVariations.map(v => v.productID);
         if (imageVariationIDs.indexOf(action.id) !== -1) {
           return state;
         }
       }
 
-      product.variations = [
-        ...product.variations.slice(0, variationIndex), 
-        (variation.imageVariations 
-          ? {
-              ...variation, 
-              imageVariations: [
-                ...variation.imageVariations, 
-                {
-                  productID: action.id,
-                  realImage: false,
-                  productName: action.name
-                }
-              ]
-            } 
-          : {
-              ...variation, 
-              imageVariations: [
-                {
-                  productID: action.id,
-                  realImage: false,
-                  productName: action.name
-                }
-              ]
-            }
-        ),
-        ...product.variations.slice(variationIndex + 1)
-      ];
-
-      folder.productIDs = [
-        ...folder.productIDs.slice(0, productIndex), 
-        product,
-        ...folder.productIDs.slice(productIndex + 1)
-      ];
-
-      return [...state, ...folder];
-    }
-    case 'REMOVE_BASE_CONFIG_IMAGE_VARIATION': {
-      let folder = getFolderByUniqueID(state, action.baseConfigID);
-      let product = getFolderProductByID(folder, action.productID);
-      let productIndex = folder.productIDs.indexOf(product);
-      let variation = getVariationByID(product.variations, action.variationID);
-      let variationIndex = product.variations.indexOf(variation);
-      let imageVariation = variation.imageVariations.find( v => v.productID === action.imageVariationID );
-      let imageVariationIndex = variation.imageVariations.indexOf(imageVariation);
-
-      product.variations = [
-        ...product.variations.slice(0, variationIndex), 
+      return [
+        ...state.slice(0, state.indexOf(action.folder)), 
         {
-          ...variation, 
-          imageVariations: [
-            ...variation.imageVariations.slice(0, imageVariationIndex),
-            ...variation.imageVariations.slice(imageVariationIndex + 1)
+          ...action.folder, 
+          productIDs: [
+            ...action.folder.productIDs.slice(0, action.folder.productIDs.indexOf(action.product)), 
+            {
+              ...action.product, 
+              variations: [
+                ...action.product.variations.slice(0, action.product.variations.indexOf(action.variation)),
+                (action.variation.imageVariations 
+                  ? {
+                      ...action.variation, 
+                      imageVariations: [
+                        ...action.variation.imageVariations, 
+                        {
+                          productID: action.id,
+                          realImage: false,
+                          productName: action.name
+                        }
+                      ]
+                    } 
+                  : {
+                      ...action.product.variation, 
+                      imageVariations: [
+                        {
+                          productID: action.id,
+                          realImage: false,
+                          productName: action.name
+                        }
+                      ]
+                    }
+                ),
+                ...action.product.variations.slice(action.product.variations.indexOf(action.variation) + 1)
+              ]
+            },
+            ...action.folder.productIDs.slice(action.folder.productIDs.indexOf(action.product) + 1)
           ]
         },
-        ...product.variations.slice(variationIndex + 1)
+        ...state.slice(state.indexOf(action.folder) + 1)
       ];
-
-      folder.productIDs = [
-        ...folder.productIDs.slice(0, productIndex), 
-        product,
-        ...folder.productIDs.slice(productIndex + 1)
-      ];
-
-      return [...state, ...folder];
     }
+    case 'REMOVE_BASE_CONFIG_IMAGE_VARIATION':
+      return [
+        ...state.slice(0, state.indexOf(action.folder)), 
+        {
+          ...action.folder, 
+          productIDs: [
+            ...action.folder.productIDs.slice(0, action.folder.productIDs.indexOf(action.product)), 
+            {
+              ...action.product, 
+              variations: [
+                ...action.product.variations.slice(0, action.product.variations.indexOf(action.variation)),
+                {
+                  ...action.variation, 
+                  imageVariations: [
+                    ...action.variation.imageVariations.slice(0, action.variation.imageVariations.indexOf(action.imageVariation)),
+                    ...action.variation.imageVariations.slice(action.variation.imageVariations.indexOf(action.imageVariation) + 1)
+                  ]
+                },
+                ...action.product.variations.slice(action.product.variations.indexOf(action.variation) + 1)
+              ]
+            },
+            ...action.folder.productIDs.slice(action.folder.productIDs.indexOf(action.product) + 1)
+          ]
+        },
+        ...state.slice(state.indexOf(action.folder) + 1)
+      ];
     case 'UPLOAD_BASE_CONFIG_IMAGE_VARIATION': {
-      let folder = getFolderByUniqueID(state, action.baseConfigID);
-      let product = getFolderProductByID(folder, action.productID);
-      let productIndex = folder.productIDs.indexOf(product);
-      let variation = getVariationByID(product.variations, action.variationID);
-      let variationIndex = product.variations.indexOf(variation);
-      let imageVariation = variation.imageVariations.find( v => v.productID === action.imageVariationID );
-      let imageVariationIndex = variation.imageVariations.indexOf(imageVariation);
-
-      product.variations = [
-        ...product.variations.slice(0, variationIndex), 
+      return [
+        ...state.slice(0, state.indexOf(action.folder)), 
         {
-          ...variation, 
-          imageVariations: [
-            ...variation.imageVariations.slice(0, imageVariationIndex), 
-            {...imageVariation, realImage: action.image},
-            ...variation.imageVariations.slice(imageVariationIndex + 1)
+          ...action.folder, 
+          productIDs: [
+            ...action.folder.productIDs.slice(0, action.folder.productIDs.indexOf(action.product)), 
+            {
+              ...action.product, 
+              variations: [
+                ...action.product.variations.slice(0, action.product.variations.indexOf(action.variation)),
+                {
+                  ...action.variation, 
+                  imageVariations: [
+                    ...action.variation.imageVariations.slice(0, action.variation.imageVariations.indexOf(action.imageVariation)),
+                    {...action.imageVariation, realImage: action.image},
+                    ...action.variation.imageVariations.slice(action.variation.imageVariations.indexOf(action.imageVariation) + 1)
+                  ]
+                },
+                ...action.product.variations.slice(action.product.variations.indexOf(action.variation) + 1)
+              ]
+            },
+            ...action.folder.productIDs.slice(action.folder.productIDs.indexOf(action.product) + 1)
           ]
         },
-        ...product.variations.slice(variationIndex + 1)
+        ...state.slice(state.indexOf(action.folder) + 1)
       ];
-
-      folder.productIDs = [
-        ...folder.productIDs.slice(0, productIndex), 
-        product,
-        ...folder.productIDs.slice(productIndex + 1)
-      ];
-
-      return [...state, ...folder];
     }
     default:
       return state;
@@ -420,314 +472,250 @@ const accessories = (state = [], action) => {
       return [];
     case 'SELECT_CONFIGURATOR_SUCCESS':
       return action.configurator.accessories;
-    case 'UPLOAD_ACCESSORY_PRODUCT_IMAGE': {
-      let product = getAccessoryProductByID(state, action.productID);
-      let productIndex = state.indexOf(product);
-      return [
-        ...state.slice(0, productIndex), 
-        {...product, realImage: action.image},
-        ...state.slice(productIndex + 1)
-      ];
-    }
-    case 'ADD_ACCESSORY_PRODUCT': {
+    case 'ADD_ACCESSORY_PRODUCT':
       return [
         ...state, 
         action.product
       ];
-    }
-    case 'REMOVE_ACCESSORY_PRODUCT': {
-      let product = getAccessoryProductByID(state, action.productID);
+    case 'UPLOAD_ACCESSORY_PRODUCT_IMAGE':
       return [
-        ...state.slice(0, state.indexOf(product)), 
-        ...state.slice(state.indexOf(product) + 1)
+        ...state.slice(0, state.indexOf(action.product)), 
+        {...action.product, realImage: action.image},
+        ...state.slice(state.indexOf(action.product) + 1)
       ];
-    }
-    case 'CHANGE_ACCESSORY_PRODUCT_TITLE': {
-      let product = getAccessoryProductByID(state, action.productID);
-      let productIndex = state.indexOf(product);
+    case 'REMOVE_ACCESSORY_PRODUCT':
       return [
-        ...state.slice(0, productIndex), 
-        {...product, productName: action.text},
-        ...state.slice(productIndex + 1)
+        ...state.slice(0, state.indexOf(action.product)), 
+        ...state.slice(state.indexOf(action.product) + 1)
       ];
-    }
-    case 'CHANGE_ACCESSORY_PRODUCT_SHORT_TITLE': {
-      let product = getAccessoryProductByID(state, action.productID);
-      let productIndex = state.indexOf(product);
+    case 'CHANGE_ACCESSORY_PRODUCT_TITLE':
       return [
-        ...state.slice(0, productIndex), 
-        {...product, productShortName: action.text},
-        ...state.slice(productIndex + 1)
+        ...state.slice(0, state.indexOf(action.product)), 
+        {...action.product, productName: action.text},
+        ...state.slice(state.indexOf(action.product) + 1)
       ];
-    }
-    case 'CHANGE_ACCESSORY_PRODUCT_DESCRIPTION': {
-      let product = getAccessoryProductByID(state, action.productID);
-      let productIndex = state.indexOf(product);
+    case 'CHANGE_ACCESSORY_PRODUCT_SHORT_TITLE':
       return [
-        ...state.slice(0, productIndex), 
-        {...product, description: action.text},
-        ...state.slice(productIndex + 1)
+        ...state.slice(0, state.indexOf(action.product)), 
+        {...action.product, productShortName: action.text},
+        ...state.slice(state.indexOf(action.product) + 1)
       ];
-    }
-    case 'REFRESH_ACCESSORY_PRODUCT': {
-      let product = getAccessoryProductByID(state, action.product.productID);
-      let productIndex = state.indexOf(product);
+    case 'CHANGE_ACCESSORY_PRODUCT_DESCRIPTION':
       return [
-        ...state.slice(0, productIndex), 
-        {...product, ...action.product},
-        ...state.slice(productIndex + 1)
+        ...state.slice(0, state.indexOf(action.product)), 
+        {...action.product, description: action.text},
+        ...state.slice(state.indexOf(action.product) + 1)
       ];
-    }
-    case 'SELECT_ACCESSORY_REQUIRED': {
-      let product = getAccessoryProductByID(state, action.productID);
-      let productIndex = state.indexOf(product);
+    case 'REFRESH_ACCESSORY_PRODUCT':
       return [
-        ...state.slice(0, productIndex), 
-        {...product, requiredAccessoryID: action.id},
-        ...state.slice(productIndex + 1)
+        ...state.slice(0, state.indexOf(action.oldProduct)), 
+        {
+          ...action.product, 
+          realImage: action.oldProduct.realImage,
+          variations: action.product.variations.map(variation => {
+            let oldProductVariation = action.oldProduct.variations.find( v => v.variationID === variation.variationID );
+            if (oldProductVariation) {
+              return {
+                ...variation, 
+                realImage: oldProductVariation.realImage,
+                swatchImage: oldProductVariation.swatchImage,
+                thumbnailImage: oldProductVariation.thumbnailImage
+              };
+            } else {
+              return variation;
+            }
+          })
+        },
+        ...state.slice(state.indexOf(action.oldProduct) + 1)
       ];
-    }
-    case 'SELECT_ACCESSORY_REUSABLE_PRODUCT': {
-      let product = getAccessoryProductByID(state, action.productID);
-      let productIndex = state.indexOf(product);
+    case 'SELECT_ACCESSORY_REQUIRED':
       return [
-        ...state.slice(0, productIndex), 
-        {...product, reusePartsFromProductID: action.id},
-        ...state.slice(productIndex + 1)
+        ...state.slice(0, state.indexOf(action.product)), 
+        {...action.product, requiredAccessoryID: action.id},
+        ...state.slice(state.indexOf(action.product) + 1)
       ];
-    }
-    case 'TOGGLE_ACCESSORY_VARIATION_ENABLE': {
-      let product = getAccessoryProductByID(state, action.productID);
-      let productIndex = state.indexOf(product);
-      let variation = getVariationByID(product.variations, action.variationID);
-      let variationIndex = product.variations.indexOf(variation);
-
-      product.variations = [
-        ...product.variations.slice(0, variationIndex), 
-        {...variation, enabled: !variation.enabled},
-        ...product.variations.slice(variationIndex + 1)
-      ];
-
+    case 'SELECT_ACCESSORY_REUSABLE_PRODUCT':
       return [
-        ...state.slice(0, productIndex), 
-        {...product, ...action.product},
-        ...state.slice(productIndex + 1)
+        ...state.slice(0, state.indexOf(action.product)), 
+        {...action.product, reusePartsFromProductID: action.id},
+        ...state.slice(state.indexOf(action.product) + 1)
       ];
-
-    }
-    case 'TOGGLE_ACCESSORY_EXTERNAL': {
-      let product = getAccessoryProductByID(state, action.productID);
-      let productIndex = state.indexOf(product);
+    case 'TOGGLE_ACCESSORY_VARIATION_ENABLE':
       return [
-        ...state.slice(0, productIndex), 
-        {...product, isExternalAccessory: !product.isExternalAccessory},
-        ...state.slice(productIndex + 1)
+        ...state.slice(0, state.indexOf(action.product)), 
+        {
+          ...action.product, 
+          variations: [
+            ...action.product.variations.slice(0, action.product.variations.indexOf(action.variation)),
+            {...action.variation, enabled: !action.variation.enabled},
+            ...action.product.variations.slice(action.product.variations.indexOf(action.variation) + 1)
+          ]
+        },
+        ...state.slice(state.indexOf(action.product) + 1)
       ];
-    }
-    case 'TOGGLE_ACCESSORY_VARIATION_DEFAULT': {
-      let product = getAccessoryProductByID(state, action.productID);
-      let productIndex = state.indexOf(product);
-      let variation = getVariationByID(product.variations, action.variationID);
-      let variationIndex = product.variations.indexOf(variation);
-
-      product.variations = product.variations.map(v => {
-        return { ...v, isDefaultVariation: false }
-      });
-
-      product.variations = [
-        ...product.variations.slice(0, variationIndex), 
-        {...variation, isDefaultVariation: !variation.isDefaultVariation},
-        ...product.variations.slice(variationIndex + 1)
-      ];
-
+    case 'TOGGLE_ACCESSORY_EXTERNAL':
       return [
-        ...state.slice(0, productIndex), 
-        {...product, ...action.product},
-        ...state.slice(productIndex + 1)
+        ...state.slice(0, state.indexOf(action.product)), 
+        {...action.product, isExternalAccessory: !action.product.isExternalAccessory},
+        ...state.slice(state.indexOf(action.product) + 1)
       ];
-
-    }
-    case 'UPLOAD_ACCESSORY_PRODUCT_VARIATION_REAL_IMAGE': {
-      let product = getAccessoryProductByID(state, action.productID);
-      let productIndex = state.indexOf(product);
-      let variation = getVariationByID(product.variations, action.variationID);
-      let variationIndex = product.variations.indexOf(variation);
-
-      product.variations = [
-        ...product.variations.slice(0, variationIndex), 
-        {...variation, realImage: action.image},
-        ...product.variations.slice(variationIndex + 1)
-      ];
-
+    case 'TOGGLE_ACCESSORY_VARIATION_DEFAULT': 
       return [
-        ...state.slice(0, productIndex), 
-        {...product, ...action.product},
-        ...state.slice(productIndex + 1)
+       ...state.slice(0, state.indexOf(action.product)), 
+        {
+          ...action.product, 
+          variations: action.product.variations.map(v => {
+            if (!action.variation.isDefaultVariation && v.variationID === action.variation.variationID) {
+                return {...v, isDefaultVariation: !action.variation.isDefaultVariation};
+              } else {
+                return {...v, isDefaultVariation: false};
+              }
+          })
+        },
+        ...state.slice(state.indexOf(action.product) + 1)
       ];
-      
-    }
-    case 'UPLOAD_ACCESSORY_PRODUCT_VARIATION_SWATCH_IMAGE': {
-      let product = getAccessoryProductByID(state, action.productID);
-      let productIndex = state.indexOf(product);
-      let variation = getVariationByID(product.variations, action.variationID);
-      let variationIndex = product.variations.indexOf(variation);
-
-      product.variations = [
-        ...product.variations.slice(0, variationIndex), 
-        {...variation, swatchImage: action.image},
-        ...product.variations.slice(variationIndex + 1)
-      ];
-
+    case 'UPLOAD_ACCESSORY_PRODUCT_VARIATION_REAL_IMAGE':
       return [
-        ...state.slice(0, productIndex), 
-        {...product, ...action.product},
-        ...state.slice(productIndex + 1)
+        ...state.slice(0, state.indexOf(action.product)), 
+        {
+          ...action.product, 
+          variations: [
+            ...action.product.variations.slice(0, action.product.variations.indexOf(action.variation)),
+            {...action.variation, realImage: action.image},
+            ...action.product.variations.slice(action.product.variations.indexOf(action.variation) + 1)
+          ]
+        },
+        ...state.slice(state.indexOf(action.product) + 1)
       ];
-      
-    }
-    case 'UPLOAD_ACCESSORY_PRODUCT_VARIATION_THUMB_IMAGE': {
-      let product = getAccessoryProductByID(state, action.productID);
-      let productIndex = state.indexOf(product);
-      let variation = getVariationByID(product.variations, action.variationID);
-      let variationIndex = product.variations.indexOf(variation);
-
-      product.variations = [
-        ...product.variations.slice(0, variationIndex), 
-        {...variation, thumbnailImage: action.image},
-        ...product.variations.slice(variationIndex + 1)
-      ];
-
+    case 'UPLOAD_ACCESSORY_PRODUCT_VARIATION_SWATCH_IMAGE':
       return [
-        ...state.slice(0, productIndex), 
-        {...product, ...action.product},
-        ...state.slice(productIndex + 1)
+        ...state.slice(0, state.indexOf(action.product)), 
+        {
+          ...action.product, 
+          variations: [
+            ...action.product.variations.slice(0, action.product.variations.indexOf(action.variation)),
+            {...action.variation, swatchImage: action.image},
+            ...action.product.variations.slice(action.product.variations.indexOf(action.variation) + 1)
+          ]
+        },
+        ...state.slice(state.indexOf(action.product) + 1)
       ];
-    }
+    case 'UPLOAD_ACCESSORY_PRODUCT_VARIATION_THUMB_IMAGE':
+      return [
+        ...state.slice(0, state.indexOf(action.product)), 
+        {
+          ...action.product, 
+          variations: [
+            ...action.product.variations.slice(0, action.product.variations.indexOf(action.variation)),
+            {...action.variation, thumbnailImage: action.image},
+            ...action.product.variations.slice(action.product.variations.indexOf(action.variation) + 1)
+          ]
+        },
+        ...state.slice(state.indexOf(action.product) + 1)
+      ];
     case 'ADD_ACCESSORY_IMAGE_VARIATION': {
-      let product = getAccessoryProductByID(state, action.productID);
-      let productIndex = state.indexOf(product);
-      let variation = getVariationByID(product.variations, action.variationID);
-      let variationIndex = product.variations.indexOf(variation);
-
-      if ( variation.imageVariations ) {
-        let imageVariationIDs = variation.imageVariations.map(v => v.productID);
+      if ( action.variation.imageVariations ) {
+        let imageVariationIDs = action.variation.imageVariations.map(v => v.productID);
         if (imageVariationIDs.indexOf(action.id) !== -1) {
           return state;
         }
       }
 
-      product.variations = [
-        ...product.variations.slice(0, variationIndex), 
-        (variation.imageVariations 
-          ? {
-              ...variation, 
-              imageVariations: [
-                ...variation.imageVariations, 
-                {
-                  productID: action.id,
-                  realImage: false,
-                  productName: action.name
-                }
-              ]
-            } 
-          : {
-              ...variation, 
-              imageVariations: [
-                {
-                  productID: action.id,
-                  realImage: false,
-                  productName: action.name
-                }
-              ]
-            }
-        ),
-        ...product.variations.slice(variationIndex + 1)
-      ];
-
       return [
-        ...state.slice(0, productIndex), 
-        product,
-        ...state.slice(productIndex + 1)
-      ];
-    }
-    case 'REMOVE_ACCESSORY_IMAGE_VARIATION': {
-      let product = getAccessoryProductByID(state, action.productID);
-      let productIndex = state.indexOf(product);
-      let variation = getVariationByID(product.variations, action.variationID);
-      let variationIndex = product.variations.indexOf(variation);
-      let imageVariation = variation.imageVariations.find( v => v.productID === action.imageVariationID );
-      let imageVariationIndex = variation.imageVariations.indexOf(imageVariation);
-
-      product.variations = [
-        ...product.variations.slice(0, variationIndex), 
+        ...state.slice(0, state.indexOf(action.product)), 
         {
-          ...variation, 
-          imageVariations: [
-            ...variation.imageVariations.slice(0, imageVariationIndex), 
-            ...variation.imageVariations.slice(imageVariationIndex + 1)
+          ...action.product, 
+          variations: [
+            ...action.product.variations.slice(0, action.product.variations.indexOf(action.variation)),
+            (action.variation.imageVariations 
+              ? {
+                  ...action.variation, 
+                  imageVariations: [
+                    ...action.variation.imageVariations, 
+                    {
+                      productID: action.id,
+                      realImage: false,
+                      productName: action.name
+                    }
+                  ]
+                } 
+              : {
+                  ...action.product.variation, 
+                  imageVariations: [
+                    {
+                      productID: action.id,
+                      realImage: false,
+                      productName: action.name
+                    }
+                  ]
+                }
+            ),
+            ...action.product.variations.slice(action.product.variations.indexOf(action.variation) + 1)
           ]
         },
-        ...product.variations.slice(variationIndex + 1)
-      ];
-
-      return [
-        ...state.slice(0, productIndex), 
-        product,
-        ...state.slice(productIndex + 1)
+        ...state.slice(state.indexOf(action.product) + 1)
       ];
     }
-    case 'UPLOAD_ACCESSORY_IMAGE_VARIATION': {
-      let product = getAccessoryProductByID(state, action.productID);
-      let productIndex = state.indexOf(product);
-      let variation = getVariationByID(product.variations, action.variationID);
-      let variationIndex = product.variations.indexOf(variation);
-      let imageVariation = variation.imageVariations.find( v => v.productID === action.imageVariationID );
-      let imageVariationIndex = variation.imageVariations.indexOf(imageVariation);
-
-      product.variations = [
-        ...product.variations.slice(0, variationIndex), 
+    case 'REMOVE_ACCESSORY_IMAGE_VARIATION':
+      return [
+        ...state.slice(0, state.indexOf(action.product)), 
         {
-          ...variation, 
-          imageVariations: [
-            ...variation.imageVariations.slice(0, imageVariationIndex), 
-            {...imageVariation, realImage: action.image},
-            ...variation.imageVariations.slice(imageVariationIndex + 1)
+          ...action.product, 
+          variations: [
+            ...action.product.variations.slice(0, action.product.variations.indexOf(action.variation)),
+            {
+              ...action.variation, 
+              imageVariations: [
+                ...action.variation.imageVariations.slice(0, action.variation.imageVariations.indexOf(action.imageVariation)),
+                ...action.variation.imageVariations.slice(action.variation.imageVariations.indexOf(action.imageVariation) + 1)
+              ]
+            },
+            ...action.product.variations.slice(action.product.variations.indexOf(action.variation) + 1)
           ]
         },
-        ...product.variations.slice(variationIndex + 1)
+        ...state.slice(state.indexOf(action.product) + 1)
       ];
-
+    case 'UPLOAD_ACCESSORY_IMAGE_VARIATION':
       return [
-        ...state.slice(0, productIndex), 
-        product,
-        ...state.slice(productIndex + 1)
+        ...state.slice(0, state.indexOf(action.product)), 
+        {
+          ...action.product, 
+          variations: [
+            ...action.product.variations.slice(0, action.product.variations.indexOf(action.variation)),
+            {
+              ...action.variation, 
+              imageVariations: [
+                ...action.variation.imageVariations.slice(0, action.variation.imageVariations.indexOf(action.imageVariation)),
+                {...action.imageVariation, realImage: action.image},
+                ...action.variation.imageVariations.slice(action.variation.imageVariations.indexOf(action.imageVariation) + 1)
+              ]
+            },
+            ...action.product.variations.slice(action.product.variations.indexOf(action.variation) + 1)
+          ]
+        },
+        ...state.slice(state.indexOf(action.product) + 1)
       ];
-    }
     case 'UP_ACCESSORY_PRODUCT': {
-      let product = getAccessoryProductByID(state, action.productID);
-      let productIndex = state.indexOf(product);
-      let prevProduct = state[productIndex - 1];
+      let prevProduct = state[state.indexOf(action.product) - 1];
       if (prevProduct) {
         return [
-          ...state.slice(0, productIndex - 1), 
-          product,
+          ...state.slice(0, state.indexOf(action.product) - 1), 
+          action.product,
           prevProduct,
-          ...state.slice(productIndex + 1)
+          ...state.slice(state.indexOf(action.product) + 1)
         ];
       } else {
         return state;
       }
     }
     case 'DOWN_ACCESSORY_PRODUCT': {
-      let product = getAccessoryProductByID(state, action.productID);
-      let productIndex = state.indexOf(product);
-      let nextProduct = state[productIndex + 1];
+      let nextProduct = state[state.indexOf(action.product) + 1];
       if (nextProduct) {
         return [
-          ...state.slice(0, productIndex), 
+          ...state.slice(0, state.indexOf(action.product)), 
           nextProduct,
-          product,
-          ...state.slice(productIndex + 2)
+          action.product,
+          ...state.slice(state.indexOf(action.product) + 2)
         ];
       } else {
         return state;
@@ -767,11 +755,7 @@ export const getFoldersProducts = (state) => {
   })
   return products;
 };
-export const getFolderProductIDs = (state, folderID) => {
-  const folders = getFolders(state);
-  const folder = getFolderByUniqueID(folders, folderID);
-  return folder.productIDs.map( p => p.productID );
-};
+export const getFolderProductIDs = (state, folder) => folder.productIDs.map( p => p.productID );
 export const getAccessories = (state) => state.configurators.active.accessories;
 export const getAccessoryProductByID = (accessories, id) => accessories.find( p => p.productID === id );
 export const getAccessoryProductIDs = (state) => state.configurators.active.accessories.map( p => p.productID );

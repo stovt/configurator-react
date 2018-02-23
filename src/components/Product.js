@@ -28,7 +28,7 @@ import AccessoriesTable from './AccessoriesTable';
 
 const Product = ({ 
   product, 
-  baseConfigID, 
+  folder, 
   accessory, 
   configuratorID, 
   folders,
@@ -73,20 +73,20 @@ const Product = ({
               ? 'UPLOAD_ACCESSORY_PRODUCT_IMAGE' 
               : 'UPLOAD_BASE_CONFIG_PRODUCT_IMAGE'
             }
-            data={{ baseConfigID: baseConfigID, productID: product.productID }}
+            data={{ folder: folder, product: product }}
           />
         </div>
         <div>
           <RaisedButton 
             secondary={true}
             label="Refresh Product"
-            onClick={() => refreshProduct(baseConfigID, product.productID, accessory)}
+            onClick={() => refreshProduct(folder, product, product.productID, accessory)}
             style={{ display: 'inline-block', width: '50%'}}
           />
           {accessory
             ? <Checkbox 
                 checked={product.isExternalAccessory}
-                onCheck={() => toggleAccessoryExternal(product.productID)}
+                onCheck={() => toggleAccessoryExternal(product)}
                 label="External accessory"
                 style={{ display: 'inline-block', width: '50%', marginTop: '25px'}}
               />
@@ -97,21 +97,21 @@ const Product = ({
             hintText="Type title"
             floatingLabelText="Product title"
             value={product.productName}
-            sendValue={(value) => changeProductTitle(baseConfigID, product.productID, value, accessory)}
+            sendValue={(value) => changeProductTitle(folder, product, value, accessory)}
           />
           <br />
           <TextField
             hintText="Type short title"
             floatingLabelText="Product short title"
             value={product.productShortName}
-            sendValue={(value) => changeProductShortTitle(baseConfigID, product.productID, value, accessory)}
+            sendValue={(value) => changeProductShortTitle(folder, product, value, accessory)}
           />
           <br />
           <TextField
             hintText="Type description"
             floatingLabelText="Product description"
             value={product.description}
-            sendValue={(value) => changeProductDescription(baseConfigID, product.productID, value, accessory)}
+            sendValue={(value) => changeProductDescription(folder, product, value, accessory)}
             multiLine={true}
             style={{width: '50%'}}
           />
@@ -120,13 +120,13 @@ const Product = ({
                 <AccessoriesTable 
                   folders={folders}
                   accessoryID={product.productID}
-                  togglePreselectedAccessory={(baseConfigID, accessoryID) => togglePreselectedAccessory(baseConfigID, accessoryID)}
-                  toggleRequireAccessory={(baseConfigID, accessoryID) => toggleRequireAccessory(baseConfigID, accessoryID)}
+                  togglePreselectedAccessory={(folder, accessoryID) => togglePreselectedAccessory(folder, accessoryID)}
+                  toggleRequireAccessory={(folder, accessoryID) => toggleRequireAccessory(folder, accessoryID)}
                 />
                 <SelectField 
                   floatingLabelText="Choose required accessory" 
                   value={product.requiredAccessoryID || ''} 
-                  onChange={(event, index, id) => selectRequiredAccessory(id, product.productID)}
+                  onChange={(event, index, id) => selectRequiredAccessory(id, product)}
                 >
                   <MenuItem 
                     value={false} 
@@ -148,7 +148,7 @@ const Product = ({
           <SelectField 
             floatingLabelText="Product with reusable" 
             value={product.reusePartsFromProductID || ''} 
-            onChange={(event, index, id) => selectReusableProduct(id, product.productID, baseConfigID, accessory)}
+            onChange={(event, index, id) => selectReusableProduct(id, product, folder, accessory)}
           >
             <MenuItem 
               value={false} 
@@ -171,8 +171,8 @@ const Product = ({
             return (
               <ProductListItem 
                 key={key}
-                baseConfigID={baseConfigID}
-                productID={product.productID}
+                folder={folder}
+                product={product}
                 variation={variation} 
                 accessory={accessory}
               />
@@ -184,7 +184,7 @@ const Product = ({
     <FloatingActionButton 
       secondary={true} 
       mini={true} 
-      onClick={() => removeProduct(baseConfigID, product.productID, accessory)} 
+      onClick={() => removeProduct(folder, product, accessory)} 
       style={{
         cursor: 'pointer',
         transform: 'rotate(45deg)',
@@ -200,7 +200,7 @@ const Product = ({
     {accessory
       ? <FloatingActionButton 
           mini={true} 
-          onClick={() => downAccessory(product.productID)} 
+          onClick={() => downAccessory(product)} 
           style={{
             cursor: 'pointer',
             float: 'right',
@@ -217,7 +217,7 @@ const Product = ({
     {accessory
       ? <FloatingActionButton 
           mini={true} 
-          onClick={() => upAccessory(product.productID)} 
+          onClick={() => upAccessory(product)} 
           style={{
             cursor: 'pointer',
             float: 'right',

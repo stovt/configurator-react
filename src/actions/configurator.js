@@ -18,31 +18,31 @@ export const changeConfiguratorTitle = (text) => ({
   text
 });
 
-export const changeBaseConfigID = (id, text) => ({
+export const changeBaseConfigID = (folder, text) => ({
   type: 'CHANGE_BASE_CONFIG_ID',
-  id,
+  folder,
   text
 });
 
-export const changeBaseConfigTitle = (id, text) => ({
+export const changeBaseConfigTitle = (folder, text) => ({
   type: 'CHANGE_BASE_CONFIG_TITLE',
-  id,
+  folder,
   text
 });
 
-export const changeBaseConfigSubtitle = (id, text) => ({
+export const changeBaseConfigSubtitle = (folder, text) => ({
   type: 'CHANGE_BASE_CONFIG_SUBTITLE',
-  id,
+  folder,
   text
 });
 
-export const changeBaseConfigDescription = (id, text) => ({
+export const changeBaseConfigDescription = (folder, text) => ({
   type: 'CHANGE_BASE_CONFIG_DESCRIPTION',
-  id,
+  folder,
   text
 });
 
-export const removeBaseConfig = (id) => ({
+export const removeBaseConfig = (folder) => ({
   type: 'REMOVE_BASE_CONFIG',
   id
 });
@@ -70,15 +70,15 @@ export const uploadImage = (configuratorId, formData, type, data) => (dispatch, 
         case 'UPLOAD_BASE_CONFIG_IMAGE':
           dispatch({
             type: type,
-            baseConfigID: data.baseConfigID,
+            folder: data.folder,
             image: response
           });
           break;
         case 'UPLOAD_BASE_CONFIG_PRODUCT_IMAGE':
           dispatch({
             type: type,
-            baseConfigID: data.baseConfigID,
-            productID: data.productID,
+            folder: data.folder,
+            product: data.product,
             image: response
           });
           break;
@@ -87,16 +87,16 @@ export const uploadImage = (configuratorId, formData, type, data) => (dispatch, 
         case 'UPLOAD_BASE_CONFIG_PRODUCT_VARIATION_THUMB_IMAGE':
           dispatch({
             type: type,
-            baseConfigID: data.baseConfigID,
-            productID: data.productID,
-            variationID: data.variationID,
+            folder: data.folder,
+            product: data.product,
+            variation: data.variation,
             image: response
           });
           break;
         case 'UPLOAD_ACCESSORY_PRODUCT_IMAGE':
           dispatch({
             type: type,
-            productID: data.productID,
+            product: data.product,
             image: response
           });
           break;
@@ -105,27 +105,27 @@ export const uploadImage = (configuratorId, formData, type, data) => (dispatch, 
         case 'UPLOAD_ACCESSORY_PRODUCT_VARIATION_THUMB_IMAGE':
           dispatch({
             type: type,
-            productID: data.productID,
-            variationID: data.variationID,
+            product: data.product,
+            variation: data.variation,
             image: response
           });
           break;
         case 'UPLOAD_BASE_CONFIG_IMAGE_VARIATION':
           dispatch({
             type: type,
-            baseConfigID: data.baseConfigID,
-            productID: data.productID,
-            variationID: data.variationID,
-            imageVariationID: data.imageVariationID,
+            folder: data.folder,
+            product: data.product,
+            variation: data.variation,
+            imageVariation: data.imageVariation,
             image: response
           });
           break;
         case 'UPLOAD_ACCESSORY_IMAGE_VARIATION':
           dispatch({
             type: type,
-            productID: data.productID,
-            variationID: data.variationID,
-            imageVariationID: data.imageVariationID,
+            product: data.product,
+            variation: data.variation,
+            imageVariation: data.imageVariation,
             image: response
           });
           break;

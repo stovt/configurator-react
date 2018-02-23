@@ -44,7 +44,7 @@ class ProductAutocomplete extends Component {
     });
   }
 
-  addProduct(baseConfigID, productID, accessory) {
+  addProduct(folder, productID, accessory) {
     const { addProduct, folderProductIDs, accessoryIDs } = this.props;
     
     if (accessory) {
@@ -63,7 +63,7 @@ class ProductAutocomplete extends Component {
       }
     }
 
-    addProduct(baseConfigID, productID, accessory);
+    addProduct(folder, productID, accessory);
     this.setState({
       searchText: ''
     });
@@ -76,7 +76,7 @@ class ProductAutocomplete extends Component {
   }
 
   render() {
-    const { products, baseConfigID, accessory, isFetching, errorMessage } = this.props;
+    const { products, folder, accessory, isFetching, errorMessage } = this.props;
     if (errorMessage && !products.length) {
       return (
         <FetchError
@@ -98,7 +98,7 @@ class ProductAutocomplete extends Component {
             dataSource={products}
             dataSourceConfig={{ text: 'name', value: 'id' }}
             onUpdateInput={(value) => this.searchTextChanged(value)}
-            onNewRequest={(chosenRequest) => this.addProduct(baseConfigID, chosenRequest.id, accessory)}
+            onNewRequest={(chosenRequest) => this.addProduct(folder, chosenRequest.id, accessory)}
             maxSearchResults={25}
             searchText={this.state.searchText}
             filter={autoCompleteFilter}
@@ -116,11 +116,11 @@ class ProductAutocomplete extends Component {
   }
 }
 
-const mapStateToProps = (state, { baseConfigID }) => ({
+const mapStateToProps = (state, { folder }) => ({
   isFetching: getIsFetching(state),
   errorMessage: getErrorMessage(state),
   products: getProducts(state),
-  folderProductIDs: baseConfigID ? getFolderProductIDs(state, baseConfigID) : [],
+  folderProductIDs: folder ? getFolderProductIDs(state, folder) : [],
   accessoryIDs: getAccessoryProductIDs(state)
 });
 

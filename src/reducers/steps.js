@@ -25,9 +25,9 @@ const createStepsList = () => {
       case 'SELECT_STEP':
         return action.step;
       case 'NEXT_STEP': 
-      return action.steps[ action.steps.indexOf(state) + 1 ];
+      return action.steps[action.steps.indexOf(state) + 1];
       case 'PREV_STEP':
-      return action.steps[ action.steps.indexOf(state) - 1 ];
+      return action.steps[action.steps.indexOf(state) - 1];
         return state;
       default:
         return state;
