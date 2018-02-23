@@ -7,6 +7,7 @@ import ListItem from 'material-ui/List/ListItem';
 import Checkbox from 'material-ui/Checkbox';
 import {GridList, GridTile} from 'material-ui/GridList';
 import ProductImage from './ProductImage';
+import ImageVariations from './ImageVariations';
 
 const ProductListItem = ({ 
   variation, 
@@ -125,6 +126,13 @@ const ProductListItem = ({
         />
       </GridTile>
     </div>
+    <ImageVariations 
+      variation={variation}
+      productID={productID}
+      baseConfigID={baseConfigID}
+      accessory={accessory}
+      configuratorID={configuratorID}
+    />
     <div style={{clear: "both"}}/>
   </ListItem>
 );

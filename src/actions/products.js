@@ -226,3 +226,43 @@ export const selectRequiredAccessory = (id, productID) => ({
   productID
 });
 
+
+export const addImageVariation = (id, name, productID, variationID, baseConfigID, accessory)  => (dispatch, getState) => {
+  if (accessory) {
+    dispatch({
+      type: 'ADD_ACCESSORY_IMAGE_VARIATION',
+      id,
+      name,
+      productID,
+      variationID
+    });
+  } else {
+    dispatch({
+      type: 'ADD_BASE_CONFIG_IMAGE_VARIATION',
+      id,
+      name,
+      productID,
+      variationID,
+      baseConfigID
+    });
+  }
+};
+
+export const removeImageVariation = (imageVariationID, productID, variationID, baseConfigID, accessory)  => (dispatch, getState) => {
+  if (accessory) {
+    dispatch({
+      type: 'REMOVE_ACCESSORY_IMAGE_VARIATION',
+      imageVariationID,
+      productID,
+      variationID
+    });
+  } else {
+    dispatch({
+      type: 'REMOVE_BASE_CONFIG_IMAGE_VARIATION',
+      imageVariationID,
+      productID,
+      variationID,
+      baseConfigID
+    });
+  }
+};

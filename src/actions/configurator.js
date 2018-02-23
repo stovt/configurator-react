@@ -110,6 +110,25 @@ export const uploadImage = (configuratorId, formData, type, data) => (dispatch, 
             image: response
           });
           break;
+        case 'UPLOAD_BASE_CONFIG_IMAGE_VARIATION':
+          dispatch({
+            type: type,
+            baseConfigID: data.baseConfigID,
+            productID: data.productID,
+            variationID: data.variationID,
+            imageVariationID: data.imageVariationID,
+            image: response
+          });
+          break;
+        case 'UPLOAD_ACCESSORY_IMAGE_VARIATION':
+          dispatch({
+            type: type,
+            productID: data.productID,
+            variationID: data.variationID,
+            imageVariationID: data.imageVariationID,
+            image: response
+          });
+          break;
         default:
           return;
       }

@@ -126,11 +126,12 @@ const Product = ({
                 <SelectField 
                   floatingLabelText="Choose required accessory" 
                   value={product.requiredAccessoryID || ''} 
-                  onChange={(event, index, id) => selectRequiredAccessory(id, product.productID)}>
-                    <MenuItem 
-                      value={false} 
-                      primaryText={'NONE'}
-                    />
+                  onChange={(event, index, id) => selectRequiredAccessory(id, product.productID)}
+                >
+                  <MenuItem 
+                    value={false} 
+                    primaryText={'NONE'}
+                  />
                   {accessories.map(accessory => {
                     return(
                       <MenuItem 
@@ -147,17 +148,18 @@ const Product = ({
           <SelectField 
             floatingLabelText="Product with reusable" 
             value={product.reusePartsFromProductID || ''} 
-            onChange={(event, index, id) => selectReusableProduct(id, product.productID, baseConfigID, accessory)}>
-              <MenuItem 
-                value={false} 
-                primaryText={'NONE'}
-              />
-            {allProducts.map(accessory => {
+            onChange={(event, index, id) => selectReusableProduct(id, product.productID, baseConfigID, accessory)}
+          >
+            <MenuItem 
+              value={false} 
+              primaryText={'NONE'}
+            />
+            {allProducts.map(product => {
               return(
                 <MenuItem 
-                  key={accessory.productID} 
-                  value={accessory.productID} 
-                  primaryText={accessory.productName}
+                  key={product.productID} 
+                  value={product.productID} 
+                  primaryText={product.productName}
                 />
               )
             })}
