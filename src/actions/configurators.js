@@ -125,3 +125,11 @@ export const createOrFindConfigurator = (id) => (dispatch, getState) => {
     steps: getStepsIds(getState())
   });
 };
+
+export const saveConfigurator = (configurator) => (dispatch, getState) => {
+  return api.saveConfigurator(configurator, getActiveLocaleID(getState())).then(
+    response => {
+      return response ? true : false;
+    }
+  );
+};

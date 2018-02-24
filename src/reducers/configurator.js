@@ -15,7 +15,7 @@ const globalAttributes = (state = {
         isOnline: true
       };
     case 'SELECT_CONFIGURATOR_SUCCESS':
-      return action.configurator.global
+      return action.configurator.config.global
     case 'TOGGLE_CONFIGURATOR_DOWNLOAD_FLAG':
       return {
         ...state, 
@@ -46,7 +46,7 @@ const configuratorID = (state = null, action) => {
     case 'CREATE_CONFIGURATOR':
       return action.id
     case 'SELECT_CONFIGURATOR_SUCCESS':
-      return action.configurator.configuratorID
+      return action.configurator.config.configuratorID
     default:
       return state;
   }
@@ -57,7 +57,7 @@ const baseConfigs = (state = [], action) => {
     case 'CREATE_CONFIGURATOR':
       return []
     case 'SELECT_CONFIGURATOR_SUCCESS':
-      return action.configurator.baseConfigs
+      return action.configurator.config.baseConfigs
     case 'CHANGE_BASE_CONFIG_ID':
       return [
         ...state.slice(0, state.indexOf(action.folder)), 
@@ -471,7 +471,7 @@ const accessories = (state = [], action) => {
     case 'CREATE_CONFIGURATOR':
       return [];
     case 'SELECT_CONFIGURATOR_SUCCESS':
-      return action.configurator.accessories;
+      return action.configurator.config.accessories;
     case 'ADD_ACCESSORY_PRODUCT':
       return [
         ...state, 
@@ -734,6 +734,7 @@ export default combineReducers({
 });
 
 export const getActiveConfiguratorID = (state) => state.configurators.active.config.configuratorID;
+export const getActiveConfigurator = (state) => getActiveConfiguratorID(state) ? state.configurators.active : null;
 export const getDownloadAvailableFlag = (state) => state.configurators.active.config.global.isDownloadAvailable;
 export const getWishlistAvailableFlag = (state) => state.configurators.active.config.global.isWishlistAvailable;
 export const getConfiguratorOnlineFlag = (state) => state.configurators.active.config.global.isOnline;

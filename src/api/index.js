@@ -34,7 +34,7 @@ export const selectConfigurator = (id, locale) =>
       locale: locale
     }
   }).then((response) => {
-    return response.data.config;
+    return response.data;
   });
 
 
@@ -86,3 +86,25 @@ export const getProductByID = (id, locale) =>
   }).then((response) => {
     return response.data;
   });
+
+export const saveConfigurator = (configurator, locale) => {
+  if ( process.env.NODE_ENV === "production" ) {
+    return axios.post(configUrls.SaveConfigurator, 
+      "data=" + encodeURIComponent(JSON.stringify(configurator.config)), 
+      {
+        params: {
+          locale: locale,
+          meta: JSON.stringify(configurator.meta)
+        }
+      }).then(
+      response => {
+        return (response.data && response.data.success) ? true : false
+      }, error => {
+        return false;
+      });
+  } else {
+    return axios.get(configUrls.SaveConfigurator).then((response) => {
+      return true;
+    });
+  }
+}

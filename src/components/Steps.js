@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions/steps';
 import { getSteps, getStepsIds, getActiveStep } from '../reducers/steps';
-import { getActiveConfiguratorID } from '../reducers/configurator';
+import { getActiveConfiguratorID, getActiveConfigurator } from '../reducers/configurator';
 
 import { Tabs, Tab } from 'material-ui/Tabs';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -12,6 +12,7 @@ import AddAccessoriesStepIcon from 'material-ui/svg-icons/av/playlist-add-check'
 import SaveConfiguratorStepIcon from 'material-ui/svg-icons/content/save';
 
 import Locales from './Locales';
+import SaveConfigurator from './SaveConfigurator';
 import CreateConfiguratorStep from './CreateConfiguratorStep';
 import AddProductsStep from './AddProductsStep';
 import AddAccessoriesStep from './AddAccessoriesStep';
@@ -55,7 +56,7 @@ class Steps extends Component {
   }
 
   render() {
-    const { steps, stepsIds, activeStep, tabsDisabled, selectStep, prevStep, nextStep } = this.props;
+    const { steps, stepsIds,  activeStep, tabsDisabled, selectStep,  prevStep, nextStep } = this.props;
     if (!steps.length) {
       return <div>Loading...</div>;
     }
@@ -75,6 +76,10 @@ class Steps extends Component {
               disabled={tabsDisabled}
             >
               <Locales />
+              {!tabsDisabled
+                ? <SaveConfigurator />
+                : null
+              }
               <h3>{step.label}</h3>
               {step.step}
             </Tab>
@@ -100,13 +105,11 @@ class Steps extends Component {
 }
 
 
-const mapStateToProps = (state) => {
-  return {
-    steps: getSteps(state),
-    stepsIds: getStepsIds(state),
-    activeStep: getActiveStep(state),
-    tabsDisabled: getActiveConfiguratorID(state) ? false : true
-  }
-};
+const mapStateToProps = (state) => ({
+  steps: getSteps(state),
+  stepsIds: getStepsIds(state),
+  activeStep: getActiveStep(state),
+  tabsDisabled: getActiveConfiguratorID(state) ? false : true
+});
 
 export default connect(mapStateToProps, actions) (Steps);
