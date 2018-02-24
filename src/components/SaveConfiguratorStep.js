@@ -1,7 +1,10 @@
 import React from 'react';
+import MetaAttributes from './MetaAttributes';
 
 const SaveConfiguratorStep = () => (
-  <div>4</div>
+  <div>
+    <MetaAttributes />
+  </div>
 );
 
 export default SaveConfiguratorStep;

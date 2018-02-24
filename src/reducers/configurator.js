@@ -733,19 +733,19 @@ export default combineReducers({
   accessories
 });
 
-export const getActiveConfiguratorID = (state) => state.configurators.active.configuratorID;
-export const getDownloadAvailableFlag = (state) => state.configurators.active.global.isDownloadAvailable;
-export const getWishlistAvailableFlag = (state) => state.configurators.active.global.isWishlistAvailable;
-export const getConfiguratorOnlineFlag = (state) => state.configurators.active.global.isOnline;
-export const getConfiguratorTitle = (state) => state.configurators.active.global.title;
+export const getActiveConfiguratorID = (state) => state.configurators.active.config.configuratorID;
+export const getDownloadAvailableFlag = (state) => state.configurators.active.config.global.isDownloadAvailable;
+export const getWishlistAvailableFlag = (state) => state.configurators.active.config.global.isWishlistAvailable;
+export const getConfiguratorOnlineFlag = (state) => state.configurators.active.config.global.isOnline;
+export const getConfiguratorTitle = (state) => state.configurators.active.config.global.title;
 
-export const getFolders = (state) => state.configurators.active.baseConfigs;
+export const getFolders = (state) => state.configurators.active.config.baseConfigs;
 export const getFolderByUniqueID = (folders, id) => folders.find( f => f.uniqueID === id );
 export const getFolderProductByID = (folder, id) => folder.productIDs.find( p => p.productID === id );
 export const getFoldersProducts = (state) => {
   let products = [];
   let productIDs = [];
-  state.configurators.active.baseConfigs.forEach(config => {
+  state.configurators.active.config.baseConfigs.forEach(config => {
     config.productIDs.forEach(product => {
       if (productIDs.indexOf(product.productID) === -1) {
         productIDs = [...productIDs, product.productID];
@@ -756,23 +756,23 @@ export const getFoldersProducts = (state) => {
   return products;
 };
 export const getFolderProductIDs = (state, folder) => folder.productIDs.map( p => p.productID );
-export const getAccessories = (state) => state.configurators.active.accessories;
+export const getAccessories = (state) => state.configurators.active.config.accessories;
 export const getAccessoryProductByID = (accessories, id) => accessories.find( p => p.productID === id );
-export const getAccessoryProductIDs = (state) => state.configurators.active.accessories.map( p => p.productID );
+export const getAccessoryProductIDs = (state) => state.configurators.active.config.accessories.map( p => p.productID );
 export const getVariationByID = (variations, variationID) => variations.find( v => v.variationID === variationID );
 export const getAllProductIDs = (state) => {
   let productIDs = [];
-  state.configurators.active.baseConfigs.forEach(config => {
+  state.configurators.active.config.baseConfigs.forEach(config => {
     productIDs = [...productIDs, ...config.productIDs.map( p => p.productID )];
   })
-  productIDs = [...productIDs, ...state.configurators.active.accessories.map( p => p.productID )];
+  productIDs = [...productIDs, ...state.configurators.active.config.accessories.map( p => p.productID )];
 
   return productIDs;
 };
 export const getAllProducts = (state) => {
   let products = [];
   let productIDs = [];
-  state.configurators.active.baseConfigs.forEach(config => {
+  state.configurators.active.config.baseConfigs.forEach(config => {
     config.productIDs.forEach(product => {
       if (productIDs.indexOf(product.productID) === -1) {
         productIDs = [...productIDs, product.productID];
@@ -781,5 +781,5 @@ export const getAllProducts = (state) => {
     })
   })
 
-  return [...products, ...state.configurators.active.accessories];
+  return [...products, ...state.configurators.active.config.accessories];
 };

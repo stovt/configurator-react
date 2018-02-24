@@ -4,25 +4,25 @@ var CompressionPlugin = require("compression-webpack-plugin");
 
 module.exports = {
     devServer: {
-        inline: true,
-        contentBase: './build',
-        historyApiFallback: true,
-        port: 3000
+      inline: true,
+      contentBase: './build',
+      //historyApiFallback: true,
+      port: 3000
     },
     devtool: 'cheap-module-source-map',
     entry: __dirname + '/src/index.js',
     module: {
-        loaders: [
-            {
-                test: /\.js$/,
-                loaders: ['babel-loader'],
-                exclude: /node_modules/
-            }
-        ]
+      loaders: [
+        {
+          test: /\.js$/,
+          loaders: ['babel-loader'],
+          exclude: /node_modules/
+        }
+      ]
     },
     output: {
-        path: __dirname + '/build',
-        filename: 'js/bundle.min.js'
+      path: __dirname + '/build',
+      filename: 'js/bundle.min.js'
     },
     plugins: [
       new webpack.DefinePlugin({

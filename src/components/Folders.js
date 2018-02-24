@@ -35,7 +35,6 @@ const Folders = ({
               <div style={{float: 'left', width: '35%', display:'flex', margin: '5px 20px 5px 5px'}}>
                <ProductImage 
                 image={folder.baseConfigImage} 
-                configuratorID={folder.configuratorID} 
                 type={'UPLOAD_BASE_CONFIG_IMAGE'}
                 data={{folder: folder}}
               />

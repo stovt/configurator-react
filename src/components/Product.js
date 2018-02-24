@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions/products';
 import { 
-  getActiveConfiguratorID, 
   getFolders, 
   getFoldersProducts, 
   getAccessories, 
@@ -30,7 +29,6 @@ const Product = ({
   product, 
   folder, 
   accessory, 
-  configuratorID, 
   folders,
   foldersProducts,
   accessories,
@@ -67,7 +65,6 @@ const Product = ({
          }}>
           <ProductImage 
             image={product.realImage} 
-            configuratorID={configuratorID} 
             type={
               accessory 
               ? 'UPLOAD_ACCESSORY_PRODUCT_IMAGE' 
@@ -235,7 +232,6 @@ const Product = ({
 );
 
 const mapStateToProps = (state) => ({
-  configuratorID: getActiveConfiguratorID(state),
   folders: getFolders(state),
   foldersProducts: getFoldersProducts(state),
   accessories: getAccessories(state),

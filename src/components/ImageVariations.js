@@ -73,7 +73,6 @@ class ImageVariations extends Component {
       product, 
       folder, 
       accessory, 
-      configuratorID,
       addImageVariation,
       removeImageVariation,
     } = this.props;
@@ -126,8 +125,7 @@ class ImageVariations extends Component {
                             }}
                           >
                             <ProductImage 
-                              image={imageVariation.realImage} 
-                              configuratorID={configuratorID} 
+                              image={imageVariation.realImage}
                               type={
                                 accessory 
                                 ? 'UPLOAD_ACCESSORY_IMAGE_VARIATION' 

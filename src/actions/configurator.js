@@ -129,6 +129,12 @@ export const uploadImage = (configuratorId, formData, type, data) => (dispatch, 
             image: response
           });
           break;
+        case 'UPLOAD_META_PAGE_IMAGE':
+          dispatch({
+            type: type,
+            image: response
+          });
+          break;
         default:
           return;
       }

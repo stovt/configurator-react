@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions/products';
-import { getActiveConfiguratorID } from '../reducers/configurator';
 
 import ListItem from 'material-ui/List/ListItem';
 import Checkbox from 'material-ui/Checkbox';
@@ -56,8 +55,7 @@ const ProductListItem = ({
         }}
       >
         <ProductImage 
-          image={variation.realImage} 
-          configuratorID={configuratorID} 
+          image={variation.realImage}  
           type={
             accessory 
             ? 'UPLOAD_ACCESSORY_PRODUCT_VARIATION_REAL_IMAGE' 
@@ -84,7 +82,6 @@ const ProductListItem = ({
       >
         <ProductImage 
           image={variation.thumbnailImage} 
-          configuratorID={configuratorID} 
           type={
             accessory 
             ? 'UPLOAD_ACCESSORY_PRODUCT_VARIATION_THUMB_IMAGE' 
@@ -110,8 +107,7 @@ const ProductListItem = ({
         }}
       >
         <ProductImage 
-          image={variation.swatchImage} 
-          configuratorID={configuratorID} 
+          image={variation.swatchImage}  
           type={
             accessory 
             ? 'UPLOAD_ACCESSORY_PRODUCT_VARIATION_SWATCH_IMAGE' 
@@ -131,14 +127,11 @@ const ProductListItem = ({
       product={product}
       folder={folder}
       accessory={accessory}
-      configuratorID={configuratorID}
     />
     <div style={{clear: "both"}}/>
   </ListItem>
 );
 
-const mapStateToProps = (state) => ({
-  configuratorID: getActiveConfiguratorID(state)
-});
+const mapStateToProps = (state) => ({});
 
 export default connect(mapStateToProps, actions) (ProductListItem);

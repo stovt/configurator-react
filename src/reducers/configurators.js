@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
-import active from './configurator';
+import config from './configurator';
+import meta from './meta';
 
 const createConfiguratorsList = () => {
   const byId = (state = {}, action) => {
@@ -61,10 +62,15 @@ const createConfiguratorsList = () => {
     }
   };
 
+  const configurator = combineReducers({
+    config,
+    meta
+  });
+
   return combineReducers({
     byId,
     ids,
-    active,
+    active: configurator,
     isFetching,
     errorMessage
   });
