@@ -129,7 +129,48 @@ export const createOrFindConfigurator = (id) => (dispatch, getState) => {
 export const saveConfigurator = (configurator) => (dispatch, getState) => {
   return api.saveConfigurator(configurator, getActiveLocaleID(getState())).then(
     response => {
-      return response ? true : false;
+      if (response) {
+        dispatch({
+          type: 'REMOVE_CONFIGURATOR_REQUEST'
+        });
+
+        api.removeConfigurator(configurator.config.configuratorID + '-temp').then(
+          response => {
+            dispatch({
+              type: 'REMOVE_CONFIGURATOR_SUCCESS',
+              response: normalize(response, schema.arrayOfConfigurators)
+            });
+          },
+          error => {
+            dispatch({
+              type: 'REMOVE_CONFIGURATOR_FAILURE',
+              message: error.message || 'Something went wrong.'
+            });
+          }
+        );
+        return true;
+      } else {
+        return false;
+      }
+    }
+  );
+};
+
+export const getPreviewUrl = (configurator) => (dispatch, getState) => {
+  let oldID = configurator.config.configuratorID;
+  configurator.config.configuratorID+= '-temp';
+  return api.saveConfigurator(configurator, getActiveLocaleID(getState())).then(
+    response => {
+      configurator.config.configuratorID = oldID;
+      if (response) {
+        return api.getPreviewUrl(oldID,  getActiveLocaleID(getState())).then(
+          response => {
+            return response;
+          }
+        );
+      } else {
+        return false;
+      }
     }
   );
 };

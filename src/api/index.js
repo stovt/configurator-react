@@ -108,3 +108,14 @@ export const saveConfigurator = (configurator, locale) => {
     });
   }
 }
+
+export const getPreviewUrl = (configuratorID, locale) =>
+  axios.get(configUrls.GetPreviewUrl, {
+    params: {
+      cid: configuratorID,
+      locale: locale,
+      preview: true
+    }
+  }).then(response => {
+    return response.data.url;
+  });

@@ -193,6 +193,7 @@ const baseConfigs = (state = [], action) => {
             ...action.folder.productIDs.slice(0, action.folder.productIDs.indexOf(action.oldProduct)), 
             {
               ...action.product, 
+              productShortName: action.oldProduct.productShortName,
               realImage: action.oldProduct.realImage,
               variations: action.product.variations.map(variation => {
                 let oldProductVariation = action.oldProduct.variations.find( v => v.variationID === variation.variationID );
@@ -201,12 +202,14 @@ const baseConfigs = (state = [], action) => {
                     ...variation, 
                     realImage: oldProductVariation.realImage,
                     swatchImage: oldProductVariation.swatchImage,
-                    thumbnailImage: oldProductVariation.thumbnailImage
+                    thumbnailImage: oldProductVariation.thumbnailImage,
+                    imageVariations: oldProductVariation.imageVariations
                   };
                 } else {
                   return variation;
                 }
-              })
+              }),
+              order: action.oldProduct.order
             },
             ...action.folder.productIDs.slice(action.folder.productIDs.indexOf(action.oldProduct) + 1)
           ]
@@ -511,6 +514,7 @@ const accessories = (state = [], action) => {
         ...state.slice(0, state.indexOf(action.oldProduct)), 
         {
           ...action.product, 
+          productShortName: action.oldProduct.productShortName,
           realImage: action.oldProduct.realImage,
           variations: action.product.variations.map(variation => {
             let oldProductVariation = action.oldProduct.variations.find( v => v.variationID === variation.variationID );
@@ -519,12 +523,16 @@ const accessories = (state = [], action) => {
                 ...variation, 
                 realImage: oldProductVariation.realImage,
                 swatchImage: oldProductVariation.swatchImage,
-                thumbnailImage: oldProductVariation.thumbnailImage
+                thumbnailImage: oldProductVariation.thumbnailImage,
+                imageVariations: oldProductVariation.imageVariations
               };
             } else {
               return variation;
             }
-          })
+          }),
+          isExternalAccessory: action.oldProduct.isExternalAccessory,
+          requiredAccessoryID: action.oldProduct.requiredAccessoryID,
+          order: action.oldProduct.order
         },
         ...state.slice(state.indexOf(action.oldProduct) + 1)
       ];
