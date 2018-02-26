@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../actions/steps';
-import { getSteps, getStepsIds, getActiveStep } from '../reducers/steps';
-import { getActiveConfiguratorID, getActiveConfigurator } from '../reducers/configurator';
+import * as actions from '../../actions/steps';
+import { getSteps, getStepsIds, getActiveStep } from '../../reducers/steps';
+import { getActiveConfiguratorID } from '../../reducers/configurator';
 
 import { Tabs, Tab } from 'material-ui/Tabs';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -11,8 +11,7 @@ import AddProductsStepIcon from 'material-ui/svg-icons/content/add';
 import AddAccessoriesStepIcon from 'material-ui/svg-icons/av/playlist-add-check';
 import PreviewConfiguratorStepIcon from 'material-ui/svg-icons/content/save';
 
-import Locales from './Locales';
-import SaveConfigurator from './SaveConfigurator';
+import StepHeader from '../StepHeader';
 import CreateConfiguratorStep from './CreateConfiguratorStep';
 import AddProductsStep from './AddProductsStep';
 import AddAccessoriesStep from './AddAccessoriesStep';
@@ -75,11 +74,7 @@ class Steps extends Component {
               icon={step.icon}
               disabled={tabsDisabled}
             >
-              <Locales />
-              {!tabsDisabled
-                ? <SaveConfigurator />
-                : null
-              }
+              <StepHeader />
               <h3>{step.label}</h3>
               {step.step}
             </Tab>

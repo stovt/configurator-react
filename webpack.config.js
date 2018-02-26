@@ -28,6 +28,7 @@ module.exports = {
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
       }),
+      /* UNCOMMENT FOR PRODUCTION BUILD */
       /*new webpack.NoEmitOnErrorsPlugin(),
       new webpack.optimize.CommonsChunkPlugin({
         children: true,

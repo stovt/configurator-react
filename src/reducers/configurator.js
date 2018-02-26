@@ -464,6 +464,22 @@ const baseConfigs = (state = [], action) => {
         ...state.slice(state.indexOf(action.folder) + 1)
       ];
     }
+    case 'SET_BASE_CONFIG_PRODUCT_ORDER': {
+      let folder = getFolderByUniqueID(state, action.baseConfigID);
+      let product = getFolderProductByID(folder, action.productID);
+      return [
+        ...state.slice(0, state.indexOf(folder)), 
+        {
+          ...folder, 
+          productIDs: [
+            ...folder.productIDs.slice(0, folder.productIDs.indexOf(product)), 
+            {...product, order: action.order},
+            ...folder.productIDs.slice(folder.productIDs.indexOf(product) + 1)
+          ]
+        },
+        ...state.slice(state.indexOf(folder) + 1)
+      ];
+    }
     default:
       return state;
   }
@@ -729,6 +745,14 @@ const accessories = (state = [], action) => {
         return state;
       }
     }
+    case 'SET_ACCESSORY_PRODUCT_ORDER': {
+      let product = getAccessoryProductByID(state, action.productID);
+      return [
+        ...state.slice(0, state.indexOf(product)), 
+        {...product, order: action.order},
+        ...state.slice(state.indexOf(product) + 1)
+      ];
+    }
     default:
       return state;
   }
@@ -791,4 +815,91 @@ export const getAllProducts = (state) => {
   })
 
   return [...products, ...state.configurators.active.config.accessories];
+};
+
+export const getFixedOrderProducts = (state) => {
+  let baseConfigProducts = [];  
+  state.configurators.active.config.baseConfigs.forEach(config => {
+    config.productIDs.forEach(product => {
+      let baseConfigProduct = {
+        productID: product.productID,
+        productName: product.productName,
+        realImage: product.realImage,
+        order: product.order,
+        baseConfigID: config.uniqueID
+      };
+      baseConfigProducts = [...baseConfigProducts, baseConfigProduct];
+    })
+  });
+
+  let accessoryProducts = [];
+  state.configurators.active.config.accessories.forEach(product => {
+    let accessoryProduct = {
+      productID: product.productID,
+      productName: product.productName,
+      realImage: product.realImage,
+      order: product.order,
+      accessory: true
+    };
+    accessoryProducts = [...accessoryProducts, accessoryProduct];
+  });
+
+  let allProducts = [...baseConfigProducts, ...accessoryProducts];
+
+  const compareNumeric = (a, b) => {
+    if ((a.order+1) > (b.order+1)) return 1;
+    if ((a.order+1) < (b.order+1)) return -1;
+  };
+  allProducts.sort(compareNumeric);
+
+  let order = 1;
+  allProducts = allProducts.map(product => {
+    return {
+      ...product, 
+      order: order++
+    };
+  });
+
+  return {
+    allProducts,
+    nextOrder: order
+  };
+};
+
+export const getOrderProducts = (state) => {
+  let baseConfigProducts = [];  
+  state.configurators.active.config.baseConfigs.forEach(config => {
+    config.productIDs.forEach(product => {
+      let baseConfigProduct = {
+        productID: product.productID,
+        productName: product.productName,
+        realImage: product.realImage,
+        order: product.order,
+        baseConfigID: config.uniqueID
+      };
+      baseConfigProducts = [...baseConfigProducts, baseConfigProduct];
+    })
+  });
+
+  let accessoryProducts = [];
+  state.configurators.active.config.accessories.forEach(product => {
+    let accessoryProduct = {
+      productID: product.productID,
+      productName: product.productName,
+      realImage: product.realImage,
+      order: product.order,
+      accessory: true
+    };
+    accessoryProducts = [...accessoryProducts, accessoryProduct];
+  });
+
+  let allProducts = [...baseConfigProducts, ...accessoryProducts];
+
+  const compareNumeric = (a, b) => {
+    if ((a.order+1) > (b.order+1)) return 1;
+    if ((a.order+1) < (b.order+1)) return -1;
+  };
+  allProducts.sort(compareNumeric);
+
+  return allProducts;
 };

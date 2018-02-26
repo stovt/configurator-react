@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../actions/configurators';
-import { getConfiguratorsIds, getErrorMessage, getIsFetching } from '../reducers/configurators';
-import FetchError from './FetchError';
+import * as actions from '../../actions/configurators';
+import { getConfiguratorsIds, getErrorMessage, getIsFetching } from '../../reducers/configurators';
+import FetchError from '../FetchError';
 
 import {
   Table, 
@@ -16,8 +16,8 @@ import {
 import Subheader from 'material-ui/Subheader';
 import ContentRemove from 'material-ui/svg-icons/content/delete-sweep';
 import AutoComplete from 'material-ui/AutoComplete';
-import { autoCompleteFilter } from '../helpers/MaterialUIHelper';
 import RaisedButton from 'material-ui/RaisedButton';
+import { autoCompleteFilter } from '../../helpers/MaterialUIHelper';
 
 
 class ConfiguratorsIds extends Component {

@@ -1,5 +1,5 @@
 import React from 'react';
-import AccessoryList from './AccessoryList';
+import AccessoryList from '../AccessoryList';
 
 const AddAccessoriesStep = () => (
   <AccessoryList />

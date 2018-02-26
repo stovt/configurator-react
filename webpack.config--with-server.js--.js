@@ -9,7 +9,7 @@ module.exports = {
     app: [
       'webpack-dev-server/client?http://0.0.0.0:3000', // WebpackDevServer host and port
       'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
-      "./code/index.js"
+      "./src/index.js"
     ]
   },
   devtool: "inline-source-map",
@@ -30,7 +30,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
+      template: "./build/index.html",
       inject: "head"
     }),
     new ScriptExtHtmlWebpackPlugin({
@@ -41,6 +41,6 @@ module.exports = {
   ],
   output: {
     filename: "js/bundle.min.js",
-    path: path.resolve(__dirname, "src")
+    path: path.resolve(__dirname, "build")
   }
 };

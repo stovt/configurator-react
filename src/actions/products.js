@@ -1,6 +1,8 @@
 import { getIsFetching } from '../reducers/products';
 import * as api from '../api';
 import { getActiveLocaleID } from '../reducers/locales';
+import { getFixedOrderProducts } from '../reducers/configurator';
+import { getNextOrder } from '../reducers/configurators';
 
 export const fetchProducts = () => (dispatch, getState) => {  
   if(getIsFetching(getState())) {
@@ -33,13 +35,19 @@ export const addProduct = (folder, productID, accessory = false) => (dispatch, g
       if (accessory) {
         dispatch({
           type: 'ADD_ACCESSORY_PRODUCT',
-          product: response,
+          product: { 
+            ...response,
+            order: getNextOrder(getState())
+          }
         });
       } else {
         dispatch({
           type: 'ADD_BASE_CONFIG_PRODUCT',
           folder,
-          product: response,
+          product: { 
+            ...response,
+            order: getNextOrder(getState())
+          }
         });
       }
     }
@@ -58,6 +66,29 @@ export const removeProduct = (folder, product, accessory = false) => (dispatch, 
       product,
     });
   }
+  let orderProducts = getFixedOrderProducts(getState());
+  let nextOrder = orderProducts.nextOrder;
+  orderProducts = orderProducts.allProducts;
+  orderProducts.forEach(product => {
+    if (product.accessory) {
+      dispatch({
+        type: 'SET_ACCESSORY_PRODUCT_ORDER',
+        productID: product.productID,
+        order: product.order
+      });
+    } else {
+      dispatch({
+        type: 'SET_BASE_CONFIG_PRODUCT_ORDER',
+        productID: product.productID,
+        order: product.order,
+        baseConfigID: product.baseConfigID
+      });
+    }
+  });
+  dispatch({
+    type: 'SET_NEXT_ORDER',
+    order: nextOrder
+  });
 };
 
 export const changeProductTitle = (folder, product, text, accessory = false) => (dispatch, getState) => {
@@ -269,3 +300,36 @@ export const removeImageVariation = (imageVariation, product, variation, folder,
     });
   }
 };
+
+export const changeProductsOrder = (product1, product2)  => (dispatch, getState) => {
+  if (product2) {
+    if (product1.accessory) {
+      dispatch({
+        type: 'SET_ACCESSORY_PRODUCT_ORDER',
+        productID: product1.productID,
+        order: product2.order
+      });
+    } else {
+      dispatch({
+        type: 'SET_BASE_CONFIG_PRODUCT_ORDER',
+        productID: product1.productID,
+        order: product2.order,
+        baseConfigID: product1.baseConfigID
+      });
+    }
+    if (product2.accessory) {
+      dispatch({
+        type: 'SET_ACCESSORY_PRODUCT_ORDER',
+        productID: product2.productID,
+        order: product1.order
+      });
+    } else {
+      dispatch({
+        type: 'SET_BASE_CONFIG_PRODUCT_ORDER',
+        productID: product2.productID,
+        order: product1.order,
+        baseConfigID: product2.baseConfigID
+      });
+    }
+  }
+}

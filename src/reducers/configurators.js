@@ -62,9 +62,27 @@ const createConfiguratorsList = () => {
     }
   };
 
+  const nextOrder = (state = 1, action) => {
+    switch (action.type) {
+      case 'SET_NEXT_ORDER':
+        return action.order;
+      case 'CREATE_CONFIGURATOR':
+        return 1;
+      case 'ADD_BASE_CONFIG_PRODUCT':
+      case 'ADD_ACCESSORY_PRODUCT':
+        return state++;
+      case 'REMOVE_BASE_CONFIG_PRODUCT':
+      case 'REMOVE_ACCESSORY_PRODUCT':
+        return state++;
+      default:
+        return state;
+    }
+  };
+
   const configurator = combineReducers({
     config,
-    meta
+    meta,
+    nextOrder
   });
 
   return combineReducers({
@@ -82,3 +100,4 @@ export const getIsFetching = (state) => state.configurators.isFetching;
 export const getErrorMessage = (state) => state.configurators.errorMessage;
 export const getConfiguratorsIds = (state) => state.configurators.ids;
 export const getConfiguratorById = (state, id) => state.configurators.ids.find( c => c === id );
+export const getNextOrder = (state) => state.configurators.active.nextOrder;

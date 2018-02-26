@@ -2,6 +2,7 @@ import { normalize } from 'normalizr';
 import * as schema from './schema';
 import { getActiveLocaleID } from '../reducers/locales';
 import { getIsFetching, getConfiguratorById } from '../reducers/configurators';
+import { getFixedOrderProducts } from '../reducers/configurator';
 import { getStepsIds } from '../reducers/steps';
 import * as api from '../api';
 
@@ -44,6 +45,30 @@ export const selectConfigurator = (id) => (dispatch, getState) => {
       dispatch({
         type: 'SELECT_CONFIGURATOR_SUCCESS',
         configurator: response
+      });
+
+      let orderProducts = getFixedOrderProducts(getState());
+      let nextOrder = orderProducts.nextOrder;
+      orderProducts = orderProducts.allProducts;
+      orderProducts.forEach(product => {
+        if (product.accessory) {
+          dispatch({
+            type: 'SET_ACCESSORY_PRODUCT_ORDER',
+            productID: product.productID,
+            order: product.order
+          });
+        } else {
+          dispatch({
+            type: 'SET_BASE_CONFIG_PRODUCT_ORDER',
+            productID: product.productID,
+            order: product.order,
+            baseConfigID: product.baseConfigID
+          });
+        }
+      });
+      dispatch({
+        type: 'SET_NEXT_ORDER',
+        order: nextOrder
       });
       dispatch({
         type: 'NEXT_STEP',
