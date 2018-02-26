@@ -10,10 +10,10 @@ const Root = ({ store }) => (
 );
 
 Root.propTypes = {
-    store: PropTypes.oneOfType( [
-        PropTypes.func.isRequired,
-        PropTypes.object.isRequired,
-    ] ).isRequired
+  store: PropTypes.oneOfType( [
+    PropTypes.func.isRequired,
+    PropTypes.object.isRequired,
+  ] ).isRequired
 };
 
 export default Root;

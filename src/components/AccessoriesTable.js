@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 import Checkbox from 'material-ui/Checkbox';
 
@@ -64,3 +65,10 @@ const isChecked = (accessoryIDs, accessoryID) => {
 };
 
 export default AccessoriesTable;
+
+AccessoriesTable.propTypes = {
+  folders: PropTypes.array.isRequired,
+  accessoryID: PropTypes.string.isRequired,
+  togglePreselectedAccessory: PropTypes.func.isRequired,
+  toggleRequireAccessory: PropTypes.func.isRequired
+};

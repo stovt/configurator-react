@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../actions/products';
 import { 
@@ -37,7 +38,7 @@ const Product = ({
   changeProductTitle,
   changeProductShortTitle,
   changeProductDescription,
-  toggleAccessoryExternal ,
+  toggleAccessoryExternal,
   togglePreselectedAccessory,
   toggleRequireAccessory,
   selectReusableProduct,
@@ -240,6 +241,27 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps, actions) (Product);
 
-ProductImage.defaultProps = {
+Product.defaultProps = {
   accessory: false
+};
+
+Product.propTypes = {
+  folder: PropTypes.object,
+  accessory: PropTypes.bool,
+  folders: PropTypes.array.isRequired,
+  foldersProducts: PropTypes.array.isRequired,
+  accessories: PropTypes.array.isRequired,
+  allProducts: PropTypes.array.isRequired,
+  refreshProduct: PropTypes.func.isRequired, 
+  changeProductTitle: PropTypes.func.isRequired,
+  changeProductShortTitle: PropTypes.func.isRequired,
+  changeProductDescription: PropTypes.func.isRequired,
+  toggleAccessoryExternal: PropTypes.func.isRequired,
+  togglePreselectedAccessory: PropTypes.func.isRequired,
+  toggleRequireAccessory: PropTypes.func.isRequired,
+  selectReusableProduct: PropTypes.func.isRequired,
+  selectRequiredAccessory: PropTypes.func.isRequired,
+  upAccessory: PropTypes.func.isRequired,
+  downAccessory: PropTypes.func.isRequired,
+  removeProduct: PropTypes.func.isRequired
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as configuratorActions from '../actions/configurator';
@@ -127,7 +128,12 @@ const Folders = ({
         </div>
         )
     })}
-    <RaisedButton label="Add folder" onClick={addBaseConfig} primary={true} />
+    <div style={{
+      'margin': '10px auto',
+      'textAlign': 'center'
+    }}>
+      <RaisedButton label="Add folder" onClick={addBaseConfig} primary={true} />
+    </div>
   </div>
 );
 
@@ -140,3 +146,13 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps) (Folders);
+
+Folders.propTypes = {
+  folders: PropTypes.array.isRequired,
+  changeBaseConfigID: PropTypes.func.isRequired,
+  changeBaseConfigTitle: PropTypes.func.isRequired,
+  changeBaseConfigSubtitle: PropTypes.func.isRequired,
+  changeBaseConfigDescription: PropTypes.func.isRequired,
+  removeBaseConfig: PropTypes.func.isRequired,
+  addBaseConfig: PropTypes.func.isRequired
+};

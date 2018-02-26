@@ -1,4 +1,5 @@
 import React , { Component } from 'react';
+import PropTypes from 'prop-types';
 import TextField from 'material-ui/TextField';
 
 class CustomTextField extends Component {
@@ -43,3 +44,10 @@ class CustomTextField extends Component {
 
 export default CustomTextField;
 
+CustomTextField.propTypes = {
+  hintText: PropTypes.string,
+  floatingLabelText: PropTypes.string,
+  multiLine: PropTypes.bool,
+  sendValue: PropTypes.func.isRequired,
+  style: PropTypes.object
+};

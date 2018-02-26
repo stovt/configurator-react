@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../actions/configurators';
 import { getActiveConfigurator } from '../reducers/configurator';
@@ -8,7 +9,7 @@ import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 
 class ConfiguratorPreview extends Component {  
 
-  constructor(props){
+  constructor(props) {
     super(props);
     
     this.state = {
@@ -68,3 +69,9 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, actions) (ConfiguratorPreview);
+
+ConfiguratorPreview.propTypes = {
+  configurator: PropTypes.object,
+  getPreviewUrl: PropTypes.func.isRequired,
+  fetchConfiguratorsIds: PropTypes.func.isRequired
+};

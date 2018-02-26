@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../actions/products';
 import { getAccessories } from '../reducers/configurator';
@@ -45,3 +46,8 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, actions) (AccessoryList);
+
+AccessoryList.propTypes = {
+  accesories: PropTypes.array.isRequired,
+  refreshAllAccessories: PropTypes.func.isRequired
+};

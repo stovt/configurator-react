@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../actions/meta';
 import { getMeta } from '../reducers/meta';
@@ -6,7 +7,7 @@ import Paper from 'material-ui/Paper';
 import TextField from './TextField';
 import ProductImage from './ProductImage';
 
-const MetaAttributes = ({ meta, changeTitle, changeKeywords, changeDescription, changeImage }) => (
+const MetaAttributes = ({ meta, changeTitle, changeKeywords, changeDescription }) => (
   <Paper zDepth={1} style={{padding: 20}}>
     <h2>Meta Attributes</h2>
     <TextField
@@ -46,3 +47,10 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, actions) (MetaAttributes);
+
+MetaAttributes.propTypes = {
+  meta: PropTypes.object.isRequired,
+  changeTitle: PropTypes.func.isRequired,
+  changeKeywords: PropTypes.func.isRequired,
+  changeDescription: PropTypes.func.isRequired
+};

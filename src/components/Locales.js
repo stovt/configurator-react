@@ -1,4 +1,5 @@
 import React , { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../actions/locales';
 import { getLocales, getErrorMessage, getIsFetching, getActiveLocaleID } from '../reducers/locales';
@@ -55,3 +56,11 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, actions) (Locales);
+
+Locales.propTypes = {
+  isFetching: PropTypes.bool.isRequired,
+  errorMessage: PropTypes.string,
+  activeLocaleID: PropTypes.string.isRequired,
+  locales: PropTypes.array.isRequired,
+  selectLocale: PropTypes.func.isRequired
+};

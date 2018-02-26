@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../actions/configurators';
 import { getActiveConfigurator } from '../reducers/configurator';
@@ -76,3 +77,8 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, actions) (SaveConfigurator);
+
+SaveConfigurator.propTypes = {
+  configurator: PropTypes.object.isRequired,
+  saveConfigurator: PropTypes.func.isRequired
+};

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../actions/configurator';
 import { 
@@ -62,3 +63,14 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, actions) (GlobalAttributes);
+
+GlobalAttributes.propTypes = {
+  downloadAvailable: PropTypes.bool.isRequired,
+  wishlistAvailable: PropTypes.bool.isRequired,
+  online: PropTypes.bool.isRequired,
+  title: PropTypes.string,
+  toggleDownloadAvailableFlag: PropTypes.func.isRequired,
+  toggleWishlistAvailableFlag: PropTypes.func.isRequired,
+  toggleConfiguratorOnlineFlag: PropTypes.func.isRequired,
+  changeConfiguratorTitle: PropTypes.func.isRequired
+};

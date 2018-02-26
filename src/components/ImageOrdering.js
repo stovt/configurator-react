@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../actions/products';
 import { getOrderProducts } from '../reducers/configurator';
@@ -58,3 +59,8 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, actions) (ImageOrdering);
+
+ImageOrdering.propTypes = {
+  orderProducts: PropTypes.array.isRequired,
+  changeProductsOrder: PropTypes.func.isRequired
+};

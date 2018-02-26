@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../actions/products';
 import { getAllProducts } from '../reducers/configurator';
@@ -188,3 +189,13 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, actions) (ImageVariations);
+
+ImageVariations.propTypes = {
+  allProducts: PropTypes.array.isRequired,
+  variation: PropTypes.object.isRequired,
+  product: PropTypes.object.isRequired,
+  folder: PropTypes.object,
+  accessory: PropTypes.bool,
+  addImageVariation: PropTypes.func.isRequired,
+  removeImageVariation: PropTypes.func.isRequired
+};

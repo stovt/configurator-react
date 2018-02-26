@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/configurators';
 import { getConfiguratorsIds, getErrorMessage, getIsFetching } from '../../reducers/configurators';
@@ -143,3 +144,12 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, actions) (ConfiguratorsIds);
+
+ConfiguratorsIds.propTypes = {
+  configuratorsIds: PropTypes.array.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  errorMessage: PropTypes.string,
+  selectConfigurator: PropTypes.func.isRequired, 
+  removeConfigurator: PropTypes.func.isRequired,
+  createOrFindConfigurator: PropTypes.func.isRequired
+};

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getActiveConfiguratorID } from '../reducers/configurator';
 
@@ -34,3 +35,7 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps) (StepHeader);
+
+StepHeader.propTypes = {
+  configuratorID: PropTypes.string
+};

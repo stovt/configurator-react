@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/steps';
 import { getSteps, getStepsIds, getActiveStep } from '../../reducers/steps';
@@ -108,3 +109,13 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, actions) (Steps);
+
+Steps.propTypes = {
+  steps: PropTypes.array.isRequired,
+  stepsIds: PropTypes.array.isRequired,
+  activeStep: PropTypes.string.isRequired,
+  tabsDisabled: PropTypes.bool.isRequired,
+  selectStep: PropTypes.func.isRequired,
+  prevStep: PropTypes.func.isRequired,
+  nextStep: PropTypes.func.isRequired
+};

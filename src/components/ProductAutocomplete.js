@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../actions/products';
 import { getProducts, getErrorMessage, getIsFetching } from '../reducers/products';
@@ -128,4 +129,16 @@ export default connect(mapStateToProps, actions) (ProductAutocomplete);
 
 ProductAutocomplete.defaultProps = {
   accessory: false  
+};
+
+ProductAutocomplete.propTypes = {
+  isFetching: PropTypes.bool.isRequired,
+  errorMessage: PropTypes.string,
+  products: PropTypes.array.isRequired,
+  folderProductIDs: PropTypes.array.isRequired,
+  accessoryIDs: PropTypes.array.isRequired,
+  folder: PropTypes.object,
+  accessory: PropTypes.bool,
+  fetchProducts: PropTypes.func.isRequired,
+  addProduct: PropTypes.func.isRequired
 };

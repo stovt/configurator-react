@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../actions/configurator';
 import { getActiveConfiguratorID } from '../reducers/configurator';
@@ -70,6 +71,18 @@ export default connect(mapStateToProps, actions) (ProductImage);
 
 ProductImage.defaultProps = {
   disabled: false  
+};
+
+ProductImage.propTypes = {
+  disabled: PropTypes.bool,
+  configuratorID: PropTypes.string,
+  image: PropTypes.oneOfType( [
+    PropTypes.string.isRequired,
+    PropTypes.bool.isRequired,
+  ] ).isRequired,
+  type: PropTypes.string.isRequired,
+  data: PropTypes.object,
+  uploadImage: PropTypes.func.isRequired
 };
 
 const styles = {
