@@ -4,7 +4,6 @@ npm i
 ```
 
 ### Starting local server:
-npm start
 ```
 npm start
 ```
@@ -13,7 +12,7 @@ npm start
 ```
 npm run build
 ```
-
+*Build files are located in /build/js*
 
 #### *To fix 'hot load' run the next commands:*
 ```
