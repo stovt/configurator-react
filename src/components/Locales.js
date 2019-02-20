@@ -1,14 +1,22 @@
-import React , { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import * as actions from '../actions/locales';
-import { getLocales, getErrorMessage, getIsFetching, getActiveLocaleID } from '../reducers/locales';
-import FetchError from './FetchError';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+import * as actions from '../actions/locales';
+import {
+  getLocales, getErrorMessage, getIsFetching, getActiveLocaleID
+} from '../reducers/locales';
+import FetchError from './FetchError';
 
+class Locales extends React.PureComponent {
+  constructor() {
+    super();
 
-class Locales extends Component {
+    this.fetchData = this.fetchData.bind(this);
+    this.handleOnChange = this.handleOnChange.bind(this);
+  }
+
   componentDidMount() {
     this.fetchData();
   }
@@ -18,8 +26,15 @@ class Locales extends Component {
     fetchLocales();
   }
 
+  handleOnChange(event, index, id) {
+    this.props.selectLocale(id);
+  }
+
   render() {
-    const { locales, isFetching, errorMessage, activeLocaleID, selectLocale } = this.props;
+    const {
+      locales, isFetching, errorMessage, activeLocaleID
+    } = this.props;
+
     if (isFetching && !locales.length) {
       return <div>Loading...</div>;
     }
@@ -27,40 +42,44 @@ class Locales extends Component {
       return (
         <FetchError
           message={errorMessage}
-          onRetry={() => this.fetchData()}
+          onRetry={this.fetchData}
         />
       );
     }
 
     return (
-      <SelectField 
-        value={activeLocaleID} 
-        onChange={(event, index, id) => selectLocale(id)}
+      <SelectField
+        value={activeLocaleID}
+        onChange={this.handleOnChange}
         floatingLabelText="Locales:"
-        autoWidth={true}
+        autoWidth
       >
-        {locales.map((locale) =>
+        {locales.map(locale => (
           <MenuItem value={locale.id} key={locale.id} primaryText={locale.value} />
-        )}
+        ))}
       </SelectField>
-    )
+    );
   }
 }
 
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   isFetching: getIsFetching(state),
   errorMessage: getErrorMessage(state),
   activeLocaleID: getActiveLocaleID(state),
   locales: getLocales(state)
 });
 
-export default connect(mapStateToProps, actions) (Locales);
+export default connect(mapStateToProps, actions)(Locales);
 
 Locales.propTypes = {
   isFetching: PropTypes.bool.isRequired,
+  fetchLocales: PropTypes.func.isRequired,
   errorMessage: PropTypes.string,
   activeLocaleID: PropTypes.string.isRequired,
   locales: PropTypes.array.isRequired,
   selectLocale: PropTypes.func.isRequired
+};
+Locales.defaultProps = {
+  errorMessage: null
 };

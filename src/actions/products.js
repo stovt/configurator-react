@@ -4,8 +4,8 @@ import { getActiveLocaleID } from '../reducers/locales';
 import { getFixedOrderProducts } from '../reducers/configurator';
 import { getNextOrder } from '../reducers/configurators';
 
-export const fetchProducts = () => (dispatch, getState) => {  
-  if(getIsFetching(getState())) {
+export const fetchProducts = () => (dispatch, getState) => {
+  if (getIsFetching(getState())) {
     return Promise.resolve();
   }
 
@@ -14,13 +14,13 @@ export const fetchProducts = () => (dispatch, getState) => {
   });
 
   return api.fetchProducts().then(
-    response => {
+    (response) => {
       dispatch({
         type: 'FETCH_PRODUCTS_SUCCESS',
-        response: response
+        response
       });
     },
-    error => {
+    (error) => {
       dispatch({
         type: 'FETCH_PRODUCTS_FAILURE',
         message: error.message || 'Something went wrong.'
@@ -29,59 +29,60 @@ export const fetchProducts = () => (dispatch, getState) => {
   );
 };
 
-export const addProduct = (folder, productID, accessory = false) => (dispatch, getState) => 
-  api.getProductByID(productID, getActiveLocaleID(getState())).then(
-    response => {
-      if (accessory) {
-        dispatch({
-          type: 'ADD_ACCESSORY_PRODUCT',
-          product: { 
-            ...response,
-            order: getNextOrder(getState())
-          }
-        });
-      } else {
-        dispatch({
-          type: 'ADD_BASE_CONFIG_PRODUCT',
-          folder,
-          product: { 
-            ...response,
-            order: getNextOrder(getState())
-          }
-        });
-      }
+export const addProduct = (
+  folder, productID, accessory = false
+) => (dispatch, getState) => api.getProductByID(productID, getActiveLocaleID(getState())).then(
+  (response) => {
+    if (accessory) {
+      dispatch({
+        type: 'ADD_ACCESSORY_PRODUCT',
+        product: {
+          ...response,
+          order: getNextOrder(getState())
+        }
+      });
+    } else {
+      dispatch({
+        type: 'ADD_BASE_CONFIG_PRODUCT',
+        folder,
+        product: {
+          ...response,
+          order: getNextOrder(getState())
+        }
+      });
     }
-  );
+  }
+);
 
 export const removeProduct = (folder, product, accessory = false) => (dispatch, getState) => {
   if (accessory) {
     dispatch({
       type: 'REMOVE_ACCESSORY_PRODUCT',
-      product,
+      product
     });
   } else {
     dispatch({
       type: 'REMOVE_BASE_CONFIG_PRODUCT',
       folder,
-      product,
+      product
     });
   }
   let orderProducts = getFixedOrderProducts(getState());
-  let nextOrder = orderProducts.nextOrder;
+  const { nextOrder } = orderProducts;
   orderProducts = orderProducts.allProducts;
-  orderProducts.forEach(product => {
-    if (product.accessory) {
+  orderProducts.forEach((p) => {
+    if (p.accessory) {
       dispatch({
         type: 'SET_ACCESSORY_PRODUCT_ORDER',
-        productID: product.productID,
-        order: product.order
+        productID: p.productID,
+        order: p.order
       });
     } else {
       dispatch({
         type: 'SET_BASE_CONFIG_PRODUCT_ORDER',
-        productID: product.productID,
-        order: product.order,
-        baseConfigID: product.baseConfigID
+        productID: p.productID,
+        order: p.order,
+        baseConfigID: p.baseConfigID
       });
     }
   });
@@ -91,7 +92,9 @@ export const removeProduct = (folder, product, accessory = false) => (dispatch, 
   });
 };
 
-export const changeProductTitle = (folder, product, text, accessory = false) => (dispatch, getState) => {
+export const changeProductTitle = (
+  folder, product, text, accessory = false
+) => (dispatch) => {
   if (accessory) {
     dispatch({
       type: 'CHANGE_ACCESSORY_PRODUCT_TITLE',
@@ -108,7 +111,9 @@ export const changeProductTitle = (folder, product, text, accessory = false) => 
   }
 };
 
-export const changeProductShortTitle = (folder, product, text, accessory = false) => (dispatch, getState) => {
+export const changeProductShortTitle = (
+  folder, product, text, accessory = false
+) => (dispatch) => {
   if (accessory) {
     dispatch({
       type: 'CHANGE_ACCESSORY_PRODUCT_SHORT_TITLE',
@@ -125,7 +130,9 @@ export const changeProductShortTitle = (folder, product, text, accessory = false
   }
 };
 
-export const changeProductDescription = (folder, product, text, accessory = false) => (dispatch, getState) => {
+export const changeProductDescription = (
+  folder, product, text, accessory = false
+) => (dispatch) => {
   if (accessory) {
     dispatch({
       type: 'CHANGE_ACCESSORY_PRODUCT_DESCRIPTION',
@@ -142,27 +149,30 @@ export const changeProductDescription = (folder, product, text, accessory = fals
   }
 };
 
-export const refreshProduct = (folder, oldProduct, productID, accessory = false) => (dispatch, getState) => 
-  api.getProductByID(productID, getActiveLocaleID(getState())).then(
-    response => {
-      if (accessory) {
-        dispatch({
-          type: 'REFRESH_ACCESSORY_PRODUCT',
-          oldProduct,
-          product: response
-        });
-      } else {
-        dispatch({
-          type: 'REFRESH_BASE_CONFIG_PRODUCT',
-          folder,
-          oldProduct,
-          product: response
-        });
-      }
+export const refreshProduct = (
+  folder, oldProduct, productID, accessory = false
+) => (dispatch, getState) => api.getProductByID(productID, getActiveLocaleID(getState())).then(
+  (response) => {
+    if (accessory) {
+      dispatch({
+        type: 'REFRESH_ACCESSORY_PRODUCT',
+        oldProduct,
+        product: response
+      });
+    } else {
+      dispatch({
+        type: 'REFRESH_BASE_CONFIG_PRODUCT',
+        folder,
+        oldProduct,
+        product: response
+      });
     }
-  );
+  }
+);
 
-export const toggleVariationEnable = (folder, product, variation, accessory)  => (dispatch, getState) => {
+export const toggleVariationEnable = (
+  folder, product, variation, accessory
+) => (dispatch) => {
   if (accessory) {
     dispatch({
       type: 'TOGGLE_ACCESSORY_VARIATION_ENABLE',
@@ -176,10 +186,12 @@ export const toggleVariationEnable = (folder, product, variation, accessory)  =>
       product,
       variation
     });
-  }  
+  }
 };
 
-export const toggleVariationDefault = (folder, product, variation, accessory)  => (dispatch, getState) => {
+export const toggleVariationDefault = (
+  folder, product, variation, accessory
+) => (dispatch) => {
   if (accessory) {
     dispatch({
       type: 'TOGGLE_ACCESSORY_VARIATION_DEFAULT',
@@ -193,33 +205,34 @@ export const toggleVariationDefault = (folder, product, variation, accessory)  =
       variation,
       folder
     });
-  }  
+  }
 };
 
-export const refreshAllAccessories = (accesories) => (dispatch, getState) => 
-  accesories.forEach(accessory => {
-    api.getProductByID(accessory.productID, getActiveLocaleID(getState())).then(
-      response => {
-        dispatch({
-          type: 'REFRESH_ACCESSORY_PRODUCT',
-          oldProduct: accessory,
-          product: response
-        });
-      }
-    );
-  });
-  
-export const toggleAccessoryExternal = (product) => ({
+export const refreshAllAccessories = accesories => (
+  dispatch, getState
+) => accesories.forEach((accessory) => {
+  api.getProductByID(accessory.productID, getActiveLocaleID(getState())).then(
+    (response) => {
+      dispatch({
+        type: 'REFRESH_ACCESSORY_PRODUCT',
+        oldProduct: accessory,
+        product: response
+      });
+    }
+  );
+});
+
+export const toggleAccessoryExternal = product => ({
   type: 'TOGGLE_ACCESSORY_EXTERNAL',
   product
 });
 
-export const upAccessory = (product) => ({
+export const upAccessory = product => ({
   type: 'UP_ACCESSORY_PRODUCT',
   product
 });
 
-export const downAccessory = (product) => ({
+export const downAccessory = product => ({
   type: 'DOWN_ACCESSORY_PRODUCT',
   product
 });
@@ -237,7 +250,7 @@ export const toggleRequireAccessory = (folder, accessoryID) => ({
 });
 
 
-export const selectReusableProduct = (id, product, folder, accessory)  => (dispatch, getState) => {
+export const selectReusableProduct = (id, product, folder, accessory) => (dispatch) => {
   if (accessory) {
     dispatch({
       type: 'SELECT_ACCESSORY_REUSABLE_PRODUCT',
@@ -251,7 +264,7 @@ export const selectReusableProduct = (id, product, folder, accessory)  => (dispa
       product,
       folder
     });
-  }  
+  }
 };
 
 export const selectRequiredAccessory = (id, product) => ({
@@ -261,7 +274,9 @@ export const selectRequiredAccessory = (id, product) => ({
 });
 
 
-export const addImageVariation = (id, name, product, variation, folder, accessory)  => (dispatch, getState) => {
+export const addImageVariation = (
+  id, name, product, variation, folder, accessory
+) => (dispatch) => {
   if (accessory) {
     dispatch({
       type: 'ADD_ACCESSORY_IMAGE_VARIATION',
@@ -282,7 +297,9 @@ export const addImageVariation = (id, name, product, variation, folder, accessor
   }
 };
 
-export const removeImageVariation = (imageVariation, product, variation, folder, accessory)  => (dispatch, getState) => {
+export const removeImageVariation = (
+  imageVariation, product, variation, folder, accessory
+) => (dispatch) => {
   if (accessory) {
     dispatch({
       type: 'REMOVE_ACCESSORY_IMAGE_VARIATION',
@@ -301,7 +318,7 @@ export const removeImageVariation = (imageVariation, product, variation, folder,
   }
 };
 
-export const changeProductsOrder = (product1, product2)  => (dispatch, getState) => {
+export const changeProductsOrder = (product1, product2) => (dispatch) => {
   if (product2) {
     if (product1.accessory) {
       dispatch({
@@ -332,4 +349,4 @@ export const changeProductsOrder = (product1, product2)  => (dispatch, getState)
       });
     }
   }
-}
+};

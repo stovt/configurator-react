@@ -8,8 +8,7 @@ const allReducers = combineReducers({
   locales: createLocalesList(),
   steps: createStepsList(),
   configurators: createConfiguratorsList(),
-  products: createProductsList(),
+  products: createProductsList()
 });
 
 export default allReducers;
-

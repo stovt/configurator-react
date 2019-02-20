@@ -1,31 +1,31 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import * as actions from '../actions/products';
-import { getAllProducts } from '../reducers/configurator';
-
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import List from 'material-ui/List/List';
-import ListItem from 'material-ui/List/ListItem';
-import {GridList, GridTile} from 'material-ui/GridList';
-import ContentAdd from 'material-ui/svg-icons/content/add';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+import { getAllProducts } from '../reducers/configurator';
+import * as actions from '../actions/products';
+import ImageVariation from './ImageVariation';
 
-import ProductImage from './ProductImage';
-
-class ImageVariations extends Component {
-  constructor(props) {
-    super(props);
+class ImageVariations extends React.PureComponent {
+  constructor() {
+    super();
 
     this.state = {
       dialog: false,
       errorDialog: false
     };
-  };
+
+    this.handleOpenDialog = this.handleOpenDialog.bind(this);
+    this.handleCloseDialog = this.handleCloseDialog.bind(this);
+    this.handleOpenErrorDialog = this.handleOpenErrorDialog.bind(this);
+    this.handleCloseErrorDialog = this.handleCloseErrorDialog.bind(this);
+    this.addImageVariation = this.addImageVariation.bind(this);
+  }
 
   handleOpenDialog() {
     this.setState({
@@ -51,144 +51,97 @@ class ImageVariations extends Component {
     });
   }
 
+  addImageVariation(event, index, id) {
+    const {
+      addImageVariation, product, variation, folder, accessory
+    } = this.props;
+    addImageVariation(id, event.target.innerText, product, variation, folder, accessory);
+  }
+
   render() {
-    const actions = [
+    const successActions = [
       <FlatButton
         label="Submit"
-        primary={true}
-        keyboardFocused={true}
-        onClick={() => this.handleCloseDialog()}
-      />,
+        primary
+        keyboardFocused
+        onClick={this.handleCloseDialog}
+      />
     ];
     const errorActions = [
       <FlatButton
-       label="Ok"
-       primary={true}
-       onClick={() => this.handleCloseErrorDialog()}
-      />,
+        label="Ok"
+        primary
+        onClick={this.handleCloseErrorDialog}
+      />
     ];
 
-    const { 
-      allProducts, 
-      variation, 
-      product, 
-      folder, 
-      accessory, 
-      addImageVariation,
-      removeImageVariation,
+    const {
+      allProducts, variation, product, folder, accessory, removeImageVariation
     } = this.props;
     return (
       <div>
-        <RaisedButton 
-          label="Open Image Variations Dialog" 
-          onClick={() => this.handleOpenDialog()} 
+        <RaisedButton
+          label="Open Image Variations Dialog"
+          onClick={this.handleOpenDialog}
         />
         <Dialog
           title="Image Variations"
-          actions={actions}
+          actions={successActions}
           modal={false}
           open={this.state.dialog}
-          onRequestClose={() => this.handleCloseDialog()}
-          autoScrollBodyContent={true}
+          onRequestClose={this.handleCloseDialog}
+          autoScrollBodyContent
         >
-          <SelectField 
-            floatingLabelText="Product with reusable" 
-            value={false} 
-            onChange={(event, index, id) => addImageVariation(
-                id, event.target.innerText, product, variation, folder, accessory
-            )}
+          <SelectField
+            floatingLabelText="Product with reusable"
+            value={false}
+            onChange={this.addImageVariation}
           >
-            {allProducts.map(product => {
-              return(
-                <MenuItem 
-                  key={product.productID} 
-                  value={product.productID} 
-                  primaryText={product.productName}
-                />
-              )
-            })}
+            {allProducts.map(p => (
+              <MenuItem
+                key={p.productID}
+                value={p.productID}
+                primaryText={p.productName}
+              />
+            ))}
           </SelectField>
           <List>
-            {variation.imageVariations
-              ? <div>
-                  {variation.imageVariations.map((imageVariation) => {
-                    return (
-                      <ListItem key={imageVariation.productID}>
-                        <div style={{float: "left", minWidth: "30%"}} >
-                          <GridTile
-                            title="change image"
-                            style={{    
-                              width: "180px",
-                              height: "180px",
-                              display: 'inline-block',
-                              margin: '10px',
-                              position: 'relative'
-                            }}
-                          >
-                            <ProductImage 
-                              image={imageVariation.realImage}
-                              type={
-                                accessory 
-                                ? 'UPLOAD_ACCESSORY_IMAGE_VARIATION' 
-                                : 'UPLOAD_BASE_CONFIG_IMAGE_VARIATION'
-                              }
-                              data={{ 
-                                folder: folder, 
-                                product: product,  
-                                variation: variation,
-                                imageVariation: imageVariation
-                              }}
-                            />
-                          </GridTile>
-                        </div>
-                        <div style={{float: "left"}}>
-                          <h4>{imageVariation.productName}</h4>
-                        </div>
-                        <FloatingActionButton 
-                          secondary={true} 
-                          mini={true} 
-                          onClick={() => removeImageVariation(
-                            imageVariation, product, variation, folder, accessory
-                          )} 
-                          style={{
-                            cursor: 'pointer',
-                            transform: 'rotate(45deg)',
-                            float: 'right',
-                            marginRight: '25px',
-                            position: 'absolute',
-                            right: '0px',
-                            top: '15px',
-                          }}
-                        >
-                          <ContentAdd />
-                        </FloatingActionButton>
-                        <div style={{clear: "both"}} />
-                      </ListItem>
-                    )
-                  })}
-                </div>
-              : null
-            }
+            {variation.imageVariations && (
+              <div>
+                {variation.imageVariations.map((imageVariation, index) => (
+                  <ImageVariation
+                    // eslint-disable-next-line react/no-array-index-key
+                    key={index}
+                    imageVariation={imageVariation}
+                    accessory={accessory}
+                    folder={folder}
+                    product={product}
+                    variation={variation}
+                    removeImageVariation={removeImageVariation}
+                  />
+                ))}
+              </div>
+            )}
           </List>
         </Dialog>
         <Dialog
           actions={errorActions}
           modal={false}
           open={this.state.errorDialog}
-          onRequestClose={() => handleCloseErrorDialog()}
+          onRequestClose={this.handleCloseErrorDialog}
         >
           Product is already in a list
         </Dialog>
       </div>
     );
   }
-};
+}
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   allProducts: getAllProducts(state)
 });
 
-export default connect(mapStateToProps, actions) (ImageVariations);
+export default connect(mapStateToProps, actions)(ImageVariations);
 
 ImageVariations.propTypes = {
   allProducts: PropTypes.array.isRequired,
@@ -198,4 +151,8 @@ ImageVariations.propTypes = {
   accessory: PropTypes.bool,
   addImageVariation: PropTypes.func.isRequired,
   removeImageVariation: PropTypes.func.isRequired
+};
+ImageVariations.defaultProps = {
+  folder: null,
+  accessory: false
 };

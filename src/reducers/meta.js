@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
 const pageTitle = (state = '', action) => {
-  switch(action.type) {
+  switch (action.type) {
     case 'SELECT_CONFIGURATOR_SUCCESS':
       return action.configurator.meta.pageTitle;
     case 'CHANGE_META_TITLE':
@@ -12,7 +12,7 @@ const pageTitle = (state = '', action) => {
 };
 
 const pageKeywords = (state = '', action) => {
-  switch(action.type) {
+  switch (action.type) {
     case 'SELECT_CONFIGURATOR_SUCCESS':
       return action.configurator.meta.pageKeywords;
     case 'CHANGE_META_KEYWORDS':
@@ -23,7 +23,7 @@ const pageKeywords = (state = '', action) => {
 };
 
 const pageDescription = (state = '', action) => {
-  switch(action.type) {
+  switch (action.type) {
     case 'SELECT_CONFIGURATOR_SUCCESS':
       return action.configurator.meta.pageDescription;
     case 'CHANGE_META_DESCRIPTION':
@@ -34,7 +34,7 @@ const pageDescription = (state = '', action) => {
 };
 
 const pageImage = (state = false, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case 'SELECT_CONFIGURATOR_SUCCESS':
       return action.configurator.meta.pageImage;
     case 'UPLOAD_META_PAGE_IMAGE':
@@ -51,4 +51,4 @@ export default combineReducers({
   pageImage
 });
 
-export const getMeta = (state) => state.configurators.active.meta;
+export const getMeta = state => state.configurators.active.meta;

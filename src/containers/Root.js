@@ -1,5 +1,5 @@
 import React from 'react';
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
 import App from './App';
 
@@ -10,10 +10,10 @@ const Root = ({ store }) => (
 );
 
 Root.propTypes = {
-  store: PropTypes.oneOfType( [
+  store: PropTypes.oneOfType([
     PropTypes.func.isRequired,
-    PropTypes.object.isRequired,
-  ] ).isRequired
+    PropTypes.object.isRequired
+  ]).isRequired
 };
 
 export default Root;

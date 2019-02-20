@@ -1,20 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
-import Checkbox from 'material-ui/Checkbox';
+import {
+  Table, TableBody, TableHeader, TableHeaderColumn, TableRow
+} from 'material-ui/Table';
+import AccessoriesTableToggle from './AccessoriesTableToggle';
 
-const AccessoriesTable = ( { 
-  folders, 
-  accessoryID,
-  togglePreselectedAccessory,
-  toggleRequireAccessory
-} ) => (
+const AccessoriesTable = ({ folders, accessoryID, ...props }) => (
   <Table>
     <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
       <TableRow>
-        <TableHeaderColumn 
-          colSpan="3" 
-          style={{textAlign: 'center', fontSize: '14px', fontWeight: 'bold', color: 'black'}}
+        <TableHeaderColumn
+          colSpan="3"
+          style={{
+            textAlign: 'center', fontSize: '14px', fontWeight: 'bold', color: 'black'
+          }}
         >
           Accessories
         </TableHeaderColumn>
@@ -25,50 +24,18 @@ const AccessoriesTable = ( {
         <TableHeaderColumn>Require</TableHeaderColumn>
       </TableRow>
     </TableHeader>
-    <TableBody displayRowCheckbox={false} showRowHover={true}>
-      {folders.map(folder => {
-        return (
-          <TableRow key={folder.uniqueID}>
-            <TableRowColumn>
-              {folder.baseConfigTitle}
-            </TableRowColumn>
-            <TableRowColumn>
-              <div style={{'overflow': 'hidden'}}>
-                <Checkbox
-                  onCheck={() => togglePreselectedAccessory(folder, accessoryID)}
-                  checked={isChecked(folder.accessoryIDs, accessoryID)}
-                />
-              </div>
-            </TableRowColumn>
-            <TableRowColumn>
-              <div style={{'overflow': 'hidden'}}>
-                <Checkbox
-                  onCheck={() => toggleRequireAccessory(folder, accessoryID)}
-                  checked={isChecked(folder.requiredBaseConfigProductIDs, accessoryID)}
-                />
-              </div>
-            </TableRowColumn>
-          </TableRow>
-        )
-      })}
+    <TableBody displayRowCheckbox={false} showRowHover>
+      {folders.map((folder, index) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <AccessoriesTableToggle {...props} folder={folder} accessoryID={accessoryID} key={index} />
+      ))}
     </TableBody>
   </Table>
-
-  
 );
-
-const isChecked = (accessoryIDs, accessoryID) => {
-  if (!accessoryIDs) {
-    return false;
-  }
-  return accessoryIDs.indexOf(accessoryID) !== -1 ? true : false;
-};
 
 export default AccessoriesTable;
 
 AccessoriesTable.propTypes = {
   folders: PropTypes.array.isRequired,
-  accessoryID: PropTypes.string.isRequired,
-  togglePreselectedAccessory: PropTypes.func.isRequired,
-  toggleRequireAccessory: PropTypes.func.isRequired
+  accessoryID: PropTypes.string.isRequired
 };

@@ -1,14 +1,14 @@
-export const changeTitle = (text) => ({
+export const changeTitle = text => ({
   type: 'CHANGE_META_TITLE',
   text
 });
 
-export const changeKeywords = (text) => ({
+export const changeKeywords = text => ({
   type: 'CHANGE_META_KEYWORDS',
   text
 });
 
-export const changeDescription = (text) => ({
+export const changeDescription = text => ({
   type: 'CHANGE_META_DESCRIPTION',
   text
 });

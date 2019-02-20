@@ -4,7 +4,7 @@ import meta from './meta';
 
 const createConfiguratorsList = () => {
   const byId = (state = {}, action) => {
-    switch(action.type) {
+    switch (action.type) {
       case 'FETCH_CONFIGURATORS_SUCCESS':
       case 'REMOVE_CONFIGURATOR_SUCCESS':
         return {
@@ -16,11 +16,11 @@ const createConfiguratorsList = () => {
     }
   };
 
-  const ids =  (state = [], action) => {
-    switch(action.type) {
+  const ids = (state = [], action) => {
+    switch (action.type) {
       case 'FETCH_CONFIGURATORS_SUCCESS':
       case 'REMOVE_CONFIGURATOR_SUCCESS':
-        return action.response.result
+        return action.response.result;
       default:
         return state;
     }
@@ -70,9 +70,11 @@ const createConfiguratorsList = () => {
         return 1;
       case 'ADD_BASE_CONFIG_PRODUCT':
       case 'ADD_ACCESSORY_PRODUCT':
+        // eslint-disable-next-line
         return state++;
       case 'REMOVE_BASE_CONFIG_PRODUCT':
       case 'REMOVE_ACCESSORY_PRODUCT':
+        // eslint-disable-next-line
         return state++;
       default:
         return state;
@@ -96,8 +98,8 @@ const createConfiguratorsList = () => {
 
 export default createConfiguratorsList;
 
-export const getIsFetching = (state) => state.configurators.isFetching;
-export const getErrorMessage = (state) => state.configurators.errorMessage;
-export const getConfiguratorsIds = (state) => state.configurators.ids;
-export const getConfiguratorById = (state, id) => state.configurators.ids.find( c => c === id );
-export const getNextOrder = (state) => state.configurators.active.nextOrder;
+export const getIsFetching = state => state.configurators.isFetching;
+export const getErrorMessage = state => state.configurators.errorMessage;
+export const getConfiguratorsIds = state => state.configurators.ids;
+export const getConfiguratorById = (state, id) => state.configurators.ids.find(c => c === id);
+export const getNextOrder = state => state.configurators.active.nextOrder;

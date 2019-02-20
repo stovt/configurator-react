@@ -1,27 +1,19 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import * as actions from '../../actions/configurators';
-import { getConfiguratorsIds, getErrorMessage, getIsFetching } from '../../reducers/configurators';
-import FetchError from '../FetchError';
-
 import {
-  Table, 
-  TableBody, 
-  TableFooter, 
-  TableHeader, 
-  TableHeaderColumn, 
-  TableRow, 
-  TableRowColumn
+  Table, TableBody, TableHeader, TableHeaderColumn, TableRow
 } from 'material-ui/Table';
-import Subheader from 'material-ui/Subheader';
-import ContentRemove from 'material-ui/svg-icons/content/delete-sweep';
 import AutoComplete from 'material-ui/AutoComplete';
 import RaisedButton from 'material-ui/RaisedButton';
+import FetchError from '../FetchError';
+import { getConfiguratorsIds, getErrorMessage, getIsFetching } from '../../reducers/configurators';
+import * as actions from '../../actions/configurators';
 import { autoCompleteFilter } from '../../helpers/MaterialUIHelper';
+import CreateConfiguratorStepChild from './CreateConfiguratorStepChild';
 
 
-class ConfiguratorsIds extends Component {
+class CreateConfiguratorStep extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -31,10 +23,19 @@ class ConfiguratorsIds extends Component {
     };
 
     this.onUpdateProduct = this.onUpdateProduct.bind(this);
-  };
+    this.fetchData = this.fetchData.bind(this);
+    this.createOrFindConfigurator = this.createOrFindConfigurator.bind(this);
+  }
 
   componentDidMount() {
     this.fetchData();
+  }
+
+  onUpdateProduct(value) {
+    this.setState({
+      btnDisabled: !value,
+      configuratorId: value
+    });
   }
 
   fetchData() {
@@ -42,21 +43,13 @@ class ConfiguratorsIds extends Component {
     fetchConfiguratorsIds();
   }
 
-  onUpdateProduct(value) {
-    this.setState({
-      btnDisabled: value ? false : true,
-      configuratorId: value
-    });
+  createOrFindConfigurator() {
+    this.props.createOrFindConfigurator(this.state.configuratorId);
   }
 
   render() {
-    const { 
-      configuratorsIds, 
-      isFetching, 
-      errorMessage, 
-      selectConfigurator, 
-      removeConfigurator,
-      createOrFindConfigurator 
+    const {
+      configuratorsIds, isFetching, errorMessage, selectConfigurator, removeConfigurator
     } = this.props;
 
     if (isFetching && !configuratorsIds.length) {
@@ -66,15 +59,15 @@ class ConfiguratorsIds extends Component {
       return (
         <FetchError
           message={errorMessage}
-          onRetry={() => this.fetchData()}
+          onRetry={this.fetchData}
         />
       );
     }
 
     return (
       <div>
-        <div style={{width: '350px'}}>
-          <Table>            
+        <div style={{ width: '350px' }}>
+          <Table>
             <TableHeader
               displaySelectAll={false}
               adjustForCheckbox={false}
@@ -84,29 +77,19 @@ class ConfiguratorsIds extends Component {
                   Configurators:
                 </TableHeaderColumn>
               </TableRow>
-            </TableHeader>            
+            </TableHeader>
             <TableBody
               displayRowCheckbox={false}
-              showRowHover={true}
+              showRowHover
             >
-              {configuratorsIds.map((id) =>            
-                <TableRow key={id} >
-                  <TableRowColumn style={{ paddingLeft: 0 }}>
-                    <Subheader 
-                      style={{ paddingLeft: 0, cursor: 'pointer' }} 
-                      onClick={() => selectConfigurator(id)}
-                    >
-                      {id}
-                    </Subheader>
-                  </TableRowColumn>
-                  <TableRowColumn style={{ width: '100px', textAlign: 'center' }}>
-                    <ContentRemove 
-                      style={{ cursor: 'pointer' }} 
-                      onClick={() => removeConfigurator(id)}
-                    />
-                  </TableRowColumn>
-                </TableRow>
-              )}
+              {configuratorsIds.map(id => (
+                <CreateConfiguratorStepChild
+                  key={id}
+                  configuratorId={id}
+                  selectConfigurator={selectConfigurator}
+                  removeConfigurator={removeConfigurator}
+                />
+              ))}
             </TableBody>
           </Table>
         </div>
@@ -115,41 +98,42 @@ class ConfiguratorsIds extends Component {
           floatingLabelText="Create of find configurator"
           hintText="Type ID"
           dataSource={configuratorsIds}
-          dataSourceConfig={{value: 'id',text: 'id'}}
+          dataSourceConfig={{ value: 'id', text: 'id' }}
           onUpdateInput={this.onUpdateProduct}
-          onNewRequest={(id) => selectConfigurator(id)}
+          onNewRequest={selectConfigurator}
           filter={autoCompleteFilter}
-          openOnFocus={true}
-          style={{width: '252px'}}
+          openOnFocus
+          style={{ width: '252px' }}
         />
-        <RaisedButton 
-          secondary={true} 
-          label="OK" 
+        <RaisedButton
+          secondary
+          label="OK"
           disabled={this.state.btnDisabled}
-          onClick={() => createOrFindConfigurator(this.state.configuratorId)}
-          style={{margin: '40px 10px'}}
+          onClick={this.createOrFindConfigurator}
+          style={{ margin: '40px 10px' }}
         />
-      </div>   
-    )
+      </div>
+    );
   }
 }
 
+const mapStateToProps = state => ({
+  configuratorsIds: getConfiguratorsIds(state),
+  isFetching: getIsFetching(state),
+  errorMessage: getErrorMessage(state)
+});
 
-const mapStateToProps = (state) => {
-  return {
-    configuratorsIds: getConfiguratorsIds(state),
-    isFetching: getIsFetching(state),
-    errorMessage: getErrorMessage(state)
-  }
-};
+export default connect(mapStateToProps, actions)(CreateConfiguratorStep);
 
-export default connect(mapStateToProps, actions) (ConfiguratorsIds);
-
-ConfiguratorsIds.propTypes = {
+CreateConfiguratorStep.propTypes = {
+  fetchConfiguratorsIds: PropTypes.func.isRequired,
   configuratorsIds: PropTypes.array.isRequired,
   isFetching: PropTypes.bool.isRequired,
   errorMessage: PropTypes.string,
-  selectConfigurator: PropTypes.func.isRequired, 
+  selectConfigurator: PropTypes.func.isRequired,
   removeConfigurator: PropTypes.func.isRequired,
   createOrFindConfigurator: PropTypes.func.isRequired
+};
+CreateConfiguratorStep.defaultProps = {
+  errorMessage: null
 };

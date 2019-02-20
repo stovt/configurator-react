@@ -1,9 +1,8 @@
 import { combineReducers } from 'redux';
-import isEmpty from 'lodash/isEmpty';
 
 const createStepsList = () => {
   const steps = (state = [], action) => {
-    switch(action.type) {
+    switch (action.type) {
       case 'FETCH_STEPS':
         return action.steps;
       default:
@@ -12,7 +11,7 @@ const createStepsList = () => {
   };
 
   const stepsIds = (state = [], action) => {
-    switch(action.type) {
+    switch (action.type) {
       case 'FETCH_STEPS':
         return action.steps.map(step => step.value);
       default:
@@ -21,14 +20,13 @@ const createStepsList = () => {
   };
 
   const active = (state = 'create', action) => {
-    switch(action.type) {
+    switch (action.type) {
       case 'SELECT_STEP':
         return action.step;
-      case 'NEXT_STEP': 
-      return action.steps[action.steps.indexOf(state) + 1];
+      case 'NEXT_STEP':
+        return action.steps[action.steps.indexOf(state) + 1];
       case 'PREV_STEP':
-      return action.steps[action.steps.indexOf(state) - 1];
-        return state;
+        return action.steps[action.steps.indexOf(state) - 1];
       default:
         return state;
     }
@@ -43,6 +41,6 @@ const createStepsList = () => {
 
 export default createStepsList;
 
-export const getSteps = (state) => state.steps.steps;
-export const getStepsIds = (state) => state.steps.stepsIds;
-export const getActiveStep = (state) => state.steps.active;
+export const getSteps = state => state.steps.steps;
+export const getStepsIds = state => state.steps.stepsIds;
+export const getActiveStep = state => state.steps.active;

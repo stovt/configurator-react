@@ -4,7 +4,7 @@ import { getIsFetching } from '../reducers/locales';
 import * as api from '../api';
 
 export const fetchLocales = () => (dispatch, getState) => {
-  if(getIsFetching(getState())) {
+  if (getIsFetching(getState())) {
     return Promise.resolve();
   }
 
@@ -13,13 +13,13 @@ export const fetchLocales = () => (dispatch, getState) => {
   });
 
   return api.fetchLocales().then(
-    response => {
+    (response) => {
       dispatch({
         type: 'FETCH_LOCALES_SUCCESS',
         response: normalize(response, schema.arrayOfLocales)
       });
     },
-    error => {
+    (error) => {
       dispatch({
         type: 'FETCH_LOCALES_FAILURE',
         message: error.message || 'Something went wrong.'
@@ -28,8 +28,7 @@ export const fetchLocales = () => (dispatch, getState) => {
   );
 };
 
-export const selectLocale = id => dispatch => 
-  dispatch({
-    type: "SELECT_LOCALE",
-    id
-  });
+export const selectLocale = id => dispatch => dispatch({
+  type: 'SELECT_LOCALE',
+  id
+});

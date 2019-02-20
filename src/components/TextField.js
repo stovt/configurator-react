@@ -1,8 +1,8 @@
-import React , { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import TextField from 'material-ui/TextField';
 
-class CustomTextField extends Component {
+class CustomTextField extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -11,10 +11,11 @@ class CustomTextField extends Component {
     };
 
     this.handleValueChange = this.handleValueChange.bind(this);
-  };
+    this.handleOnBlur = this.handleOnBlur.bind(this);
+  }
 
   componentWillReceiveProps(nextProps) {
-    if (this.state.value != nextProps.value) {
+    if (this.state.value !== nextProps.value) {
       this.setState({
         value: nextProps.value
       });
@@ -23,22 +24,26 @@ class CustomTextField extends Component {
 
   handleValueChange(event, value) {
     this.setState({
-      value: value
+      value
     });
+  }
+
+  handleOnBlur() {
+    this.props.sendValue(this.state.value);
   }
 
   render() {
     return (
       <TextField
-        hintText={this.props.hintText ? this.props.hintText : ''}
-        floatingLabelText={this.props.floatingLabelText ? this.props.floatingLabelText : ''}
-        multiLine={this.props.multiLine ? this.props.multiLine : false}
-        value={this.state.value || ''}
-        onChange={this.handleValueChange} 
-        onBlur={() => this.props.sendValue(this.state.value)}
+        hintText={this.props.hintText}
+        floatingLabelText={this.props.floatingLabelText}
+        multiLine={this.props.multiLine}
+        value={this.state.value}
+        onChange={this.handleValueChange}
+        onBlur={this.handleOnBlur}
         style={this.props.style || null}
       />
-    )
+    );
   }
 }
 
@@ -49,5 +54,14 @@ CustomTextField.propTypes = {
   floatingLabelText: PropTypes.string,
   multiLine: PropTypes.bool,
   sendValue: PropTypes.func.isRequired,
-  style: PropTypes.object
+  style: PropTypes.object,
+  value: PropTypes.string
+};
+
+CustomTextField.defaultProps = {
+  hintText: '',
+  floatingLabelText: '',
+  multiLine: false,
+  style: null,
+  value: ''
 };

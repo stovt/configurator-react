@@ -1,25 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import AutoComplete from 'material-ui/AutoComplete';
+import CircularProgress from 'material-ui/CircularProgress';
+import Snackbar from 'material-ui/Snackbar';
 import * as actions from '../actions/products';
 import { getProducts, getErrorMessage, getIsFetching } from '../reducers/products';
 import { getFolderProductIDs, getAccessoryProductIDs } from '../reducers/configurator';
 import { autoCompleteFilter } from '../helpers/MaterialUIHelper';
 import FetchError from './FetchError';
 
-import AutoComplete from 'material-ui/AutoComplete';
-import CircularProgress from 'material-ui/CircularProgress';
-import Snackbar from 'material-ui/Snackbar';
+class ProductAutocomplete extends React.PureComponent {
+  constructor() {
+    super();
 
-class ProductAutocomplete extends Component {  
-
-  constructor(props){
-    super(props);
-    
     this.state = {
       searchText: '',
       showSnackbar: false
     };
+
+    this.fetchData = this.fetchData.bind(this);
+    this.searchTextChanged = this.searchTextChanged.bind(this);
+    this.resetSearchText = this.resetSearchText.bind(this);
+    this.addProduct = this.addProduct.bind(this);
+    this.closeSnackbar = this.closeSnackbar.bind(this);
   }
 
   componentDidMount() {
@@ -27,7 +31,7 @@ class ProductAutocomplete extends Component {
   }
 
   fetchData() {
-    const { fetchProducts, products, isFetching } = this.props;
+    const { fetchProducts, products } = this.props;
     if (!products.length) {
       fetchProducts();
     }
@@ -39,15 +43,18 @@ class ProductAutocomplete extends Component {
     });
   }
 
-  resetSearchText(value) {
+  resetSearchText() {
     this.setState({
       searchText: ''
     });
   }
 
-  addProduct(folder, productID, accessory) {
-    const { addProduct, folderProductIDs, accessoryIDs } = this.props;
-    
+  addProduct(chosenRequest) {
+    const {
+      addProduct, folderProductIDs, accessoryIDs, accessory, folder
+    } = this.props;
+    const { id: productID } = chosenRequest;
+
     if (accessory) {
       if (accessoryIDs.indexOf(productID) !== -1) {
         this.setState({
@@ -55,13 +62,11 @@ class ProductAutocomplete extends Component {
         });
         return;
       }
-    } else {
-      if (folderProductIDs.indexOf(productID) !== -1) {
-        this.setState({
-          showSnackbar: true
-        });
-        return;
-      }
+    } else if (folderProductIDs.indexOf(productID) !== -1) {
+      this.setState({
+        showSnackbar: true
+      });
+      return;
     }
 
     addProduct(folder, productID, accessory);
@@ -77,43 +82,44 @@ class ProductAutocomplete extends Component {
   }
 
   render() {
-    const { products, folder, accessory, isFetching, errorMessage } = this.props;
+    const {
+      products, isFetching, errorMessage
+    } = this.props;
     if (errorMessage && !products.length) {
       return (
         <FetchError
           message={errorMessage}
-          onRetry={() => this.fetchData()}
+          onRetry={this.fetchData}
         />
       );
     }
 
-    if (isFetching) {      
+    if (isFetching) {
       return (<CircularProgress />);
     }
-    else {
-      return ( 
-        <div>   
-          <AutoComplete
-            floatingLabelText="Product name or ID"
-            hintText="Type name or ID"
-            dataSource={products}
-            dataSourceConfig={{ text: 'name', value: 'id' }}
-            onUpdateInput={(value) => this.searchTextChanged(value)}
-            onNewRequest={(chosenRequest) => this.addProduct(folder, chosenRequest.id, accessory)}
-            maxSearchResults={25}
-            searchText={this.state.searchText}
-            filter={autoCompleteFilter}
-            onFocus={(value) => this.resetSearchText(value)}
-          />
-          <Snackbar
-            open={this.state.showSnackbar}
-            message="Product is already in list"
-            autoHideDuration={2000}
-            onRequestClose={() => this.closeSnackbar()}
-          />
-        </div>
-      );
-    }
+
+    return (
+      <div>
+        <AutoComplete
+          floatingLabelText="Product name or ID"
+          hintText="Type name or ID"
+          dataSource={products}
+          dataSourceConfig={{ text: 'name', value: 'id' }}
+          onUpdateInput={this.searchTextChanged}
+          onNewRequest={this.addProduct}
+          maxSearchResults={25}
+          searchText={this.state.searchText}
+          filter={autoCompleteFilter}
+          onFocus={this.resetSearchText}
+        />
+        <Snackbar
+          open={this.state.showSnackbar}
+          message="Product is already in list"
+          autoHideDuration={2000}
+          onRequestClose={this.closeSnackbar}
+        />
+      </div>
+    );
   }
 }
 
@@ -125,11 +131,8 @@ const mapStateToProps = (state, { folder }) => ({
   accessoryIDs: getAccessoryProductIDs(state)
 });
 
-export default connect(mapStateToProps, actions) (ProductAutocomplete);
+export default connect(mapStateToProps, actions)(ProductAutocomplete);
 
-ProductAutocomplete.defaultProps = {
-  accessory: false  
-};
 
 ProductAutocomplete.propTypes = {
   isFetching: PropTypes.bool.isRequired,
@@ -141,4 +144,9 @@ ProductAutocomplete.propTypes = {
   accessory: PropTypes.bool,
   fetchProducts: PropTypes.func.isRequired,
   addProduct: PropTypes.func.isRequired
+};
+ProductAutocomplete.defaultProps = {
+  accessory: false,
+  folder: null,
+  errorMessage: null
 };

@@ -1,15 +1,14 @@
-import { combineReducers } from 'redux'
-import values from 'lodash/values';
+import { combineReducers } from 'redux';
 
 const createProductsList = () => {
   const products = (state = [], action) => {
-  switch(action.type) {
-    case 'FETCH_PRODUCTS_SUCCESS':
-      return action.response;
-    default:
-      return state;
-  }
-};
+    switch (action.type) {
+      case 'FETCH_PRODUCTS_SUCCESS':
+        return action.response;
+      default:
+        return state;
+    }
+  };
 
   const isFetching = (state = false, action) => {
     switch (action.type) {
@@ -44,6 +43,6 @@ const createProductsList = () => {
 
 export default createProductsList;
 
-export const getProducts = (state) => state.products.products;
-export const getIsFetching = (state) => state.products.isFetching;
-export const getErrorMessage = (state) => state.products.errorMessage;
+export const getProducts = state => state.products.products;
+export const getIsFetching = state => state.products.isFetching;
+export const getErrorMessage = state => state.products.errorMessage;

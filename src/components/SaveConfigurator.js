@@ -1,21 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import * as actions from '../actions/configurators';
-import { getActiveConfigurator } from '../reducers/configurator';
-
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
+import { getActiveConfigurator } from '../reducers/configurator';
+import * as actions from '../actions/configurators';
 
-class SaveConfigurator extends Component {
+class SaveConfigurator extends React.PureComponent {
   constructor(props) {
     super(props);
 
     this.state = {
       dialog: false
     };
-  };
+
+    this.handleOpenDialog = this.handleOpenDialog.bind(this);
+    this.handleCloseDialog = this.handleCloseDialog.bind(this);
+    this.saveConfigurator = this.saveConfigurator.bind(this);
+  }
 
   handleOpenDialog() {
     this.setState({
@@ -29,10 +32,10 @@ class SaveConfigurator extends Component {
     });
   }
 
-  saveConfigurator(configurator) {
-    const { saveConfigurator } = this.props;
+  saveConfigurator() {
+    const { configurator, saveConfigurator } = this.props;
     saveConfigurator(configurator).then(
-      response => {
+      (response) => {
         if (response) {
           this.setState({
             dialog: true
@@ -43,40 +46,39 @@ class SaveConfigurator extends Component {
   }
 
   render() {
-    const actions = [
+    const sucessActions = [
       <FlatButton
         label="OK"
-        primary={true}
-        keyboardFocused={true}
-        onClick={() => this.handleCloseDialog()}
+        primary
+        keyboardFocused
+        onClick={this.handleCloseDialog}
       />
     ];
 
-    const { configurator } = this.props;
     return (
-      <div style={{float: 'right', 'marginTop': '28px'}}>
-        <RaisedButton 
-          secondary={true} 
+      <div style={{ float: 'right', marginTop: '28px' }}>
+        <RaisedButton
+          secondary
           label="Save Configurator"
-          onClick={() => this.saveConfigurator(configurator)}
+          onClick={this.saveConfigurator}
         />
         <Dialog
           title="Configurator saved!"
-          actions={actions}
+          actions={sucessActions}
           modal={false}
           open={this.state.dialog}
-          onRequestClose={() => this.handleCloseDialog()}
+          onRequestClose={this.handleCloseDialog}
         />
       </div>
     );
   }
-};
+}
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   configurator: getActiveConfigurator(state)
 });
 
-export default connect(mapStateToProps, actions) (SaveConfigurator);
+export default connect(mapStateToProps, actions)(SaveConfigurator);
 
 SaveConfigurator.propTypes = {
   configurator: PropTypes.object.isRequired,
