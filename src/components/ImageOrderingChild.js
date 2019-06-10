@@ -15,14 +15,16 @@ class ImageOrderingChild extends React.PureComponent {
   }
 
   render() {
-    const { style } = this.props;
+    const { style, children } = this.props;
 
     return (
       <FloatingActionButton
         mini
         onClick={this.changeProductsOrder}
         style={style}
-      />
+      >
+        {children}
+      </FloatingActionButton>
     );
   }
 }
@@ -33,7 +35,8 @@ ImageOrderingChild.propTypes = {
   changeProductsOrder: PropTypes.func.isRequired,
   product1: PropTypes.object.isRequired,
   product2: PropTypes.object,
-  style: PropTypes.object.isRequired
+  style: PropTypes.object.isRequired,
+  children: PropTypes.node.isRequired
 };
 ImageOrderingChild.defaultProps = {
   product2: null
