@@ -1,0 +1,305 @@
+{  
+   "productID":"1001",
+   "productName":"Tripp Trapp® Stuhl",
+   "description":"Der Tripp Trapp® ist ein genialer Hochstuhl, der\n1972 mit seiner Einführung die Welt der Kinderstühle\nrevolutionierte. Er wurde entwickelt, damit Ihr Baby\nauf Augenhöhe in das Geschehen am Essenstisch\nintegriert wird und direkt neben Ihnen lernen und\nsich entwickeln kann.\nDas intelligente, anpassungsfähige Design mit den in\nHöhe und Tiefe verstellbaren Sitz- und Fußplatten\nbietet jede Menge Bewegungsfreiheit. Ist der Hochstuhl\nrichtig eingestellt, sitzt Ihr Kind in jedem Alter\nbequem und ergonomisch korrekt.",
+   "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+   "variations":[  
+      {  
+         "variationID":"100101",
+         "productName":"Tripp Trapp® Stuhl Natur",
+         "isOnline":true,
+         "enabled":true,
+         "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+      },
+      {  
+         "variationID":"100102",
+         "productName":"Tripp Trapp® Stuhl Red",
+         "isOnline":true,
+         "enabled":true,
+         "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+      },
+      {  
+         "variationID":"100103",
+         "productName":"Tripp Trapp® Stuhl Black",
+         "isOnline":true,
+         "enabled":true,
+         "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+      },
+      {  
+         "variationID":"100105",
+         "productName":"Tripp Trapp® Stuhl Whitewash",
+         "isOnline":true,
+         "enabled":true,
+         "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+      },
+      {  
+         "variationID":"100106",
+         "productName":"Tripp Trapp® Stuhl Walnut Brown",
+         "isOnline":true,
+         "enabled":true,
+         "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+      },
+      {  
+         "variationID":"100107",
+         "productName":"Tripp Trapp® Stuhl White",
+         "isOnline":true,
+         "enabled":true,
+         "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+      },
+      {  
+         "variationID":"100124",
+         "productName":"Tripp Trapp® Stuhl Aqua Blue",
+         "isOnline":true,
+         "enabled":true,
+         "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+      },
+      {  
+         "variationID":"100125",
+         "productName":"Tripp Trapp® Stuhl Storm Grey",
+         "isOnline":true,
+         "enabled":true,
+         "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+      },
+      {  
+         "variationID":"100126",
+         "productName":"Tripp Trapp® Stuhl Hazy Grey",
+         "isOnline":true,
+         "enabled":true,
+         "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+      },
+      {  
+         "variationID":"100128",
+         "productName":"Tripp Trapp® Stuhl Soft Pink",
+         "isOnline":true,
+         "enabled":true,
+         "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+      },
+      {  
+         "variationID":"100129",
+         "productName":"Tripp Trapp® Chair Forest Green",
+         "isOnline":true,
+         "enabled":true,
+         "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+      },
+      {  
+         "variationID":"100130",
+         "productName":"Tripp Trapp® Chair Moss Green",
+         "isOnline":true,
+         "enabled":true,
+         "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+      },
+      {  
+         "variationID":"100131",
+         "productName":"Tripp Trapp® Chair Heather Pink",
+         "isOnline":true,
+         "enabled":true,
+         "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+      },
+      {  
+         "variationID":"100104",
+         "productName":"Tripp Trapp® Stuhl Kirsche",
+         "isOnline":false,
+         "enabled":false,
+         "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+      },
+      {  
+         "variationID":"100108",
+         "productName":"Tripp Trapp® Stuhl Orange",
+         "isOnline":false,
+         "enabled":false,
+         "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+      },
+      {  
+         "variationID":"100109",
+         "productName":"Tripp Trapp® Stuhl Lime",
+         "isOnline":false,
+         "enabled":false,
+         "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+      },
+      {  
+         "variationID":"100110",
+         "productName":"Tripp Trapp® Stuhl Turquoise",
+         "isOnline":false,
+         "enabled":false,
+         "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+      },
+      {  
+         "variationID":"100111",
+         "productName":"Tripp Trapp® Stuhl Grey",
+         "isOnline":false,
+         "enabled":false,
+         "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+      },
+      {  
+         "variationID":"100112",
+         "productName":"Tripp Trapp® Stuhl Pink",
+         "isOnline":false,
+         "enabled":false,
+         "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+      },
+      {  
+         "variationID":"100113",
+         "productName":"Tripp Trapp® Stuhl Green",
+         "isOnline":false,
+         "enabled":false,
+         "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+      },
+      {  
+         "variationID":"100114",
+         "productName":"Tripp Trapp® Stuhl Yellow",
+         "isOnline":false,
+         "enabled":false,
+         "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+      },
+      {  
+         "variationID":"100115",
+         "productName":"Tripp Trapp® Stuhl Blue",
+         "isOnline":false,
+         "enabled":false,
+         "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+      },
+      {  
+         "variationID":"100116",
+         "productName":"Tripp Trapp® Stuhl Europäische Eiche Varnished",
+         "isOnline":false,
+         "enabled":false,
+         "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+      },
+      {  
+         "variationID":"100117",
+         "productName":"Tripp Trapp® Stuhl European Oak geölt",
+         "isOnline":false,
+         "enabled":false,
+         "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+      },
+      {  
+         "variationID":"100118",
+         "productName":"Tripp Trapp® Stuhl Amerikanische Walnuss wood Varnished",
+         "isOnline":false,
+         "enabled":false,
+         "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+      },
+      {  
+         "variationID":"100119",
+         "productName":"Tripp Trapp® Stuhl American Walnut geölt",
+         "isOnline":false,
+         "enabled":false,
+         "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+      },
+      {  
+         "variationID":"100120",
+         "productName":"Tripp Trapp® Stuhl Purple",
+         "isOnline":false,
+         "enabled":false,
+         "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+      },
+      {  
+         "variationID":"100121",
+         "productName":"Tripp Trapp® Stuhl Dark Blue",
+         "isOnline":false,
+         "enabled":false,
+         "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+      },
+      {  
+         "variationID":"100122",
+         "productName":"Tripp Trapp® Stuhl Pale Pink",
+         "isOnline":false,
+         "enabled":false,
+         "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+      },
+      {  
+         "variationID":"100123",
+         "productName":"Tripp Trapp® Stuhl Lava Orange",
+         "isOnline":false,
+         "enabled":false,
+         "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+      },
+      {  
+         "variationID":"100127",
+         "productName":"Tripp Trapp® Stuhl Wheat Yellow",
+         "isOnline":false,
+         "enabled":false,
+         "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+      },
+      {  
+         "variationID":"100132",
+         "productName":"Tripp Trapp® Chair Midnight Blue",
+         "isOnline":false,
+         "enabled":false,
+         "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+      },
+      {  
+         "variationID":"100133",
+         "productName":"Tripp Trapp® Chair Plum Purple",
+         "isOnline":false,
+         "enabled":false,
+         "realImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "swatchImage":"https://i.vimeocdn.com/portrait/58832_300x300",
+         "thumbnailImage":"https://i.vimeocdn.com/portrait/58832_300x300"
+      }
+   ]
+}
