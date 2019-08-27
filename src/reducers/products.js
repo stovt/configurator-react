@@ -43,6 +43,6 @@ const createProductsList = () => {
 
 export default createProductsList;
 
-export const getProducts = state => state.products.products;
-export const getIsFetching = state => state.products.isFetching;
-export const getErrorMessage = state => state.products.errorMessage;
+export const getProducts = (state) => state.products.products;
+export const getIsFetching = (state) => state.products.isFetching;
+export const getErrorMessage = (state) => state.products.errorMessage;

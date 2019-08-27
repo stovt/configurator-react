@@ -1,22 +1,26 @@
 import { combineReducers } from 'redux';
 
 
-export const getActiveConfiguratorID = state => state.configurators.active.config.configuratorID;
-export const getActiveConfigurator = state => (
+export const getActiveConfiguratorID = (state) => state.configurators.active.config.configuratorID;
+export const getActiveConfigurator = (state) => (
   getActiveConfiguratorID(state) ? state.configurators.active : null
 );
-export const getDownloadAvailableFlag = state => (
+export const getDownloadAvailableFlag = (state) => (
   state.configurators.active.config.global.isDownloadAvailable
 );
-export const getWishlistAvailableFlag = state => (
+export const getWishlistAvailableFlag = (state) => (
   state.configurators.active.config.global.isWishlistAvailable
 );
-export const getConfiguratorOnlineFlag = state => state.configurators.active.config.global.isOnline;
-export const getConfiguratorTitle = state => state.configurators.active.config.global.title;
+export const getConfiguratorOnlineFlag = (state) => (
+  state.configurators.active.config.global.isOnline
+);
+export const getConfiguratorTitle = (state) => state.configurators.active.config.global.title;
 
-export const getFolders = state => state.configurators.active.config.baseConfigs;
-export const getFolderByUniqueID = (folders, id) => folders.find(f => f.uniqueID === id);
-export const getFolderProductByID = (folder, id) => folder.productIDs.find(p => p.productID === id);
+export const getFolders = (state) => state.configurators.active.config.baseConfigs;
+export const getFolderByUniqueID = (folders, id) => folders.find((f) => f.uniqueID === id);
+export const getFolderProductByID = (folder, id) => (
+  folder.productIDs.find((p) => p.productID === id)
+);
 export const getFoldersProducts = (state) => {
   let products = [];
   let productIDs = [];
@@ -30,23 +34,23 @@ export const getFoldersProducts = (state) => {
   });
   return products;
 };
-export const getFolderProductIDs = (state, folder) => folder.productIDs.map(p => p.productID);
-export const getAccessories = state => state.configurators.active.config.accessories;
-export const getAccessoryProductByID = (acc, id) => acc.find(p => p.productID === id);
-export const getAccessoryProductIDs = state => (
-  state.configurators.active.config.accessories.map(p => p.productID)
+export const getFolderProductIDs = (state, folder) => folder.productIDs.map((p) => p.productID);
+export const getAccessories = (state) => state.configurators.active.config.accessories;
+export const getAccessoryProductByID = (acc, id) => acc.find((p) => p.productID === id);
+export const getAccessoryProductIDs = (state) => (
+  state.configurators.active.config.accessories.map((p) => p.productID)
 );
 export const getVariationByID = (variations, variationID) => (
-  variations.find(v => v.variationID === variationID)
+  variations.find((v) => v.variationID === variationID)
 );
 export const getAllProductIDs = (state) => {
   let productIDs = [];
   state.configurators.active.config.baseConfigs.forEach((config) => {
-    productIDs = [...productIDs, ...config.productIDs.map(p => p.productID)];
+    productIDs = [...productIDs, ...config.productIDs.map((p) => p.productID)];
   });
   productIDs = [
     ...productIDs,
-    ...state.configurators.active.config.accessories.map(p => p.productID)
+    ...state.configurators.active.config.accessories.map((p) => p.productID)
   ];
 
   return productIDs;
@@ -356,7 +360,7 @@ const baseConfigs = (state = [], action) => {
               realImage: action.oldProduct.realImage,
               variations: action.product.variations.map((variation) => {
                 const oldProductVariation = action.oldProduct.variations.find(
-                  v => v.variationID === variation.variationID
+                  (v) => v.variationID === variation.variationID
                 );
                 if (oldProductVariation) {
                   return {
@@ -549,7 +553,7 @@ const baseConfigs = (state = [], action) => {
       ];
     case 'ADD_BASE_CONFIG_IMAGE_VARIATION': {
       if (action.variation.imageVariations) {
-        const imageVariationIDs = action.variation.imageVariations.map(v => v.productID);
+        const imageVariationIDs = action.variation.imageVariations.map((v) => v.productID);
         if (imageVariationIDs.indexOf(action.id) !== -1) {
           return state;
         }
@@ -741,7 +745,7 @@ const accessories = (state = [], action) => {
           realImage: action.oldProduct.realImage,
           variations: action.product.variations.map((variation) => {
             const oldProductVariation = action.oldProduct.variations.find(
-              v => v.variationID === variation.variationID
+              (v) => v.variationID === variation.variationID
             );
             if (oldProductVariation) {
               return {
@@ -865,7 +869,7 @@ const accessories = (state = [], action) => {
       ];
     case 'ADD_ACCESSORY_IMAGE_VARIATION': {
       if (action.variation.imageVariations) {
-        const imageVariationIDs = action.variation.imageVariations.map(v => v.productID);
+        const imageVariationIDs = action.variation.imageVariations.map((v) => v.productID);
         if (imageVariationIDs.indexOf(action.id) !== -1) {
           return state;
         }

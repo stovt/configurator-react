@@ -7,7 +7,7 @@ const createLocalesList = () => {
       case 'FETCH_LOCALES_SUCCESS':
         return action.response.entities.locales;
       case 'SELECT_LOCALE': {
-        const oldActiveLocaleID = values(state).find(locale => locale.active === true).id;
+        const oldActiveLocaleID = values(state).find((locale) => locale.active === true).id;
         return {
           ...state,
           [oldActiveLocaleID]: { ...state[oldActiveLocaleID], active: false },
@@ -62,10 +62,10 @@ const createLocalesList = () => {
 
 export default createLocalesList;
 
-export const getIsFetching = state => state.locales.isFetching;
-export const getErrorMessage = state => state.locales.errorMessage;
-export const getLocales = state => state.locales.ids.map(id => state.locales.byId[id]);
+export const getIsFetching = (state) => state.locales.isFetching;
+export const getErrorMessage = (state) => state.locales.errorMessage;
+export const getLocales = (state) => state.locales.ids.map((id) => state.locales.byId[id]);
 export const getActiveLocaleID = (state) => {
-  const activeLocale = values(state.locales.byId).find(locale => locale.active === true);
+  const activeLocale = values(state.locales.byId).find((locale) => locale.active === true);
   return activeLocale ? activeLocale.id : 'default';
 };

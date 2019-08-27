@@ -86,8 +86,7 @@ class ProductImage extends React.PureComponent {
       <div style={disabled ? styles.imageContainer : styles.imageContainerDisabled}>
         {image
           ? <img src={image} style={styles.image} alt={configuratorID} />
-          : <div style={styles.emptyImage} />
-        }
+          : <div style={styles.emptyImage} />}
         <input
           type="file"
           style={styles.imageInput}
@@ -100,7 +99,7 @@ class ProductImage extends React.PureComponent {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   configuratorID: getActiveConfiguratorID(state)
 });
 

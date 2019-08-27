@@ -41,7 +41,7 @@ class AccessoryList extends React.PureComponent {
             />
           )}
         </Paper>
-        {accesories.map(accessory => (
+        {accesories.map((accessory) => (
           <Product
             product={accessory}
             key={accessory.productID}
@@ -53,7 +53,7 @@ class AccessoryList extends React.PureComponent {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   accesories: getAccessories(state)
 });
 

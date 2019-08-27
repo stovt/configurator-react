@@ -202,7 +202,7 @@ class Product extends React.PureComponent {
                       value={false}
                       primaryText="NONE"
                     />
-                    {accessories.map(acc => (
+                    {accessories.map((acc) => (
                       <MenuItem
                         key={acc.productID}
                         value={acc.productID}
@@ -221,7 +221,7 @@ class Product extends React.PureComponent {
                   value={false}
                   primaryText="NONE"
                 />
-                {allProducts.map(p => (
+                {allProducts.map((p) => (
                   <MenuItem
                     key={p.productID}
                     value={p.productID}
@@ -298,7 +298,7 @@ class Product extends React.PureComponent {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   folders: getFolders(state),
   foldersProducts: getFoldersProducts(state),
   accessories: getAccessories(state),

@@ -44,7 +44,7 @@ const MetaAttributes = ({
   </Paper>
 );
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   meta: getMeta(state)
 });
 

@@ -97,7 +97,7 @@ class ImageVariations extends React.PureComponent {
             value={false}
             onChange={this.addImageVariation}
           >
-            {allProducts.map(p => (
+            {allProducts.map((p) => (
               <MenuItem
                 key={p.productID}
                 value={p.productID}
@@ -137,7 +137,7 @@ class ImageVariations extends React.PureComponent {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   allProducts: getAllProducts(state)
 });
 

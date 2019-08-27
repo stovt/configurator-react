@@ -51,4 +51,4 @@ export default combineReducers({
   pageImage
 });
 
-export const getMeta = state => state.configurators.active.meta;
+export const getMeta = (state) => state.configurators.active.meta;

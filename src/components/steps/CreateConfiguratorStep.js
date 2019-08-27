@@ -82,7 +82,7 @@ class CreateConfiguratorStep extends React.PureComponent {
               displayRowCheckbox={false}
               showRowHover
             >
-              {configuratorsIds.map(id => (
+              {configuratorsIds.map((id) => (
                 <CreateConfiguratorStepChild
                   key={id}
                   configuratorId={id}
@@ -117,7 +117,7 @@ class CreateConfiguratorStep extends React.PureComponent {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   configuratorsIds: getConfiguratorsIds(state),
   isFetching: getIsFetching(state),
   errorMessage: getErrorMessage(state)

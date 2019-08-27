@@ -13,7 +13,7 @@ export const toggleConfiguratorOnlineFlag = () => ({
   type: 'TOGGLE_CONFIGURATOR_ONLINE_FLAG'
 });
 
-export const changeConfiguratorTitle = text => ({
+export const changeConfiguratorTitle = (text) => ({
   type: 'CHANGE_CONFIGURATOR_TITLE',
   text
 });
@@ -42,7 +42,7 @@ export const changeBaseConfigDescription = (folder, text) => ({
   text
 });
 
-export const removeBaseConfig = folder => ({
+export const removeBaseConfig = (folder) => ({
   type: 'REMOVE_BASE_CONFIG',
   folder
 });
@@ -65,7 +65,7 @@ export const addBaseConfig = () => ({
 
 export const uploadImage = (
   configuratorId, formData, type, data
-) => dispatch => api.uploadImage(configuratorId, formData).then(
+) => (dispatch) => api.uploadImage(configuratorId, formData).then(
   (response) => {
     switch (type) {
       case 'UPLOAD_BASE_CONFIG_IMAGE':

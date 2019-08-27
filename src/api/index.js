@@ -2,7 +2,7 @@ import axios from 'axios';
 import { configUrls } from '../config';
 
 export const fetchLocales = () => axios.get(configUrls.GetLocales).then((response) => {
-  const localesArr = response.data.map(locale => ({ ...locale, active: false }));
+  const localesArr = response.data.map((locale) => ({ ...locale, active: false }));
   if (localesArr.length > 1) {
     localesArr[1].active = true;
   } else {
@@ -19,7 +19,7 @@ export const fetchLocales = () => axios.get(configUrls.GetLocales).then((respons
 });
 
 export const fetchConfiguratorsIds = () => axios.get(configUrls.GetConfiguratorsIds).then(
-  response => response.data.reduce((acc, elem) => ({
+  (response) => response.data.reduce((acc, elem) => ({
     ...acc,
     [elem.id]: { ...elem }
   }),
@@ -32,15 +32,15 @@ export const selectConfigurator = (id, locale) => axios.get(configUrls.GetConfig
     pid: id,
     locale
   }
-}).then(response => response.data);
+}).then((response) => response.data);
 
 
-export const removeConfigurator = id => axios.get(configUrls.RemoveConfigurator, {
+export const removeConfigurator = (id) => axios.get(configUrls.RemoveConfigurator, {
   params: {
     pid: id
   }
 }).then(() => axios.get(configUrls.GetConfiguratorsIds)
-  .then(response => response.data.reduce((acc, elem) => ({
+  .then((response) => response.data.reduce((acc, elem) => ({
     ...acc,
     [elem.id]: { ...elem }
   }),
@@ -53,13 +53,13 @@ export const uploadImage = (configuratorId, formData) => {
         configuratorID: configuratorId
       },
       headers: { 'Content-Type': 'multipart/form-data' }
-    }).then(response => response.data.imgUrl);
+    }).then((response) => response.data.imgUrl);
   }
-  return axios.get(configUrls.UploadImage).then(response => response.data.imgUrl);
+  return axios.get(configUrls.UploadImage).then((response) => response.data.imgUrl);
 };
 
 export const fetchProducts = () => axios.get(configUrls.GetAllProducts)
-  .then(response => response.data);
+  .then((response) => response.data);
 
 
 export const getProductByID = (id, locale) => axios.get(configUrls.GetProductByID, {
@@ -67,7 +67,7 @@ export const getProductByID = (id, locale) => axios.get(configUrls.GetProductByI
     pid: id,
     locale
   }
-}).then(response => response.data);
+}).then((response) => response.data);
 
 export const saveConfigurator = (configurator, locale) => {
   if (process.env.NODE_ENV === 'production') {
@@ -79,7 +79,7 @@ export const saveConfigurator = (configurator, locale) => {
           meta: JSON.stringify(configurator.meta)
         }
       }).then(
-      response => (!!((response.data && response.data.success))), () => false
+      (response) => (!!((response.data && response.data.success))), () => false
     );
   }
   return axios.get(configUrls.SaveConfigurator).then(() => true);
@@ -91,4 +91,4 @@ export const getPreviewUrl = (configuratorID, locale) => axios.get(configUrls.Ge
     locale,
     preview: true
   }
-}).then(response => response.data.url);
+}).then((response) => response.data.url);

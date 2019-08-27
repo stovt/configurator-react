@@ -13,7 +13,7 @@ const createStepsList = () => {
   const stepsIds = (state = [], action) => {
     switch (action.type) {
       case 'FETCH_STEPS':
-        return action.steps.map(step => step.value);
+        return action.steps.map((step) => step.value);
       default:
         return state;
     }
@@ -41,6 +41,6 @@ const createStepsList = () => {
 
 export default createStepsList;
 
-export const getSteps = state => state.steps.steps;
-export const getStepsIds = state => state.steps.stepsIds;
-export const getActiveStep = state => state.steps.active;
+export const getSteps = (state) => state.steps.steps;
+export const getStepsIds = (state) => state.steps.stepsIds;
+export const getActiveStep = (state) => state.steps.active;

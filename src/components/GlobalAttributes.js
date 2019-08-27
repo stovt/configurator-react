@@ -54,7 +54,7 @@ const GlobalAttributes = ({
   </Paper>
 );
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   downloadAvailable: getDownloadAvailableFlag(state),
   wishlistAvailable: getWishlistAvailableFlag(state),
   online: getConfiguratorOnlineFlag(state),

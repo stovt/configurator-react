@@ -54,7 +54,7 @@ class Locales extends React.PureComponent {
         floatingLabelText="Locales:"
         autoWidth
       >
-        {locales.map(locale => (
+        {locales.map((locale) => (
           <MenuItem value={locale.id} key={locale.id} primaryText={locale.value} />
         ))}
       </SelectField>
@@ -63,7 +63,7 @@ class Locales extends React.PureComponent {
 }
 
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   isFetching: getIsFetching(state),
   errorMessage: getErrorMessage(state),
   activeLocaleID: getActiveLocaleID(state),

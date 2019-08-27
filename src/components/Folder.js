@@ -98,7 +98,7 @@ class Folder extends React.PureComponent {
           <ProductAutocomplete
             folder={folder}
           />
-          {folder.productIDs.map(product => (
+          {folder.productIDs.map((product) => (
             <Product
               product={product}
               key={product.productID}

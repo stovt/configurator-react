@@ -85,7 +85,7 @@ class Steps extends React.PureComponent {
           value={activeStep}
           onChange={selectStep}
         >
-          {steps.map(step => (
+          {steps.map((step) => (
             <Tab
               key={step.value}
               value={step.value}
@@ -118,7 +118,7 @@ class Steps extends React.PureComponent {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   steps: getSteps(state),
   stepsIds: getStepsIds(state),
   activeStep: getActiveStep(state),

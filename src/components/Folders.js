@@ -24,11 +24,11 @@ const Folders = ({ folders, addBaseConfig, ...props }) => (
   </div>
 );
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   folders: getFolders(state)
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators(
+const mapDispatchToProps = (dispatch) => bindActionCreators(
   { ...{}, ...configuratorActions, ...productActions }, dispatch
 );
 

@@ -56,7 +56,7 @@ const ImageOrdering = ({ orderProducts, changeProductsOrder }) => (
   </Paper>
 );
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   orderProducts: getOrderProducts(state)
 });
 

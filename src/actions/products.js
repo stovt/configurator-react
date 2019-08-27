@@ -208,7 +208,7 @@ export const toggleVariationDefault = (
   }
 };
 
-export const refreshAllAccessories = accesories => (
+export const refreshAllAccessories = (accesories) => (
   dispatch, getState
 ) => accesories.forEach((accessory) => {
   api.getProductByID(accessory.productID, getActiveLocaleID(getState())).then(
@@ -222,17 +222,17 @@ export const refreshAllAccessories = accesories => (
   );
 });
 
-export const toggleAccessoryExternal = product => ({
+export const toggleAccessoryExternal = (product) => ({
   type: 'TOGGLE_ACCESSORY_EXTERNAL',
   product
 });
 
-export const upAccessory = product => ({
+export const upAccessory = (product) => ({
   type: 'UP_ACCESSORY_PRODUCT',
   product
 });
 
-export const downAccessory = product => ({
+export const downAccessory = (product) => ({
   type: 'DOWN_ACCESSORY_PRODUCT',
   product
 });

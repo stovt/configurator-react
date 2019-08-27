@@ -27,7 +27,7 @@ const StepHeader = ({ configuratorID }) => (
   </div>
 );
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   configuratorID: getActiveConfiguratorID(state)
 });
 

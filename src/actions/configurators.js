@@ -31,7 +31,7 @@ export const fetchConfiguratorsIds = () => (dispatch, getState) => {
   );
 };
 
-export const selectConfigurator = id => (dispatch, getState) => {
+export const selectConfigurator = (id) => (dispatch, getState) => {
   if (getIsFetching(getState())) {
     return Promise.resolve();
   }
@@ -84,7 +84,7 @@ export const selectConfigurator = id => (dispatch, getState) => {
   );
 };
 
-export const removeConfigurator = id => (dispatch, getState) => {
+export const removeConfigurator = (id) => (dispatch, getState) => {
   if (getIsFetching(getState())) {
     return Promise.resolve();
   }
@@ -110,7 +110,7 @@ export const removeConfigurator = id => (dispatch, getState) => {
 };
 
 
-export const createOrFindConfigurator = id => (dispatch, getState) => {
+export const createOrFindConfigurator = (id) => (dispatch, getState) => {
   if (getIsFetching(getState())) {
     return Promise.resolve();
   }
@@ -151,7 +151,7 @@ export const createOrFindConfigurator = id => (dispatch, getState) => {
   return Promise.resolve();
 };
 
-export const saveConfigurator = configurator => (
+export const saveConfigurator = (configurator) => (
   dispatch, getState
 ) => api.saveConfigurator(configurator, getActiveLocaleID(getState())).then(
   (response) => {
@@ -180,7 +180,7 @@ export const saveConfigurator = configurator => (
   }
 );
 
-export const getPreviewUrl = configurator => (dispatch, getState) => {
+export const getPreviewUrl = (configurator) => (dispatch, getState) => {
   const oldID = configurator.config.configuratorID;
   const tempConfigurator = {
     ...configurator,
@@ -193,7 +193,7 @@ export const getPreviewUrl = configurator => (dispatch, getState) => {
     (response) => {
       if (response) {
         return api.getPreviewUrl(oldID, getActiveLocaleID(getState())).then(
-          res => res
+          (res) => res
         );
       }
       return false;

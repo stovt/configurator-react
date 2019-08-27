@@ -68,7 +68,7 @@ class ConfiguratorPreview extends React.PureComponent {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   configurator: getActiveConfigurator(state)
 });
 
